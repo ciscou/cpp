@@ -6,6 +6,8 @@ Cpp::Application.routes.draw do
   get "pages/info"
   get "pages/contact"
 
+  resources :categories
+
   root :to => "pages#home"
 
   # The priority is based upon order of creation:
