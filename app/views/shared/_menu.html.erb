@@ -2,7 +2,7 @@
   <div id="menu">
     <ul>
       <li<% if active_tab?("home") %> class="active"<% end %>><%= link_to content_tag(:span, "Home"), root_path %></li>
-      <li<% if active_tab?("categories") %> class="active"<% end %>><%= link_to content_tag(:span, "Categories"), pages_categories_path %></li>
+      <li<% if active_tab?("categories") %> class="active"<% end %>><%= link_to content_tag(:span, "Categories"), categories_path %></li>
       <li<% if active_tab?("brands") %> class="active"<% end %>><%= link_to content_tag(:span, "Brands"), pages_brands_path %></li>
       <li<% if active_tab?("cs") %> class="active"<% end %>><%= link_to content_tag(:span, "Customer Service"), pages_cs_path %></li>
       <li<% if active_tab?("info") %> class="active"<% end %>><%= link_to content_tag(:span, "Information"), pages_info_path %></li>

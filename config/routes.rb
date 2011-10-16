@@ -1,6 +1,5 @@
 Cpp::Application.routes.draw do
   get "pages/home"
-  get "pages/categories"
   get "pages/brands"
   get "pages/cs"
   get "pages/info"

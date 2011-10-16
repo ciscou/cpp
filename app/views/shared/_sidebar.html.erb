@@ -5,19 +5,11 @@
     </div>
     <div class="content">
       <ul>
-        <li><%= link_to "Aliquam sit lorem nunc nisl", pages_categories_path %></li>
-        <li><%= link_to "Velit vivamus volutpat quam dui", pages_categories_path %></li>
-        <li><%= link_to "Vestibulum fusce tor pharetra", pages_categories_path %></li>
-        <li><%= link_to "Elit in volutpat et tempor praesent", pages_categories_path %></li>
-        <li><%= link_to "Vehicula a lacus fringilla", pages_categories_path %></li>
-        <li><%= link_to "Cubilia lorem blandit dolor", pages_categories_path %></li>
-        <li><%= link_to "Aliquam sit tempor lorem nunc nisl", pages_categories_path %></li>
-        <li><%= link_to "Velit vivamus quam dui", pages_categories_path %></li>
-        <li><%= link_to "Vestibulum fusce tor pharetra", pages_categories_path %></li>
-        <li><%= link_to "Elit in volutpat tempor praesent", pages_categories_path %></li>
-        <li><%= link_to "Vehicula lorem lacus fringilla", pages_categories_path %></li>
+        <% Category.all.each do |category| %>
+          <li><%= link_to category.name, category %></li>
+        <% end %>
       </ul>
-      <p><%= link_to "More categories&#8230;".html_safe, pages_categories_path, :class => "link1" %></p>
+      <p><%= link_to "More categories&#8230;".html_safe, categories_path, :class => "link1" %></p>
     </div>
   </div>
   <div id="box2" class="box-style">
@@ -26,14 +18,14 @@
     </div>
     <div class="content">
       <ul>
-        <li><%= link_to "Aliquam sit lorem nunc nisl", pages_categories_path %></li>
-        <li><%= link_to "Velit vivamus volutpat quam dui", pages_categories_path %></li>
-        <li><%= link_to "Vestibulum fusce tor pharetra", pages_categories_path %></li>
-        <li><%= link_to "Elit in volutpat et tempor praesent", pages_categories_path %></li>
-        <li><%= link_to "Vehicula a lacus fringilla", pages_categories_path %></li>
-        <li><%= link_to "Cubilia lorem blandit dolor", pages_categories_path %></li>
-        <li><%= link_to "Aliquam sit tempor lorem nunc nisl", pages_categories_path %></li>
-        <li><%= link_to "Velit vivamus quam dui", pages_categories_path %></li>
+        <li><%= link_to "Aliquam sit lorem nunc nisl", categories_path %></li>
+        <li><%= link_to "Velit vivamus volutpat quam dui", categories_path %></li>
+        <li><%= link_to "Vestibulum fusce tor pharetra", categories_path %></li>
+        <li><%= link_to "Elit in volutpat et tempor praesent", categories_path %></li>
+        <li><%= link_to "Vehicula a lacus fringilla", categories_path %></li>
+        <li><%= link_to "Cubilia lorem blandit dolor", categories_path %></li>
+        <li><%= link_to "Aliquam sit tempor lorem nunc nisl", categories_path %></li>
+        <li><%= link_to "Velit vivamus quam dui", categories_path %></li>
       </ul>
     </div>
   </div>

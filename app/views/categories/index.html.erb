@@ -1,27 +1,16 @@
-<h1>Listing categories</h1>
+<div id="box6" class="box-style">
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Picture</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+  <div class="title">
+    <h2><span>Blandit tempus aliquam</span></h2>
+  </div>
 
-<% @categories.each do |category| %>
-  <tr>
-    <td><%= category.name %></td>
-    <td><%= category.description %></td>
-    <td><%= category.picture %></td>
-    <td><%= link_to 'Show', category %></td>
-    <td><%= link_to 'Edit', edit_category_path(category) %></td>
-    <td><%= link_to 'Destroy', category, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
+  <div class="content">
+    <p>Morbi ac posuere massa. Pellentesque mi tortor, pulvinar ac dapibus et, sodales vitae sem. Curabitur commodo ac aliquam quis, mollis sed tortor. Ut quis malesuada nibh. Mauris sodales, urna vel convallis commodo, leo lorem mattis enim, convallis auctor ipsum sem in elit. Aliquam erat volutpat. Pellentesque tristique ante ut risus. Quisque dictum. Integer nisl risus, sagittis convallis, rutrum id, elementum congue, nibh. Suspendisse dictum porta lectus. Donec placerat odio vel elit. Sed ac leo. Pellentesque imperdiet.</p>
+    <p>&nbsp;</p>
+  </div>
 
-<br />
+  <%= render @categories %>
+
+</div>
 
 <%= link_to 'New Category', new_category_path %>
