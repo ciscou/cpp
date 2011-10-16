@@ -13,5 +13,4 @@ class PagesController < ApplicationController
 
   def one_column
   end
-
 end

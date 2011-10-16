@@ -1,0 +1,19 @@
+<div id="header" class="container">
+  <div id="menu">
+    <ul>
+      <li class="active"><%= link_to content_tag(:span, "Home"), pages_home_path %></li>
+      <li><%= link_to content_tag(:span, "Categories"), pages_list_path %></li>
+      <li><%= link_to content_tag(:span, "Brands"), pages_home_path %></li>
+      <li><%= link_to content_tag(:span, "Customer Service"), pages_one_column_path %></li>
+      <li><%= link_to content_tag(:span, "Information"), pages_two_columns_path %></li>
+      <li><%= link_to content_tag(:span, "Contact Us"), pages_one_column_path %></li>
+    </ul>
+  </div>
+  <div id="search">
+    <form method="get" action="">
+      <fieldset>
+        <input type="text" name="query" value="" class="input-text" />
+      </fieldset>
+    </form>
+  </div>
+</div>

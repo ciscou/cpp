@@ -10,10 +10,11 @@
 </head>
 <body>
 
-<div id="wrapper">
+<div id="wrapper" class="<%= wrapper_class %>">
   <div id="wrapper-bgbtm">
 
 <%= render "shared/header" %>
+<%= render "shared/menu" %>
 
     <div id="page" class="container">
 
@@ -23,7 +24,9 @@
 
       </div>
 
-<%= render "shared/sidebar" %>
+<% unless wrapper_class == "single" %>
+  <%= render "shared/sidebar" %>
+<% end %>
 
     </div>
 
