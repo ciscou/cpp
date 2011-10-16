@@ -1,4 +1,12 @@
 Cpp::Application.routes.draw do
+  get "pages/home"
+  get "pages/list"
+  get "pages/info"
+  get "pages/two_columns"
+  get "pages/one_column"
+
+  root :to => "pages#home"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

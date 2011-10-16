@@ -2,13 +2,35 @@
 <html>
 <head>
   <title>Cpp</title>
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
+<div id="wrapper">
+  <div id="wrapper-bgbtm">
+
+<%= render "shared/header" %>
+
+    <div id="page" class="container">
+
+      <div id="content">
+
 <%= yield %>
+
+      </div>
+
+<%= render "shared/sidebar" %>
+
+    </div>
+
+<%= render "shared/footer" %>
+
+  </div>
+</div>
 
 </body>
 </html>
