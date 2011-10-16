@@ -1,9 +1,10 @@
 Cpp::Application.routes.draw do
   get "pages/home"
-  get "pages/list"
+  get "pages/categories"
+  get "pages/brands"
+  get "pages/cs"
   get "pages/info"
-  get "pages/two_columns"
-  get "pages/one_column"
+  get "pages/contact"
 
   root :to => "pages#home"
 

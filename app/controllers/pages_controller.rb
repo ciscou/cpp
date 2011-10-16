@@ -2,15 +2,18 @@ class PagesController < ApplicationController
   def home
   end
 
-  def list
+  def categories
+  end
+
+  def brands
+  end
+
+  def cs
   end
 
   def info
   end
 
-  def two_columns
-  end
-
-  def one_column
+  def contact
   end
 end
