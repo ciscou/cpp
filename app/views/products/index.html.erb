@@ -9,8 +9,8 @@
     <p>&nbsp;</p>
   </div>
 
-  <%= render @categories, :picture_version => :thumb %>
+  <%= render @products, :picture_version => :thumb %>
 
 </div>
 
-<%= link_to 'New Category', new_category_path %>
+<%= link_to 'New Product', new_category_product_path(@category) %>

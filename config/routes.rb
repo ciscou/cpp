@@ -5,7 +5,9 @@ Cpp::Application.routes.draw do
   get "pages/info"
   get "pages/contact"
 
-  resources :categories
+  resources :categories do
+    resources :products
+  end
 
   root :to => "pages#home"
 
