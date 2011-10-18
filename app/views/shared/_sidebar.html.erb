@@ -6,7 +6,7 @@
     <div class="content">
       <ul>
         <% Category.all.each do |category| %>
-          <li><%= link_to category.name, category_products_path(category) %></li>
+          <li><%= link_to "#{category.name} (#{category.products.count} productos)", category_products_path(category) %></li>
         <% end %>
       </ul>
       <p><%= link_to "More categories&#8230;".html_safe, categories_path, :class => "link1" %></p>
