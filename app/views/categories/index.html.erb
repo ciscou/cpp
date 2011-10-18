@@ -1,12 +1,12 @@
 <div id="box6" class="box-style">
 
   <div class="title">
-    <h2><span>Blandit tempus aliquam</span></h2>
+    <h2><span>Categorías</span></h2>
   </div>
 
   <div class="content">
-    <p>Morbi ac posuere massa. Pellentesque mi tortor, pulvinar ac dapibus et, sodales vitae sem. Curabitur commodo ac aliquam quis, mollis sed tortor. Ut quis malesuada nibh. Mauris sodales, urna vel convallis commodo, leo lorem mattis enim, convallis auctor ipsum sem in elit. Aliquam erat volutpat. Pellentesque tristique ante ut risus. Quisque dictum. Integer nisl risus, sagittis convallis, rutrum id, elementum congue, nibh. Suspendisse dictum porta lectus. Donec placerat odio vel elit. Sed ac leo. Pellentesque imperdiet.</p>
-    <p>&nbsp;</p>
+    <p>Actualmente disponemos de <%= Product.count %> productos, clasificados en <%= Category.count %> categorías.</p>
+    <p>Seleccione una de las siguientes categorías para ver un listado de sus productos</p>
   </div>
 
   <%= render @categories, :picture_version => :thumb %>
