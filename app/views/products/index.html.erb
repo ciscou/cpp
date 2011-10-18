@@ -1,15 +1,40 @@
 <div id="box6" class="box-style">
 
   <div class="title">
-    <h2><span>Blandit tempus aliquam</span></h2>
+    <h2><span>
+      <% if @category %>
+        Productos en la categoría <%= @category.name %>
+      <% else %>
+        Resultado de la búsqueda: <%= params[:q].inspect %>
+      <% end %>
+    </span></h2>
   </div>
 
   <div class="content">
-    <p>Morbi ac posuere massa. Pellentesque mi tortor, pulvinar ac dapibus et, sodales vitae sem. Curabitur commodo ac aliquam quis, mollis sed tortor. Ut quis malesuada nibh. Mauris sodales, urna vel convallis commodo, leo lorem mattis enim, convallis auctor ipsum sem in elit. Aliquam erat volutpat. Pellentesque tristique ante ut risus. Quisque dictum. Integer nisl risus, sagittis convallis, rutrum id, elementum congue, nibh. Suspendisse dictum porta lectus. Donec placerat odio vel elit. Sed ac leo. Pellentesque imperdiet.</p>
-    <p>&nbsp;</p>
+    <p>
+      Se han encontrado <%= @products.count %> productos
+      <% if @category %>
+        en la categoría <%= @category.name %>
+      <% else %>
+        que coincidan con la búsqueda <%= params[:q].inspect %>
+      <% end %>
+    </p>
   </div>
 
   <%= render @products, :picture_version => :thumb %>
+
+  <% unless @products.any? %>
+    <div class="content">
+      <p>
+        Lo sentimos, no se ha encontrado ningún producto
+        <% if @category %>
+          en la categoría <%= @category.name %>
+        <% else %>
+          para la búsqueda <%= params[:q].inspect %>
+        <% end %>
+      </p>
+    </div>
+  <% end %>
 
 </div>
 
