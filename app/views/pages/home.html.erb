@@ -4,35 +4,11 @@
 			<div class="title">
 				<h2><span>Feature Products</span></h2>
 			</div>
-			<div class="item-box">
-				<p><img src="/assets/subpage1_01.jpg" width="132" height="132" alt="" class="alignleft"/></p>
-				<h2><%= link_to "Aliquam Lorem Amet Lacus", pages_info_path %></h2>
-				<p>Fusce vitae sapien sed ipsum hendrerit dignisim. Lorem ipsum dolor at tellus.</p>
-				<div class="details">
-					<p class="left">$249<sup>99</sup></p>
-					<p class="right"><a href="#" class="addcart">Add To Cart</a></p>
-				</div>
-			</div>
-			<div class="item-box">
-				<p><img src="/assets/subpage1_02.jpg" width="132" height="132" alt="" class="alignleft"/></p>
-				<h2><%= link_to "Aliquam Lorem Amet Lacus", categories_path %></h2>
-				<p>Fusce vitae sapien sed ipsum hendrerit dignisim. Lorem ipsum dolor at tellus.</p>
-				<div class="details">
-					<p class="left">$499<sup>99</sup></p>
-					<p class="right"><a href="#" class="addcart">Add To Cart</a></p>
-				</div>
-			</div>
-			<div class="item-box">
-				<p><img src="/assets/subpage1_03.jpg" width="132" height="132" alt="" class="alignleft"/></p>
-				<h2><%= link_to "Aliquam Lorem Amet Lacus", pages_info_path %></h2>
-				<p>Fusce vitae sapien sed ipsum hendrerit dignisim. Lorem ipsum dolor at tellus.</p>
-				<div class="details">
-					<p class="left">$99<sup>99</sup></p>
-					<p class="right"><a href="#" class="addcart">Add To Cart</a></p>
-				</div>
-			</div>
+
+      <%= render Product.recent, :picture_version => :thumb %>
+
 			<div class="content">
-				<p><%= link_to "More featured products&#8230;".html_safe, categories_path, :class => "link1" %></p>
+				<p><%= link_to "Ver más productos", categories_path, :class => "link1" %></p>
 			</div>
 		</div>
 	</div>
