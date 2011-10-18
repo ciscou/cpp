@@ -4,7 +4,11 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = @category.products.all
+    @products = if @category
+                  @category.products.all
+                else
+                  Product.search(params[:q])
+                end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -86,6 +90,6 @@ class ProductsController < ApplicationController
   private
 
   def load_category
-    @category = Category.find(params[:category_id])
+    @category = Category.find(params[:category_id]) if params[:category_id]
   end
 end

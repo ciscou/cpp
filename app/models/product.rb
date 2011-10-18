@@ -2,6 +2,7 @@ class Product < ActiveRecord::Base
   belongs_to :category
 
   scope :recent, order("created_at DESC").limit(5)
+  scope :search, lambda { |q| where("name like ?", "%#{q}%") }
 
   validates :name, :presence => true
 

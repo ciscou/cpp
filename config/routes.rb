@@ -8,6 +8,8 @@ Cpp::Application.routes.draw do
     resources :products
   end
 
+  resources :products
+
   root :to => "pages#home"
 
   # The priority is based upon order of creation:
