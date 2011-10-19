@@ -1,13 +1,12 @@
 <div id="top-header" class="container">
   <div id="logo">
-    <h1><a href="#">BusinessName.com</a></h1>
-    <p>Lorem ipsum veroeros</p>
+    <h1><%= link_to "Cerámica Padilla Padilla", root_path %></h1>
   </div>
   <div id="top-banner">
     <div id="colA">
-      <h2>Aliquam nulla blandit</h2>
-      <p class="byline">Sit lorem vehicula etiam sed nunc volutpat</p>
-      <p class="link"><a href="#">Ipsum dignissim lorem</a></p>
+      <h2>Cerámica Padilla Padilla</h2>
+      <p class="byline">Cerámica artística pintada a mano</p>
+      <p class="link"><%= link_to "Consulte nuestro catálogo", categories_path %></p>
     </div>
     <div id="colB">
       <p>
@@ -19,7 +18,7 @@
           <%= link_to "regístrate"   , new_user_registration_path %>
         <% end %>
       </p>
-      <p><a href="#" class="viewcart">View Cart (3)</a></p>
+      <p><a href="#" class="viewcart">Ver Carrito (3)</a></p>
     </div>
   </div>
 </div>
