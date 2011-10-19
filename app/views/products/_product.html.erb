@@ -1,4 +1,4 @@
-<div class="item-box">
+<%= div_for product, :class => "item-box" do %>
   <p><%= image_tag product.picture_url(picture_version), :class => "alignleft" %></p>
   <h2><%= link_to_unless_current product.name, [product.category, product] %></h2>
   <%= simple_format product.description %>
@@ -12,4 +12,4 @@
     <p class="left">$249<sup>99</sup></p>
     <p class="right"><a href="#" class="addcart">Add To Cart</a></p>
   </div>
-</div>
+<% end %>

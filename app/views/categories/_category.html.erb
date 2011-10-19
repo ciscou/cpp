@@ -1,4 +1,4 @@
-<div class="item-box">
+<%= div_for category, :class => "item-box" do %>
   <p><%= image_tag category.picture_url(picture_version), :class => "alignleft" %></p>
   <h2><%= link_to category.name, category_products_path(category) %></h2>
   <%= simple_format category.description %>
@@ -8,4 +8,4 @@
       <%= link_to "Eliminar", category, :method => :delete, :confirm => "¿Estás seguro?" %>
     </p>
   <% end %>
-</div>
+<% end %>
