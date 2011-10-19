@@ -10,7 +10,15 @@
       <p class="link"><a href="#">Ipsum dignissim lorem</a></p>
     </div>
     <div id="colB">
-      <p>You are not signed in. <a href="#">Sign in now</a>.</p>
+      <p>
+        <% if user_signed_in? %>
+          Bienvenido, <%= current_user.email %>.
+          <%= link_to "Cerrar sesión", destroy_user_session_path, :method => :delete %>
+        <% else %>
+          <%= link_to "Inicia sesión", new_user_session_path %> o
+          <%= link_to "regístrate"   , new_user_registration_path %>
+        <% end %>
+      </p>
       <p><a href="#" class="viewcart">View Cart (3)</a></p>
     </div>
   </div>

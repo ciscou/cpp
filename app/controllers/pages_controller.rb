@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  skip_before_filter :admin_required
+
   def home
   end
 

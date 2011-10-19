@@ -18,6 +18,10 @@
 
     <div id="page" class="container">
 
+    <% flash.each do |k, v| %>
+      <p class="<%= k %>"><%= v %></p>
+    <% end %>
+
       <div id="content">
 
 <%= yield %>

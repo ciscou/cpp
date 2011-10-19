@@ -1,4 +1,6 @@
 Cpp::Application.routes.draw do
+  devise_for :users
+
 # get "pages/home"   , :path_names => {:home => "inicio"}
 # get "pages/who"
 # get "pages/where"

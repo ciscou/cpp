@@ -2,14 +2,10 @@
   <p><%= image_tag category.picture_url(picture_version), :class => "alignleft" %></p>
   <h2><%= link_to category.name, category_products_path(category) %></h2>
   <%= simple_format category.description %>
-  <% if false %>
-    <div class="details">
-      <p class="left">$249<sup>99</sup></p>
-      <p class="right"><a href="#" class="addcart">Add To Cart</a></p>
-    </div>
+  <% if admin_signed_in? %>
+    <p>
+      <%= link_to "Editar", edit_category_path(category) %> |
+      <%= link_to "Eliminar", category, :method => :delete, :confirm => "¿Estás seguro?" %>
+    </p>
   <% end %>
-  <p>
-    <%= link_to "Editar", edit_category_path(category) %> |
-    <%= link_to "Eliminar", category, :method => :delete, :confirm => "¿Estás seguro?" %>
-  </p>
 </div>

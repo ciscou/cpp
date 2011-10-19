@@ -2,10 +2,12 @@
   <p><%= image_tag product.picture_url(picture_version), :class => "alignleft" %></p>
   <h2><%= link_to_unless_current product.name, [product.category, product] %></h2>
   <%= simple_format product.description %>
-  <p>
-    <%= link_to "Editar", edit_category_product_path(product.category, product) %> |
-    <%= link_to "Eliminar", [product.category, product], :method => :delete, :confirm => "¿Estás seguro?" %>
-  </p>
+  <% if admin_signed_in? %>
+    <p>
+      <%= link_to "Editar", edit_category_product_path(product.category, product) %> |
+      <%= link_to "Eliminar", [product.category, product], :method => :delete, :confirm => "¿Estás seguro?" %>
+    </p>
+  <% end %>
   <div class="details">
     <p class="left">$249<sup>99</sup></p>
     <p class="right"><a href="#" class="addcart">Add To Cart</a></p>
