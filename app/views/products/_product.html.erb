@@ -1,6 +1,6 @@
 <%= div_for product, :class => "item-box" do %>
-  <p><%= image_tag product.picture_url(picture_version), :class => "alignleft" %></p>
   <h2><%= link_to_unless_current product.name, [product.category, product] %></h2>
+  <p><%= image_tag product.picture_url(picture_version), :class => "alignleft" %></p>
   <%= simple_format product.description %>
   <% if admin_signed_in? %>
     <p>
