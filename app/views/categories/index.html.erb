@@ -11,7 +11,11 @@
     <p>Seleccione una de las siguientes categorías para ver un listado de sus productos</p>
   </div>
 
+  <%= paginate @categories %>
+
   <%= render @categories, :picture_version => :thumb %>
+
+  <%= paginate @categories %>
 
 </div>
 

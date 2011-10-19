@@ -5,10 +5,11 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = if @category
-                  @category.products.all
+                  @category.products
                 else
                   Product.search(params[:q])
                 end
+    @products = @products.page params[:page]
 
     respond_to do |format|
       format.html # index.html.erb

@@ -12,10 +12,15 @@ Cpp::Application.routes.draw do
   match "contacte-con-nosotros" => "pages#contact", :as => "pages_contact"
 
   resources :categories, :path => "catalogo" do
-    resources :products, :path => "productos"
+    get 'pagina/:page', :action => :index, :on => :collection
+    resources :products, :path => "productos" do
+      get 'pagina/:page', :action => :index, :on => :collection
+    end
   end
 
-  resources :products, :path => "productos"
+  resources :products, :path => "productos" do
+    get 'pagina/:page', :action => :index, :on => :collection
+  end
 
   root :to => "pages#home"
 
