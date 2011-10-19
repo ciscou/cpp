@@ -1,14 +1,19 @@
 Cpp::Application.routes.draw do
-  get "pages/home"
-  get "pages/who"
-  get "pages/where"
-  get "pages/contact"
+# get "pages/home"   , :path_names => {:home => "inicio"}
+# get "pages/who"
+# get "pages/where"
+# get "pages/contact"
 
-  resources :categories do
-    resources :products
+  match "inicio"                => "pages#home"   , :as => "pages_home"
+  match "quienes-somos"         => "pages#who"    , :as => "pages_who"
+  match "donde-estamos"         => "pages#where"  , :as => "pages_where"
+  match "contacte-con-nosotros" => "pages#contact", :as => "pages_contact"
+
+  resources :categories, :path => "catalogo" do
+    resources :products, :path => "productos"
   end
 
-  resources :products
+  resources :products, :path => "productos"
 
   root :to => "pages#home"
 
