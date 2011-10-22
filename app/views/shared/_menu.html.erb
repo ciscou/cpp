@@ -3,8 +3,8 @@
     <ul>
       <li<% if active_tab?("home") %> class="active"<% end %>><%= link_to content_tag(:span, "Inicio"), root_path %></li>
       <li<% if active_tab?("categories") %> class="active"<% end %>><%= link_to content_tag(:span, "Catálogo"), categories_path %></li>
-      <li<% if active_tab?("brands") %> class="active"<% end %>><%= link_to content_tag(:span, "¿Quiénes somos?"), pages_who_path %></li>
-      <li<% if active_tab?("cs") %> class="active"<% end %>><%= link_to content_tag(:span, "¿Dónde estamos?"), pages_where_path %></li>
+      <li<% if active_tab?("who") %> class="active"<% end %>><%= link_to content_tag(:span, "¿Quiénes somos?"), pages_who_path %></li>
+      <li<% if active_tab?("where") %> class="active"<% end %>><%= link_to content_tag(:span, "¿Dónde estamos?"), pages_where_path %></li>
       <li<% if active_tab?("contact") %> class="active"<% end %>><%= link_to content_tag(:span, "Contacte con nosotros"), pages_contact_path %></li>
     </ul>
   </div>

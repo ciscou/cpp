@@ -20,15 +20,12 @@ module LayoutHelper
     when "categories"
       params[:controller] == "categories" or
       params[:controller] == "products"
-    when "brands"
+    when "who"
       params[:controller] == "pages" and
-      params[:action]     == "brands"
-    when "cs"
+      params[:action]     == "who"
+    when "where"
       params[:controller] == "pages" and
-      params[:action]     == "cs"
-    when "info"
-      params[:controller] == "pages" and
-      params[:action]     == "info"
+      params[:action]     == "where"
     when "contact"
       params[:controller] == "pages" and
       params[:action]     == "contact"
