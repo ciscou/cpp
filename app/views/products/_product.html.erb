@@ -4,7 +4,7 @@
     image_tag(product.picture_url(picture_version), :class => "alignleft photo", :alt => product.name),
     [product.category, product]
   ) %></p>
-  <p>En la categoría de <span class="category">product.category.name</span></p>
+  <p>En la categoría de <%= link_to product.category.name, category_products_path(product.category), :class => "category" %></p>
   <%= simple_format product.description, :class => "description" %>
   <% if admin_signed_in? %>
     <p>
