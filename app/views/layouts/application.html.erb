@@ -19,7 +19,7 @@
     <div id="page" class="container">
 
     <% flash.each do |k, v| %>
-      <p class="<%= k %>"><%= v %></p>
+      <div class="content <%= k %>"><%= v %></div>
     <% end %>
 
       <div id="content">

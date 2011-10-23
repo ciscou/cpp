@@ -1,3 +1,5 @@
+#encoding: utf-8
+
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
@@ -11,6 +13,6 @@ class ApplicationController < ActionController::Base
   private
 
   def admin_required
-    redirect_to root_url unless admin_signed_in?
+    redirect_to root_url, :alert => "No tienes suficientes permisos para realizar esa acción" unless admin_signed_in?
   end
 end
