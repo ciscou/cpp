@@ -12,18 +12,18 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name, "Nombre" %><br />
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :description %><br />
+    <%= f.label :description, "Descripción" %><br />
     <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.label :picture %><br />
+    <%= f.label :picture, "Foto" %><br />
     <%= f.file_field :picture %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Guardar" %>
   </div>
 <% end %>
