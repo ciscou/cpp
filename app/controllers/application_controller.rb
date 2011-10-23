@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
   end
   helper_method :admin_signed_in?
 
+  private
+
   def admin_required
     redirect_to root_url unless admin_signed_in?
   end
