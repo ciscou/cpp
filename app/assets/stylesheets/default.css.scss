@@ -568,10 +568,10 @@ ol.style2 li {
 
 div.field_with_errors {
   display: inline;
-  color: red;
+  color: #FF0900;
 
   input {
-    border-color: red;
+    border-color: #FF0900;
   }
 }
 
@@ -584,11 +584,38 @@ div.alert {
 
 div#error_explanation,
 div.alert {
-  border: 1px solid red;
+  border: 1px solid #FF0900;
   background-color: #ffaaaa;
 }
 
 div.notice {
   border: 1px solid green;
   background-color: #aaffaa;
+}
+
+nav.pagination {
+  margin-left: 25px;
+}
+
+nav.pagination span {
+  border: 1px solid #FF0900;
+  display: block;
+  float: left;
+  padding: 3px 6px;
+  margin-right: 3px;
+  color: #FF0900;
+  font-weight: bold;
+
+  a {
+    color: #FF0900;
+  }
+}
+
+nav.pagination span.current {
+  background-color: #FF0900;
+  color: white;
+
+  a {
+    color: white;
+  }
 }
