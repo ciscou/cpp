@@ -46,6 +46,7 @@ group :test do
   gem 'turn', :require => false
   gem 'rspec-rails'
   gem 'steak'
+  gem 'launchy'
 end
 
 group :production do
