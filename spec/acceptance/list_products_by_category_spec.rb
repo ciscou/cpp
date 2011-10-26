@@ -1,12 +1,12 @@
 require 'acceptance/acceptance_helper'
 
-feature 'Search products', %q{
-  In order to filter products by name
+feature 'List products by category', %q{
+  In order to show only the products in a given category
   As an user
-  I want to use the simple search form
+  I want to select a category in the menu
 } do
 
-  scenario 'with two products, one of them matches search criteria' do
+  scenario 'with two products, one of them in selected category' do
     product1 = Factory :product
     product2 = Factory :product
 

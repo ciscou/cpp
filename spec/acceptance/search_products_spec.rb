@@ -1,9 +1,9 @@
 require 'acceptance/acceptance_helper'
 
 feature 'Search products', %q{
-  In order to filter products by category
+  In order to show only the products with a given name
   As an user
-  I want to select a category in the menu
+  I want to use the simple search form
 } do
 
   scenario 'with two products, one of them matches search criteria' do
