@@ -4,7 +4,7 @@ class Product < ActiveRecord::Base
   scope :recent, order("created_at DESC").limit(5)
   scope :search, lambda { |q| where("name like ?", "%#{q}%") }
 
-  validates :name, :presence => true
+  validates :name, :presence => true, :uniqueness => true
 
   mount_uploader :picture, PictureUploader
 
