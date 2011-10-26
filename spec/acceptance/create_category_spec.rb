@@ -8,7 +8,7 @@ feature 'Create category', %q{
   I want to create categories first
 } do
 
-  scenario 'with two categories' do
+  scenario 'with valid attributes' do
     admin = Factory :user, :admin => true
     login_as admin
 
