@@ -14,8 +14,8 @@
           Bienvenido, <%= current_user.email %>.
           <%= link_to "Cerrar sesión", destroy_user_session_path, :method => :delete %>
         <% else %>
-          <%= link_to "Inicia sesión", new_user_session_path %> o
-          <%= link_to "regístrate"   , new_user_registration_path %>
+          <%= link_to "Inicie sesión", new_user_session_path %> o
+          <%= link_to "cree una cuenta"   , new_user_registration_path %>
         <% end %>
       </p>
       <p><a href="#" class="viewcart">Ver Carrito (3)</a></p>
