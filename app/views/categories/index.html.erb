@@ -20,7 +20,9 @@
 </div>
 
 <% if admin_signed_in? %>
-  <div class="content">
-    <%= link_to 'Añadir otra categoría', new_category_path %>
+  <div class="content clearfix">
+    <p>
+      <%= link_to 'Añadir otra categoría', new_category_path %>
+    </p>
   </div>
 <% end %>
