@@ -2,7 +2,7 @@
 
 require 'acceptance/acceptance_helper'
 
-feature 'List categories', %q{
+feature 'Create category', %q{
   In order to keep products classified
   As an admin
   I want to create categories first
