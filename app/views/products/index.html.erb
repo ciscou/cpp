@@ -46,6 +46,7 @@
 
 <% if admin_signed_in? %>
   <% if @category %>
+    <div class="clearfix"></div>
     <div class="content">
       <p>
         <%= link_to 'Añadir otro producto a esta categoría', new_category_product_path(@category) %>
