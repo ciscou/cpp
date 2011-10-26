@@ -13,6 +13,9 @@ S3_CONFIG = if Rails.env.production?
 S3_CONFIG.symbolize_keys!
 
 CarrierWave.configure do |config|
+  config.root      = Rails.root.join('tmp')
+  config.cache_dir = 'carrierwave'
+
   config.fog_credentials = S3_CONFIG[:fog_credentials].symbolize_keys
   config.fog_directory   = S3_CONFIG[:fog_directory]
 end
