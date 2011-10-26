@@ -12,6 +12,7 @@
     <%= form_tag products_path, :method => "get" do %>
       <fieldset>
         <%= text_field_tag :q, params[:q], :class => "input-text", :placeholder => "Buscador" %>
+        <%= submit_tag "Buscar" %>
       </fieldset>
     <% end %>
   </div>
