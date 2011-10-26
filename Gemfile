@@ -46,3 +46,7 @@ group :test do
   gem 'factory_girl_rails'
   gem 'ffaker'
 end
+
+group :production do
+  gem 'pg'
+end
