@@ -1,9 +1,7 @@
-#encoding: utf-8
-
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  before_filter :admin_required, :except => [:index, :show], :unless => :devise_controller?
+  before_filter :admin_required!, :except => [:index, :show], :unless => :devise_controller?
 
   def admin_signed_in?
     user_signed_in? and current_user.admin?
@@ -12,7 +10,7 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def admin_required
-    redirect_to root_url, :alert => "No tienes suficientes permisos para realizar esa acción" unless admin_signed_in?
+  def admin_required!
+    authenticate_user! unless admin_signed_in?
   end
 end
