@@ -23,6 +23,7 @@ gem 'carrierwave'
 gem 'fog'
 
 gem 'devise'
+gem "cancan", :git => "git://github.com/ryanb/cancan.git", :branch => "2.0"
 
 gem 'kaminari'
 

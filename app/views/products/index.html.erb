@@ -44,7 +44,7 @@
 
 </div>
 
-<% if admin_signed_in? %>
+<% if can? :manage, :products %>
   <% if @category %>
     <div class="clearfix"></div>
     <div class="content">

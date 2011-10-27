@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/ryanb/cancan.git
+  revision: c94de4ab1805d2e080ebd658051c59d0ec5147ce
+  branch: 2.0
+  specs:
+    cancan (2.0.0.alpha)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -191,6 +198,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  cancan!
   carrierwave
   coffee-rails (~> 3.1.1)
   devise
