@@ -3,14 +3,30 @@ require "cancan/matchers"
 
 describe Ability do
   describe "as guest" do
-    before(:each) do
-      @ability = Ability.new(nil)
-    end
+    subject { Ability.new(nil) }
 
-    it "can only create a user" do
-      # Define what a guest can and cannot do
-      # @ability.should be_able_to(:create, :users)
-      # @ability.should_not be_able_to(:update, :users)
-    end
+    it { should be_able_to :access, :pages }
+    it { should be_able_to :read,   :products }
+    it { should be_able_to :read,   :categories }
+
+    it { should_not be_able_to :access, :products }
+    it { should_not be_able_to :access, :categories }
+  end
+
+  describe "as regular user" do
+    subject { Ability.new(Factory :user, :admin => false) }
+
+    it { should be_able_to :access, :pages }
+    it { should be_able_to :read,   :products }
+    it { should be_able_to :read,   :categories }
+
+    it { should_not be_able_to :access, :products }
+    it { should_not be_able_to :access, :categories }
+  end
+
+  describe "as admin" do
+    subject { Ability.new(Factory :user, :admin => true) }
+
+    it { should be_able_to :access, :all }
   end
 end
