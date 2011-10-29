@@ -2,26 +2,42 @@ require "spec_helper"
 require "cancan/matchers"
 
 describe Ability do
-  describe "as guest" do
-    subject { Ability.new(nil) }
 
-    it { should be_able_to :access, :pages }
-    it { should be_able_to :read,   :products }
-    it { should be_able_to :read,   :categories }
+  {
+    :guest => nil,
+    :regular_user => Factory(:user, :admin => false, :premium => false)
+  }.each do |k, v|
+    describe "as #{k}" do
+      subject { Ability.new(v) }
 
-    it { should_not be_able_to :access, :products }
-    it { should_not be_able_to :access, :categories }
+      it { should be_able_to :access, :pages }
+      it { should be_able_to :read,   Factory(:product, :new_arrival => false) }
+      it { should be_able_to :read,   :categories }
+
+      it { should_not be_able_to :read,    Factory(:product, :new_arrival => true) }
+      it { should_not be_able_to :create,  :products }
+      it { should_not be_able_to :update,  :products }
+      it { should_not be_able_to :destroy, :products }
+      it { should_not be_able_to :create,  :categories }
+      it { should_not be_able_to :update,  :categories }
+      it { should_not be_able_to :destroy, :categories }
+    end
   end
 
-  describe "as regular user" do
-    subject { Ability.new(Factory :user, :admin => false) }
+  describe "as premium user" do
+    subject { Ability.new(Factory :user, :admin => false, :premium => true) }
 
     it { should be_able_to :access, :pages }
-    it { should be_able_to :read,   :products }
+    it { should be_able_to :read,   Factory(:product, :new_arrival => false) }
+    it { should be_able_to :read,   Factory(:product, :new_arrival => true) }
     it { should be_able_to :read,   :categories }
 
-    it { should_not be_able_to :access, :products }
-    it { should_not be_able_to :access, :categories }
+    it { should_not be_able_to :create,  :products }
+    it { should_not be_able_to :update,  :products }
+    it { should_not be_able_to :destroy, :products }
+    it { should_not be_able_to :create,  :categories }
+    it { should_not be_able_to :update,  :categories }
+    it { should_not be_able_to :destroy, :categories }
   end
 
   describe "as admin" do

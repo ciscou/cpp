@@ -59,13 +59,6 @@ feature 'Create category', %q{
       attach_file "Foto", Rails.root.join("spec", "acceptance", "data", "example_picture.jpg")
       click_button "Guardar"
 
-      within ".category" do
-        page.should have_css "h2", :text => "Now this is an awesome category!"
-        page.should have_content "This category will be soon full of awesome products."
-        page.should have_content "Just come back in a few minutes"
-        page.should have_image "now-this-is-an-awesome-category.jpg"
-      end
-
       click_link "Catálogo"
 
       within ".category" do

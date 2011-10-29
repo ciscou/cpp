@@ -5,17 +5,14 @@ Cpp::Application.routes.draw do
   match "quienes-somos"         => "pages#who"        , :as => "pages_who"
   match "donde-estamos"         => "pages#where"      , :as => "pages_where"
   match "contacte-con-nosotros" => "pages#contact"    , :as => "pages_contact"
-  match "galleriffic"           => "pages#galleriffic", :as => "pages_galleriffic"
 
   resources :categories, :path => "catalogo" do
     get 'pagina/:page', :action => :index, :on => :collection
-    resources :products, :path => "productos" do
-      get 'pagina/:page', :action => :index, :on => :collection
-    end
+    resources :products, :path => "productos"
   end
 
   resources :products, :path => "productos" do
-    get 'pagina/:page', :action => :index, :on => :collection
+    get 'search', :action => :search, :on => :collection
   end
 
   root :to => "pages#home"

@@ -1,95 +1,50 @@
 class ProductsController < ApplicationController
-  before_filter :load_category
+  before_filter :load_category, :except => :search
 
-  # GET /products
-  # GET /products.json
+  load_and_authorize_resource :product, :through => :category, :except => :search
+  load_and_authorize_resource :product,                        :only   => :search
+
+  respond_to :html
+
   def index
-    @products = if @category
-                  @category.products
-                else
-                  Product.search(params[:q])
-                end
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @products }
-    end
+    respond_with [@category, @products]
   end
 
-  # GET /products/1
-  # GET /products/1.json
+  def search
+    @products = @products.search(params[:q])
+    respond_with @products, :template => "products/index"
+  end
+
   def show
-    @product = @category.products.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @product }
-    end
+    respond_with [@category, @product]
   end
 
-  # GET /products/new
-  # GET /products/new.json
   def new
-    @product = @category.products.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @product }
-    end
+    respond_with [@category, @product]
   end
 
-  # GET /products/1/edit
   def edit
-    @product = @category.products.find(params[:id])
+    respond_with [@category, @product]
   end
 
-  # POST /products
-  # POST /products.json
   def create
-    @product = @category.products.new(params[:product])
-
-    respond_to do |format|
-      if @product.save
-        format.html { redirect_to category_products_url(@category, :anchor => @product.to_param), notice: 'Product was successfully created.' }
-        format.json { render json: @product, status: :created, location: @product }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
-      end
-    end
+    @product.save
+    respond_with [@category, @product], :location => category_products_url(@category, :anchor => @product.to_param)
   end
 
-  # PUT /products/1
-  # PUT /products/1.json
   def update
-    @product = @category.products.find(params[:id])
-
-    respond_to do |format|
-      if @product.update_attributes(params[:product])
-        format.html { redirect_to category_products_url(@category, :anchor => @product.to_param), notice: 'Product was successfully updated.' }
-        format.json { head :ok }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
-      end
-    end
+    @product.save
+    respond_with [@category, @product], :location => category_products_url(@category, :anchor => @product.to_param)
   end
 
-  # DELETE /products/1
-  # DELETE /products/1.json
   def destroy
-    @product = @category.products.find(params[:id])
     @product.destroy
-
-    respond_to do |format|
-      format.html { redirect_to category_products_url(@category) }
-      format.json { head :ok }
-    end
+    respond_with [@category, @product]
   end
 
   private
 
   def load_category
-    @category = Category.find(params[:category_id]) if params[:category_id]
+    @category = Category.find(params[:category_id])
   end
 end

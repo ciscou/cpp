@@ -7,7 +7,7 @@ module LayoutHelper
     case params[:action]
     when "index"        then params[:controller] == "products" ? "single" : "listings"
     when "show"         then "details"
-    when "galleriffic"  then "single"
+    when "search"       then "single"
     else                     "default"
     end
   end
