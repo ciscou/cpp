@@ -4,6 +4,7 @@
 
 <div class="title">
   <h2><span>
+    <%= link_to "Catálogo", categories_path %> &rsaquo;
     <% if @category %>
       Productos en la categoría <%= @category.name %>
     <% else %>
