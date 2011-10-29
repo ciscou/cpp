@@ -60,6 +60,7 @@ feature 'Create product', %q{
 
       fill_in "Nombre", :with => "Now this is an awesome product!"
       fill_in "Descripción", :with => "This is the most awesome product yet in this category.\n\nNot only because this is the only one"
+      check "¿Novedad?"
       attach_file "Foto", Rails.root.join("spec", "acceptance", "data", "example_picture.jpg")
       click_button "Guardar"
 
