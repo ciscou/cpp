@@ -12,3 +12,13 @@
   </ul>
 </div>
 <div style="clear: both;"></div>
+
+<% if can? :manage, :products %>
+  <% if @category %>
+    <div class="content">
+      <p>
+        <%= link_to 'Añadir otro producto a esta categoría', new_category_product_path(@category) %>
+      </p>
+    </div>
+  <% end %>
+<% end %>

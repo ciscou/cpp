@@ -5,6 +5,14 @@
       <%= link_to "Descargar Original", product.picture.url %>
     </div>
     <div class="image-title"><%= product.name %></div>
-    <div class="image-desc"><%= simple_format product.description %></div>
+    <div class="image-desc">
+      <%= simple_format product.description %>
+        <% if can? :manage, :products %>
+          <p>
+            <%= link_to "Editar", edit_category_product_path(product.category, product) %> |
+            <%= link_to "Eliminar", [product.category, product], :method => :delete, :confirm => "¿Estás seguro?" %>
+          </p>
+        <% end %>
+    </div>
   </div>
 </li>
