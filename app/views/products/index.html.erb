@@ -1,19 +1,48 @@
 <% title @category ? "Catálogo de #{@category.name}" : "Resultado de la búsqueda" %>
 
-<div id="gallery" class="galleriffic">
-  <div id="controls" class="controls"></div>
-  <div class="slideshow-container">
-    <div id="loading" class="loader"></div>
-    <div id="slideshow" class="slideshow"></div>
+<div id="box6" class="box-style">
+
+<div class="title">
+  <h2><span>
+    <% if @category %>
+      Productos en la categoría <%= @category.name %>
+    <% else %>
+      Resultado de la búsqueda: <%= params[:q].inspect %>
+    <% end %>
+  </span></h2>
+</div>
+
+<% if @products.any? %>
+
+  <div id="gallery" class="galleriffic">
+    <div id="controls" class="controls"></div>
+    <div class="slideshow-container">
+      <div id="loading" class="loader"></div>
+      <div id="slideshow" class="slideshow"></div>
+    </div>
+    <div id="caption" class="caption-container"></div>
   </div>
-  <div id="caption" class="caption-container"></div>
-</div>
-<div id="thumbs" class="navigation">
-  <ul class="thumbs noscript">
-    <%= render @products %>
-  </ul>
-</div>
-<div style="clear: both;"></div>
+  <div id="thumbs" class="navigation">
+    <ul class="thumbs noscript">
+      <%= render @products %>
+    </ul>
+  </div>
+  <div style="clear: both;"></div>
+
+<% else %>
+
+  <div class="content">
+    <p>
+      Lo sentimos, no se ha encontrado ningún producto
+      <% if @category %>
+        en la categoría <%= @category.name %>
+      <% else %>
+        para la búsqueda <%= params[:q].inspect %>
+      <% end %>
+    </p>
+  </div>
+
+<% end %>
 
 <% if can? :manage, :products %>
   <% if @category %>
@@ -24,3 +53,5 @@
     </div>
   <% end %>
 <% end %>
+
+</div>
