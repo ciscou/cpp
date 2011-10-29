@@ -1,8 +1,8 @@
 class ProductsController < ApplicationController
-  before_filter :load_category, :except => :search # FIXME change to load_and_authorize_resource :category
+  before_filter :load_category, :except => [:search, :new_arrivals] # FIXME change to load_and_authorize_resource :category
 
-  load_and_authorize_resource :through => :category, :except => :search
-  load_and_authorize_resource                        :only   => :search
+  load_and_authorize_resource :through => :category, :except => [:search, :new_arrivals]
+  load_and_authorize_resource                        :only   => [:search, :new_arrivals]
 
   respond_to :html
 
@@ -12,6 +12,11 @@ class ProductsController < ApplicationController
 
   def search
     @products = @products.search(params[:q])
+    respond_with @products, :template => "products/index"
+  end
+
+  def new_arrivals
+    @products = @products.new_arrivals
     respond_with @products, :template => "products/index"
   end
 

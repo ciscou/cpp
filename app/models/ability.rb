@@ -10,9 +10,9 @@ class Ability
       can :access, :pages
       can :read, :categories
       if user.premium?
-        can [:read, :search], :products
+        can [:read, :search, :new_arrivals], :products
       else
-        can [:read, :search], :products, :new_arrival => false
+        can [:read, :search               ], :products, :new_arrival => false
       end
     end
   end

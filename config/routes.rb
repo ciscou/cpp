@@ -1,10 +1,11 @@
 Cpp::Application.routes.draw do
   devise_for :users
 
-  match "inicio"                => "pages#home"       , :as => "pages_home"
-  match "quienes-somos"         => "pages#who"        , :as => "pages_who"
-  match "donde-estamos"         => "pages#where"      , :as => "pages_where"
-  match "contacte-con-nosotros" => "pages#contact"    , :as => "pages_contact"
+  match "inicio"                => "pages#home"        , :as => "pages_home"
+  match "quienes-somos"         => "pages#who"         , :as => "pages_who"
+  match "donde-estamos"         => "pages#where"       , :as => "pages_where"
+  match "contacte-con-nosotros" => "pages#contact"     , :as => "pages_contact"
+  match "novedades"             => "pages#new_arrivals", :as => "pages_new_arrivals"
 
   resources :categories, :path => "catalogo" do
     get 'pagina/:page', :action => :index, :on => :collection
@@ -12,7 +13,10 @@ Cpp::Application.routes.draw do
   end
 
   resources :products, :path => "productos" do
-    get 'search', :action => :search, :on => :collection
+    collection do
+      get 'busqueda' , :action => :search,       :as => :search
+      get 'novedades', :action => :new_arrivals, :as => :new_arrivals
+    end
   end
 
   root :to => "pages#home"

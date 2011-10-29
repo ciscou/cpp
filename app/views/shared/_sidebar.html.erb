@@ -14,18 +14,15 @@
   </div>
   <div id="box2" class="box-style">
     <div class="title">
-      <h2><span>Popular Categories</span></h2>
+      <h2><span>Categorías destacadas</span></h2>
     </div>
     <div class="content">
       <ul>
-        <li><%= link_to "Aliquam sit lorem nunc nisl", categories_path %></li>
-        <li><%= link_to "Velit vivamus volutpat quam dui", categories_path %></li>
-        <li><%= link_to "Vestibulum fusce tor pharetra", categories_path %></li>
-        <li><%= link_to "Elit in volutpat et tempor praesent", categories_path %></li>
-        <li><%= link_to "Vehicula a lacus fringilla", categories_path %></li>
-        <li><%= link_to "Cubilia lorem blandit dolor", categories_path %></li>
-        <li><%= link_to "Aliquam sit tempor lorem nunc nisl", categories_path %></li>
-        <li><%= link_to "Velit vivamus quam dui", categories_path %></li>
+        <% if can? :new_arrivals, :products %>
+          <li><%= link_to "Novedades (#{Product.new_arrivals.count})", new_arrivals_products_path %></li>
+        <% else %>
+          <li><%= link_to "Novedades (#{Product.new_arrivals.count})", pages_new_arrivals_path    %></li>
+        <% end %>
       </ul>
     </div>
   </div>

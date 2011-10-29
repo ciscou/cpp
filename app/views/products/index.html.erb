@@ -1,4 +1,4 @@
-<% title @category ? "Catálogo de #{@category.name}" : "Resultado de la búsqueda" %>
+<% title @category ? "Catálogo de #{@category.name}" : params[:q] ? "Resultado de la búsqueda" : "Novedades" %>
 
 <div id="box6" class="box-style">
 
@@ -7,8 +7,10 @@
     <%= link_to "Catálogo", categories_path %> &rsaquo;
     <% if @category %>
       Productos en la categoría <%= @category.name %>
-    <% else %>
+    <% elsif params[:q] %>
       Resultado de la búsqueda: <%= params[:q].inspect %>
+    <% else %>
+      Novedades
     <% end %>
   </span></h2>
 </div>
@@ -37,8 +39,10 @@
       Lo sentimos, no se ha encontrado ningún producto
       <% if @category %>
         en la categoría <%= @category.name %>
-      <% else %>
+      <% elsif params[:q] %>
         para la búsqueda <%= params[:q].inspect %>
+      <% else %>
+        nuevo
       <% end %>
     </p>
   </div>
