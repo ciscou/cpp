@@ -63,17 +63,8 @@ feature 'Create product', %q{
       attach_file "Foto", Rails.root.join("spec", "acceptance", "data", "example_picture.jpg")
       click_button "Guardar"
 
-      within ".product" do
-        page.should have_css "h2", :text => "Now this is an awesome product!"
-        page.should have_content "This is the most awesome product yet in this category."
-        page.should have_content "Not only because this is the only one"
-        page.should have_image "now-this-is-an-awesome-product.jpg"
-      end
-
-      click_link @category.name
-
-      within ".product" do
-        page.should have_css "h2", :text => "Now this is an awesome product!"
+      within "#thumbs" do
+        page.should have_css "div.image-title", :text => "Now this is an awesome product!"
         page.should have_content "This is the most awesome product yet in this category."
         page.should have_content "Not only because this is the only one"
         page.should have_image "thumb_now-this-is-an-awesome-product.jpg"

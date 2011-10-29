@@ -14,8 +14,8 @@ feature 'List products by category', %q{
 
     click_link product1.category.name
 
-    page.should have_css    ".product h2", :text => product1.name
-    page.should have_no_css ".product h2", :text => product2.name
+    page.should have_css    ".product div.image-title", :text => product1.name
+    page.should have_no_css ".product div.image-title", :text => product2.name
   end
 
 end
