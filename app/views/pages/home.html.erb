@@ -7,7 +7,7 @@
 				<h2><span>Feature Products</span></h2>
 			</div>
 
-      <%= render Product.recent, :picture_version => :thumb %>
+      <%= render Product.accessible_by(current_ability).recent, :picture_version => :thumb %>
 
 			<div class="content">
 				<p><%= link_to "Ver más productos", categories_path, :class => "link1" %></p>
