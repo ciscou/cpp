@@ -9,15 +9,16 @@
       <p class="link"><%= link_to "Consulte nuestro catálogo", categories_path %></p>
     </div>
     <div id="colB">
-      <p>
-        <% if user_signed_in? %>
-          Bienvenido, <%= current_user.email %>.
-          <%= link_to "Cerrar sesión", destroy_user_session_path, :method => :delete %>
-        <% else %>
-          <%= link_to "Inicie sesión", new_user_session_path %> o
-          <%= link_to "cree una cuenta"   , new_user_registration_path %>
-        <% end %>
-      </p>
+      <% if user_signed_in? %>
+        <p>Bienvenido, <%= current_user.email %>.</p>
+        <p><%= link_to "Cerrar sesión", destroy_user_session_path, :method => :delete %></p>
+      <% else %>
+        <p>Bienvenido, usuario anónimo.</p>
+        <p>
+          <%= link_to "Inicie sesión"  , new_user_session_path %> o
+          <%= link_to "cree una cuenta", new_user_registration_path %>
+        </p>
+      <% end %>
     </div>
   </div>
 </div>
