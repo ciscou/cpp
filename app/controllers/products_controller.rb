@@ -1,8 +1,8 @@
 class ProductsController < ApplicationController
-  before_filter :load_category, :except => :search
+  before_filter :load_category, :except => :search # FIXME change to load_and_authorize_resource :category
 
-  load_and_authorize_resource :product, :through => :category, :except => :search
-  load_and_authorize_resource :product,                        :only   => :search
+  load_and_authorize_resource :through => :category, :except => :search
+  load_and_authorize_resource                        :only   => :search
 
   respond_to :html
 
