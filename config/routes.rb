@@ -1,15 +1,11 @@
 Cpp::Application.routes.draw do
   devise_for :users
 
-# get "pages/home"   , :path_names => {:home => "inicio"}
-# get "pages/who"
-# get "pages/where"
-# get "pages/contact"
-
-  match "inicio"                => "pages#home"   , :as => "pages_home"
-  match "quienes-somos"         => "pages#who"    , :as => "pages_who"
-  match "donde-estamos"         => "pages#where"  , :as => "pages_where"
-  match "contacte-con-nosotros" => "pages#contact", :as => "pages_contact"
+  match "inicio"                => "pages#home"       , :as => "pages_home"
+  match "quienes-somos"         => "pages#who"        , :as => "pages_who"
+  match "donde-estamos"         => "pages#where"      , :as => "pages_where"
+  match "contacte-con-nosotros" => "pages#contact"    , :as => "pages_contact"
+  match "galleriffic"           => "pages#galleriffic", :as => "pages_galleriffic"
 
   resources :categories, :path => "catalogo" do
     get 'pagina/:page', :action => :index, :on => :collection

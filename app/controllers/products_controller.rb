@@ -9,7 +9,6 @@ class ProductsController < ApplicationController
                 else
                   Product.search(params[:q])
                 end
-    @products = @products.page params[:page]
 
     respond_to do |format|
       format.html # index.html.erb

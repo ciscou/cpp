@@ -5,10 +5,10 @@ module LayoutHelper
 
   def wrapper_class
     case params[:action]
-    when "index", "brands"      then "listings"
-    when "info", "show"         then "details"
-    when "cs"                   then "single"
-    else                             "default"
+    when "index"        then params[:controller] == "products" ? "single" : "listings"
+    when "show"         then "details"
+    when "galleriffic"  then "single"
+    else                     "default"
     end
   end
 

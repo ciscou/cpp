@@ -1,19 +1,10 @@
-<%= div_for product, :class => "item-box hproduct" do %>
-  <h2 class="fn"><%= link_to_unless_current product.name, [product.category, product] %></h2>
-  <p><%= link_to_unless_current(
-    image_tag(product.picture_url(picture_version), :class => "alignleft photo", :alt => product.name),
-    [product.category, product]
-  ) %></p>
-  <p>En la categoría de <%= link_to product.category.name, category_products_path(product.category), :class => "category" %></p>
-  <%= simple_format product.description, :class => "description" %>
-  <% if can? :manage, :products %>
-    <p>
-      <%= link_to "Editar", edit_category_product_path(product.category, product) %> |
-      <%= link_to "Eliminar", [product.category, product], :method => :delete, :confirm => "¿Estás seguro?" %>
-    </p>
-  <% end %>
-  <div class="details">
-    <p class="left">$249<sup>99</sup></p>
-    <p class="right"><a href="#" class="addcart">Add To Cart</a></p>
+<li>
+  <%= link_to image_tag(product.picture.thumb.url, :alt => product.name), product.picture.url, :class => "thumb", :title => product.name, :name => product.to_param %>
+  <div class="caption">
+    <div class="download">
+      <%= link_to "Descargar Original", product.picture.url %>
+    </div>
+    <div class="image-title"><%= product.name %></div>
+    <div class="image-desc"><%= simple_format product.description %></div>
   </div>
-<% end %>
+</li>
