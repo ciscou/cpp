@@ -1,4 +1,4 @@
-<% title @category ? "Catálogo de #{@category.name}" : params[:q] ? "Resultado de la búsqueda" : "Novedades" %>
+<% title @category ? "Catálogo de #{@category.name}" : params[:q] ? "Resultado de la búsqueda" : "Últimas novedades" %>
 
 <div id="box6" class="box-style">
 
@@ -10,7 +10,7 @@
     <% elsif params[:q] %>
       Resultado de la búsqueda: <%= params[:q].inspect %>
     <% else %>
-      Novedades
+      Últimas novedades
     <% end %>
   </span></h2>
 </div>

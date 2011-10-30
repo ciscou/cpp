@@ -12,10 +12,10 @@
     </div>
 
     <div id="new_arrivals" class="item-box" do %>
-      <h2><%= link_to "Novedades", new_arrivals_products_path %></h2>
+      <h2><%= link_to "Últimas novedades", new_arrivals_path %></h2>
       <p><%= link_to(
         image_tag(Product.new_arrivals.first.picture_url(:thumb), :class => "alignleft", :alt => "Novedades"),
-        new_arrivals_products_path
+        new_arrivals_path
       ) %></p>
       <p>Esté atento a las últimas novedades añadidas a la web.</p>
     </div>

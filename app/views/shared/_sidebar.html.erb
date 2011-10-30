@@ -5,11 +5,7 @@
     </div>
     <div class="content">
       <ul>
-        <% if can? :new_arrivals, :products %>
-          <li><%= link_to "Novedades (#{Product.new_arrivals.count})", new_arrivals_products_path %></li>
-        <% else %>
-          <li><%= link_to "Novedades (#{Product.new_arrivals.count})", pages_new_arrivals_path    %></li>
-        <% end %>
+        <li><%= link_to "Últimas novedades (#{Product.new_arrivals.count})", new_arrivals_path %></li>
       </ul>
       <p><%= link_to "Ver todas las categorías", categories_path, :class => "link1" %></p>
     </div>
