@@ -1,9 +1,9 @@
 class Product < ActiveRecord::Base
   belongs_to :category
 
-  scope :recent, order("created_at DESC").limit(5)
+  scope :featured, order("random()").limit(5)
   scope :search, lambda { |q| where("upper(name) like ?", "%#{q.upcase}%") }
-  scope :new_arrivals, where(:new_arrival => true).order("created_at DESC")
+  scope :new_arrivals, where(:new_arrival => true).order("created_at desc")
 
   validates :name, :presence => true, :uniqueness => true
 
