@@ -17,7 +17,7 @@ feature 'List products by category', %q{
   scenario 'as an annonymous user' do
     visit homepage
 
-    click_link "Últimas novedades"
+    click_link "Últimas novedades (3)"
     page.current_url.should == pages_new_arrivals_url
 
     click_link "Catálogo"
@@ -29,7 +29,7 @@ feature 'List products by category', %q{
     user = Factory :user, :premium => false
     login_as user
 
-    click_link "Últimas novedades"
+    click_link "Últimas novedades (3)"
     page.current_url.should == pages_new_arrivals_url
 
     click_link "Catálogo"
@@ -41,7 +41,7 @@ feature 'List products by category', %q{
     user = Factory :user, :premium => true
     login_as user
 
-    click_link "Últimas novedades"
+    click_link "Últimas novedades (3)"
     page.current_url.should == new_arrivals_products_url
     page.should have_css ".product div.image-title", :text => @product1.name
     page.should have_css ".product div.image-title", :text => @product2.name

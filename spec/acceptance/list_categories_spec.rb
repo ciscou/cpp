@@ -11,9 +11,9 @@ feature 'List categories', %q{
   scenario 'with two categories' do
     category1 = Factory :category
     category2 = Factory :category
+                Factory :product, :category => category1, :new_arrival => true
 
     visit homepage
-
     click_link "Catálogo"
 
     page.should have_css "#new_arrivals h2", :text => "Últimas novedades"
