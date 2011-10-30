@@ -3,9 +3,9 @@
 require 'acceptance/acceptance_helper'
 
 feature 'List products by category', %q{
-  In order to show only the products in a given category
+  In order to stay tuned with the new arrivals
   As an user
-  I want to select a category in the menu
+  I want to view the last additions to the web
 } do
 
   background do

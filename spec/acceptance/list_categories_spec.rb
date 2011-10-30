@@ -16,8 +16,9 @@ feature 'List categories', %q{
 
     click_link "Catálogo"
 
-    page.should have_css ".category h2", :text => category1.name
-    page.should have_css ".category h2", :text => category2.name
+    page.should have_css "#new_arrivals h2", :text => "Últimas novedades"
+    page.should have_css ".category h2"    , :text => category1.name
+    page.should have_css ".category h2"    , :text => category2.name
   end
 
 end
