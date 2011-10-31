@@ -22,7 +22,7 @@ jQuery(document).ready(function($) {
       preloadAhead:              10,
       enableTopPager:            true,
       enableBottomPager:         true,
-      maxPagesToShow:            7,
+      maxPagesToShow:            5,
       imageContainerSel:         '#slideshow',
       controlsContainerSel:      '#controls',
       captionContainerSel:       '#caption',
