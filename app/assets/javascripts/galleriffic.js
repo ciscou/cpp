@@ -16,7 +16,7 @@ jQuery(document).ready(function($) {
 
   // Initialize Advanced Galleriffic Gallery
   var gallery = $('#thumbs').galleriffic({
-    delay:                     2500,
+    delay:                     5000,
     numThumbs:                 8,
     preloadAhead:              10,
     enableTopPager:            true,
@@ -68,8 +68,8 @@ jQuery(document).ready(function($) {
   }
 
   // Initialize history plugin.
-  // The callback is called at once by present location.hash. 
-  $.historyInit(pageload, "advanced.html");
+  // The callback is called at once by present location.hash.
+  $.historyInit(pageload);
 
   // set onlick event for buttons using the jQuery 1.3 live method
   $("a[rel='history']").live('click', function(e) {
