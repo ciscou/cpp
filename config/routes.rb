@@ -18,6 +18,8 @@ Cpp::Application.routes.draw do
     end
   end
 
+  resource "sitemap"
+
   root :to => "pages#home"
 
   # The priority is based upon order of creation:

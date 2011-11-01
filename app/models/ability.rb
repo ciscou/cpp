@@ -15,5 +15,7 @@ class Ability
         can [:read, :search               ], :products, :new_arrival => false
       end
     end
+
+    can :read, :sitemaps
   end
 end
