@@ -1,4 +1,6 @@
 class Product < ActiveRecord::Base
+  include CarrierWavePictureRenamer
+
   belongs_to :category
 
   scope :featured, order("random()").limit(5)
@@ -6,6 +8,7 @@ class Product < ActiveRecord::Base
   scope :new_arrivals, where(:new_arrival => true).order("created_at desc")
 
   validates :name, :presence => true, :uniqueness => true
+  validates :picture, :presence => true
 
   mount_uploader :picture, PictureUploader
 
