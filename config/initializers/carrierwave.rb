@@ -12,6 +12,17 @@ S3_CONFIG = if Rails.env.production?
             end
 S3_CONFIG.symbolize_keys!
 
+class CarrierWave::Storage::Fog::File
+  def copy(to)
+    connection.copy_object(@uploader.fog_directory, @path, @uploader.fog_directory, "#{@uploader.store_dir}/#{to}", 'x-amz-acl' => (@uploader.fog_public ? 'public-read' : 'authenticated_read'))
+  end
+
+  def move(to)
+    copy(to)
+    delete
+  end
+end
+
 CarrierWave.configure do |config|
   config.root      = Rails.root.join('tmp')
   config.cache_dir = 'carrierwave'
