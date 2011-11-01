@@ -65,7 +65,7 @@ feature 'Create category', %q{
         page.should have_css "h2", :text => "Now this is an awesome category!"
         page.should have_content "This category will be soon full of awesome products."
         page.should have_content "Just come back in a few minutes"
-        page.should have_image "thumb_now-this-is-an-awesome-category.jpg"
+        page.should have_image "small_now-this-is-an-awesome-category.jpg"
       end
     end
   end
