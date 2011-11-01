@@ -3,7 +3,7 @@ xml.urlset do
   # homepage
   xml.url do
     xml.loc        root_url
-    xml.lastmod    Product.order(:created_at).last.try(:created_at)
+    xml.lastmod    Product.order(:created_at).last.try(:created_at).try(:iso8601)
     xml.changefreq 'always'
     xml.priority   0.8
   end
@@ -31,8 +31,8 @@ xml.urlset do
 
   # categories
   xml.url do
-    xml.log        categories_url
-    xml.lastmod    Category.order(:created_at).last.try(:created_at)
+    xml.loc        categories_url
+    xml.lastmod    Category.order(:created_at).last.try(:created_at).try(:iso8601)
     xml.changefreq 'weekly'
     xml.priority   1.0
   end
@@ -40,8 +40,8 @@ xml.urlset do
   # products
   Category.all.each do |category|
     xml.url do
-      xml.log        category_products_url(category)
-      xml.lastmod    category.products.order(:created_at).last.try(:created_at)
+      xml.loc        category_products_url(category)
+      xml.lastmod    category.products.order(:created_at).last.try(:created_at).try(:iso8601)
       xml.changefreq 'weekly'
       xml.priority   1.0
     end
