@@ -8,17 +8,29 @@ feature 'List categories', %q{
   I want to click the catalog link
 } do
 
-  scenario 'with two categories' do
-    category1 = Factory :category
-    category2 = Factory :category
-                Factory :product, :category => category1, :new_arrival => true
+  background do
+    @category1 = Factory :category
+    @category2 = Factory :category
+                 Factory :product, :category => @category1, :new_arrival => true
+  end
 
+  scenario 'as regular user, should only see the two categories' do
     visit homepage
     click_link "Catálogo"
 
+    page.should have_no_css "#new_arrivals"
+    page.should have_css ".category h2"    , :text => @category1.name
+    page.should have_css ".category h2"    , :text => @category2.name
+  end
+
+  scenario 'as premium user, should see the two categories and the new arrivals section' do
+    user = Factory :user, :premium => true
+    login_as user
+    click_link "Catálogo"
+
     page.should have_css "#new_arrivals h2", :text => "Últimas novedades"
-    page.should have_css ".category h2"    , :text => category1.name
-    page.should have_css ".category h2"    , :text => category2.name
+    page.should have_css ".category h2"    , :text => @category1.name
+    page.should have_css ".category h2"    , :text => @category2.name
   end
 
 end
