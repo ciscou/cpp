@@ -1,8 +1,8 @@
 <li class="product">
-  <%= link_to image_tag(product.picture.thumb.url, :alt => product.name), product.picture.url, :class => "thumb", :title => product.name, :name => product.to_param %>
+  <%= link_to image_tag(product.picture_url(:thumb), :alt => product.name), product.picture_url, :class => "thumb", :title => product.name, :name => product.to_param %>
   <div class="caption">
     <div class="download">
-      <%= link_to "Descargar Original", product.picture.url %>
+      <%= link_to "Descargar Original", product.picture_url %>
     </div>
     <div class="image-title"><%= product.name %></div>
     <div class="image-desc">

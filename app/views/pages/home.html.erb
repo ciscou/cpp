@@ -11,7 +11,7 @@
         <%= div_for product, :class => "item-box hproduct" do %>
           <h2 class="fn"><%= link_to product.name, category_products_path(product.category, :anchor => product.to_param) %></h2>
           <p><%= link_to(
-            image_tag(product.picture_url(:thumb), :class => "alignleft photo", :alt => product.name),
+            image_tag(product.picture_url(:small), :class => "alignleft photo", :alt => product.name),
             category_products_path(product.category, :anchor => product.to_param)
           ) %></p>
           <p>En la categoría de <%= link_to product.category.name, category_products_path(product.category), :class => "category" %></p>
