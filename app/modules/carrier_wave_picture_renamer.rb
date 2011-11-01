@@ -1,6 +1,6 @@
 module CarrierWavePictureRenamer
   def self.included(base)
-  base.after_validation :rename_picture, :if => :name_changed?, :unless => :picture_changed?, :on => :update
+    base.after_validation :rename_picture, :if => :name_changed?, :unless => :picture_changed?, :on => :update
   end
 
   private
