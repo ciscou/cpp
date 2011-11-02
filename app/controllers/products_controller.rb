@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
   respond_to :html
 
   def index
-    respond_with [@category, @products]
+    respond_with @category, @products
   end
 
   def search
@@ -21,30 +21,30 @@ class ProductsController < ApplicationController
   end
 
   def show
-    respond_with [@category, @product]
+    respond_with @category, @product
   end
 
   def new
-    respond_with [@category, @product]
+    respond_with @category, @product
   end
 
   def edit
-    respond_with [@category, @product]
+    respond_with @category, @product
   end
 
   def create
     @product.save
-    respond_with [@category, @product], :location => category_products_url(@category, :anchor => @product.to_param)
+    respond_with @category, @product, :location => category_products_url(@category, :anchor => @product.to_param)
   end
 
   def update
     @product.save
-    respond_with [@category, @product], :location => category_products_url(@category, :anchor => @product.to_param)
+    respond_with @category, @product, :location => category_products_url(@category, :anchor => @product.to_param)
   end
 
   def destroy
     @product.destroy
-    respond_with [@category, @product]
+    respond_with @category, @product
   end
 
   private
