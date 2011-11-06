@@ -32,7 +32,9 @@
 
   <%= paginate @categories %>
 
-  <%= render @categories, :picture_version => :small %>
+  <% @categories.each_slice(2) do |category1, category2| %>
+    <%= render "two_columns", :category1 => category1, :category2 => category2 %>
+  <% end %>
 
   <%= paginate @categories %>
 

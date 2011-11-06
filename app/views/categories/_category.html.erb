@@ -1,9 +1,10 @@
-<%= div_for category, :class => "item-box" do %>
+<%= div_for category, :class => column do %>
   <h2><%= link_to_unless_current category.name, category_products_path(category) %></h2>
-  <p><%= link_to_unless_current(
+  <div><%= link_to_unless_current(
     image_tag(category.picture_url(picture_version), :class => "alignleft", :alt => category.name),
     category_products_path(category)
-  ) %></p>
+  ) %></div>
+  <div class="clearfix"></div>
   <%= simple_format category.description %>
   <% if can? :manage, :categories %>
     <p>

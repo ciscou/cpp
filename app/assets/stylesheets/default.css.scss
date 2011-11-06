@@ -486,6 +486,16 @@ ol.style2 li {
 	background: url(/assets/subpage1_04.gif) no-repeat left bottom;
 }
 
+.item-box .category.left {
+  width: 300px;
+  float: left;
+}
+
+.item-box .category.right {
+  width: 300px;
+  float: right;
+}
+
 .details .item-box {
 	width: 640px;
 	margin-bottom: 0px;
@@ -551,18 +561,6 @@ ol.style2 li {
 .details .item-box .details {
 	display: inline-block;
 	width: 240px;
-}
-
-.item-box .left {
-	float: left;
-	margin-top: 10px;
-	font-size: 24px;
-	font-weight: bold;
-	color: #323232;
-}
-
-.item-box .right {
-	float: right;
 }
 
 /** CONTENT BANNER */
