@@ -1,12 +1,13 @@
-<li class="product">
-  <%= link_to image_tag(product.picture_url(:thumb), :alt => product.name), product.picture_url, :class => "thumb", :title => product.name, :name => product.to_param %>
+<%= content_tag_for :li, product, :class => "hproduct" do %>
+  <%= link_to image_tag(product.picture_url(:thumb), :alt => product.name, :class => "photo"), product.picture_url, :class => "thumb", :title => product.name, :name => product.to_param %>
   <div class="caption">
     <div class="download">
       <%= link_to "Descargar Original", product.picture_url %>
     </div>
-    <div class="image-title"><%= product.name %></div>
+    <div class="image-title fn"><%= product.name %></div>
     <div class="image-desc">
-      <%= simple_format product.description %>
+      <p>En la categoría de <span class="category"><%= product.category.name %></span></p>
+      <%= simple_format product.description, :class => "description" %>
       <% if can? :manage, :products %>
         <p>
           <%= link_to "Editar", edit_category_product_path(product.category, product) %> |
@@ -15,4 +16,4 @@
       <% end %>
     </div>
   </div>
-</li>
+<% end %>
