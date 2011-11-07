@@ -26,7 +26,7 @@ jQuery(document).ready(function($) {
       imageContainerSel:         '#slideshow',
       controlsContainerSel:      '#controls',
       captionContainerSel:       '#caption',
-      loadingContainerSel:       '#loading',
+//    loadingContainerSel:       '#loading',
       renderSSControls:          true,
       renderNavControls:         true,
       playLinkText:              'Ver Presentación',
