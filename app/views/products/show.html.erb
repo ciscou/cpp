@@ -1,0 +1,30 @@
+<%= title @product.name %>
+
+<div id="box7" class="box-style">
+  <div class="title">
+    <h2><span>
+      <%= link_to "Catálogo", categories_path %> &rsaquo;
+      <%= link_to @product.category.name, category_products_path(@product.category) %> &rsaquo;
+      <%= @product.name %>
+    </span></h2>
+  </div>
+
+  <div class="content">
+
+    <%= div_for @product do %>
+
+      <%= image_tag @product.picture_url %>
+      <%= simple_format @product.description %>
+
+      <% if can? :manage, :products %>
+        <p>
+          <%= link_to "Editar", edit_category_product_path(@product.category, @product) %> |
+          <%= link_to "Eliminar", [@product.category, @product], :method => :delete, :confirm => "¿Estás seguro?" %>
+        </p>
+      <% end %>
+
+    <% end %>
+
+  </div>
+
+</div>
