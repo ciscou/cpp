@@ -3,6 +3,10 @@ module LayoutHelper
     content_for(:title) { h(page_title.to_s) }
   end
 
+  def description(meta_description)
+    content_for(:description) { meta_description }
+  end
+
   def wrapper_class
     case params[:action]
     when "index"                  then params[:controller] == "products" ? "single" : "listings"
