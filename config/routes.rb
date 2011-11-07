@@ -1,7 +1,6 @@
 Cpp::Application.routes.draw do
   devise_for :users
 
-  match "inicio"                => "pages#home"   , :as => "pages_home"
   match "quienes-somos"         => "pages#who"    , :as => "pages_who"
   match "donde-estamos"         => "pages#where"  , :as => "pages_where"
   match "contacte-con-nosotros" => "pages#contact", :as => "pages_contact"
