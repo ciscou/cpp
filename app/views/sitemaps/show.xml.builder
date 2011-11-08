@@ -5,7 +5,7 @@ xml.urlset :xmlns => "http://www.sitemaps.org/schemas/sitemap/0.9" do
   # homepage
   xml.url do
     xml.loc        root_url
-    xml.lastmod    Product.order(:created_at).last.try(:created_at).try(:iso8601)
+    xml.lastmod    Product.order(:updated_at).last.try(:updated_at).try(:iso8601)
     xml.changefreq 'always'
     xml.priority   0.8
   end
@@ -34,16 +34,26 @@ xml.urlset :xmlns => "http://www.sitemaps.org/schemas/sitemap/0.9" do
   # categories
   xml.url do
     xml.loc        categories_url
-    xml.lastmod    Category.order(:created_at).last.try(:created_at).try(:iso8601)
+    xml.lastmod    Category.order(:updated_at).last.try(:updated_at).try(:iso8601)
     xml.changefreq 'weekly'
     xml.priority   1.0
   end
 
-  # products
+  # categories
   Category.all.each do |category|
     xml.url do
       xml.loc        category_products_url(category)
-      xml.lastmod    category.products.order(:created_at).last.try(:created_at).try(:iso8601)
+      xml.lastmod    category.products.order(:updated_at).last.try(:updated_at).try(:iso8601)
+      xml.changefreq 'weekly'
+      xml.priority   1.0
+    end
+  end
+
+  # products
+  Product.accessible_by(current_ability).all.each do |product|
+    xml.url do
+      xml.loc        category_product_url(product.category, product)
+      xml.lastmod    product.updated_at.iso8601
       xml.changefreq 'weekly'
       xml.priority   1.0
     end
