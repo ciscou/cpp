@@ -21,7 +21,7 @@
       <p>Los productos que encontrará en esta sección son los siguientes:</p>
       <ul class="style1">
         <% Product.new_arrivals.all.each do |product| %>
-          <li><%= product.name %></li>
+          <li><%= product.name %> (En la categoría de <%= product.category.name %>)</li>
         <% end %>
       </ul>
     <% end %>
