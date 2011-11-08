@@ -18,7 +18,7 @@
     </div>
     <div class="content">
       <ul>
-        <% Category.all.each do |category| %>
+        <% Category.order(:position).all.each do |category| %>
           <li><%= link_to "#{category.name} (#{category.products.accessible_by(current_ability).count} productos)", category_products_path(category) %></li>
         <% end %>
       </ul>
