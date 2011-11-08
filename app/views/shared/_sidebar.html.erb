@@ -1,20 +1,18 @@
 <div id="sidebar">
-  <% if can? :new_arrivals, :products %>
-    <div id="box1" class="box-style">
-      <div class="title">
-        <h2><span>Categorías destacadas</span></h2>
-      </div>
-      <div class="content">
-        <ul>
-          <li><%= link_to "Últimas novedades (#{Product.new_arrivals.count})", new_arrivals_products_path %></li>
-        </ul>
-        <p><%= link_to "Ver todas las categorías", categories_path, :class => "link1" %></p>
-      </div>
+  <div id="box1" class="box-style">
+    <div class="title">
+      <h2><span>Categorías destacadas</span></h2>
     </div>
-  <% end %>
+    <div class="content">
+      <ul>
+        <li><%= link_to "Últimas novedades (#{Product.new_arrivals.count})", new_arrivals_path %></li>
+      </ul>
+      <p><%= link_to "Ver todas las categorías", categories_path, :class => "link1" %></p>
+    </div>
+  </div>
   <div id="box2" class="box-style">
     <div class="title">
-      <h2><span>Categorías</span></h2>
+      <h2><span>Otras categorías</span></h2>
     </div>
     <div class="content">
       <ul>

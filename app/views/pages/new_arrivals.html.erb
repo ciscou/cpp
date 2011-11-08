@@ -1,0 +1,20 @@
+<%= title "Novedades" %>
+
+<div id="box7" class="box-style">
+  <div class="title">
+    <h2><span>
+      <%= link_to "Catálogo", categories_path %> &rsaquo;
+      Últimas novedades
+    </span></h2>
+  </div>
+  <div class="content">
+    <p>Lo sentimos, sólo los usuarios premium pueden ver las últimas novedades. Si desea solicitar una cuenta premium, no dude en <%= link_to "contactar con nosotros", pages_contact_path %>.</p>
+    <p>Si ya dispone de una cuenta premium, por favor <%= link_to "inicie sesión", new_user_session_path %> para continuar.</p>
+    <p>También puede usar el buscador, o mirar el resto del catálogo, clasificado en las siguientes categorías:</p>
+    <ul class="style1">
+      <% Category.order(:position).all.each do |category| %>
+        <li><%= link_to category.name, category_products_path(category) %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

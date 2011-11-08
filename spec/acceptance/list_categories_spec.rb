@@ -14,11 +14,11 @@ feature 'List categories', %q{
                  Factory :product, :category => @category1, :new_arrival => true
   end
 
-  scenario 'as regular user, should only see the two categories' do
+  scenario 'as regular user, should see the two categories and th new arrivals section' do
     visit homepage
     click_link "Catálogo"
 
-    page.should have_no_css "#new_arrivals"
+    page.should have_css "#new_arrivals h2", :text => "Últimas novedades"
     page.should have_css ".category h2"    , :text => @category1.name
     page.should have_css ".category h2"    , :text => @category2.name
   end
