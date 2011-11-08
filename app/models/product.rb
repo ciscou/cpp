@@ -1,5 +1,8 @@
+require 'texticle/searchable'
+
 class Product < ActiveRecord::Base
   include CarrierWavePictureRenamer
+  extend Searchable(:name, :description)
 
   belongs_to :category
 
