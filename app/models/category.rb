@@ -1,6 +1,8 @@
 class Category < ActiveRecord::Base
   include CarrierWavePictureRenamer
 
+  acts_as_list
+
   has_many :products, :dependent => :destroy
 
   validates :name, :presence => true, :uniqueness => true

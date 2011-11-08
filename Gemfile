@@ -18,6 +18,8 @@ end
 
 gem 'jquery-rails'
 
+gem 'acts_as_list'
+
 gem 'mini_magick'
 gem 'carrierwave'
 gem 'fog'

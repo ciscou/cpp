@@ -8,6 +8,8 @@ Cpp::Application.routes.draw do
 
   resources :categories, :path => "catalogo" do
     get 'pagina/:page', :action => :index, :on => :collection
+    post 'move_lower' , :on => :member
+    post 'move_higher', :on => :member
     resources :products, :path => "productos"
   end
 
