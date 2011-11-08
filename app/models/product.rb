@@ -14,6 +14,10 @@ class Product < ActiveRecord::Base
 
   mount_uploader :picture, PictureUploader
 
+  def self.searchable_language
+    'spanish'
+  end
+
   def to_param
     "#{id}-#{name.parameterize}"
   end
