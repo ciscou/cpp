@@ -4,7 +4,6 @@ class Product < ActiveRecord::Base
   belongs_to :category
 
   scope :featured, order("random()").limit(5)
-  scope :search, lambda { |q| where("upper(name) like ?", "%#{q.upcase}%") }
   scope :new_arrivals, where(:new_arrival => true).order("created_at desc")
 
   validates :name, :presence => true, :uniqueness => true
