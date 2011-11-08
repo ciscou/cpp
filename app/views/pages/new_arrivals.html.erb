@@ -1,4 +1,5 @@
-<%= title "Novedades" %>
+<%= title "Últimas novedades" %>
+<%= description "Últimas novedades" %>
 
 <div id="box7" class="box-style">
   <div class="title">
@@ -16,5 +17,13 @@
         <li><%= link_to category.name, category_products_path(category) %></li>
       <% end %>
     </ul>
+    <% if Product.new_arrivals.any? %>
+      <p>Los productos que encontrará en esta sección son los siguientes:</p>
+      <ul class="style1">
+        <% Product.new_arrivals.all.each do |product| %>
+          <li><%= product.name %></li>
+        <% end %>
+      </ul>
+    <% end %>
   </div>
 </div>

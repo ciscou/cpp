@@ -31,7 +31,7 @@ xml.urlset :xmlns => "http://www.sitemaps.org/schemas/sitemap/0.9" do
     xml.priority   0.2
   end
 
-  # categories
+  # catalog
   xml.url do
     xml.loc        categories_url
     xml.lastmod    Category.order(:updated_at).last.try(:updated_at).try(:iso8601)
@@ -57,6 +57,14 @@ xml.urlset :xmlns => "http://www.sitemaps.org/schemas/sitemap/0.9" do
       xml.changefreq 'weekly'
       xml.priority   1.0
     end
+  end
+
+  # new arrivals section
+  xml.url do
+    xml.loc        new_arrivals_url
+    xml.lastmod    Product.new_arrivals.last.try(:updated_at).try(:iso8601)
+    xml.changefreq 'weekly'
+    xml.priority   0.7
   end
 
 end

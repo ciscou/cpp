@@ -6,4 +6,12 @@ module ProductsHelper
       pages_new_arrivals_path
     end
   end
+
+  def new_arrivals_url
+    if can? :new_arrivals, :products
+      new_arrivals_products_url
+    else
+      pages_new_arrivals_url
+    end
+  end
 end
