@@ -4,6 +4,7 @@
   <title>Cerámica Padilla Padilla<%= " - #{yield(:title)}" if content_for?(:title) %></title>
   <meta name="keywords" content="" />
   <% if content_for?(:description) %><meta name="description" content="<%= yield(:description) %>" /><% end %>
+  <link rel="shortcut icon" href="/favicon.ico" />
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
