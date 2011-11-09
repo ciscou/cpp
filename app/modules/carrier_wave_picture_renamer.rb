@@ -6,7 +6,10 @@ module CarrierWavePictureRenamer
   private
 
   def rename_picture
-    new_picture = "#{name.parameterize}#{File.extname read_attribute(:picture)}"
+    old_picture = read_attribute(:picture)
+    new_picture = "#{name.parameterize}#{File.extname old_picture}"
+    return if old_picture == new_picture
+
     picture.file.move(new_picture)
     picture.versions.keys.each do |version|
       picture.send(version).file.move("#{version}_#{new_picture}")
