@@ -43,8 +43,10 @@ gem 'texticle', '~> 2.0', :require => 'texticle/rails'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
-gem 'factory_girl_rails'
-gem 'ffaker'
+group :development, :test do
+  gem 'factory_girl_rails'
+  gem 'ffaker'
+end
 
 group :test do
   # Pretty printed test output
