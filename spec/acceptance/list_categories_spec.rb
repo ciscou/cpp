@@ -9,9 +9,9 @@ feature 'List categories', %q{
 } do
 
   background do
-    @category1 = Factory :category
-    @category2 = Factory :category
-                 Factory :product, :category => @category1, :new_arrival => true
+    @category1 = FactoryGirl.create :category
+    @category2 = FactoryGirl.create :category
+                 FactoryGirl.create :product, :category => @category1, :new_arrival => true
   end
 
   scenario 'as regular user, should see the two categories and th new arrivals section' do
@@ -24,7 +24,7 @@ feature 'List categories', %q{
   end
 
   scenario 'as premium user, should see the two categories and the new arrivals section' do
-    user = Factory :user, :premium => true
+    user = FactoryGirl.create :user, :premium => true
     login_as user
     click_link "Catálogo"
 

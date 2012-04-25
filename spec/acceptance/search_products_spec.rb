@@ -7,9 +7,9 @@ feature 'Search products', %q{
 } do
 
   background do
-    @product1 = Factory :product, :name => "an awesome product"
-    @product2 = Factory :product, :name => "another cool product"
-    @product3 = Factory :product, :name => "a new awesome product", :new_arrival => true
+    @product1 = FactoryGirl.create :product, :name => "an awesome product"
+    @product2 = FactoryGirl.create :product, :name => "another cool product"
+    @product3 = FactoryGirl.create :product, :name => "a new awesome product", :new_arrival => true
   end
 
   scenario 'as an annonymous user' do
@@ -24,7 +24,7 @@ feature 'Search products', %q{
   end
 
   scenario 'as a regular user' do
-    user = Factory :user, :premium => false
+    user = FactoryGirl.create :user, :premium => false
     login_as user
 
     fill_in "q", :with => "awesome product"
@@ -36,7 +36,7 @@ feature 'Search products', %q{
   end
 
   scenario 'as a premium user' do
-    user = Factory :user, :premium => true
+    user = FactoryGirl.create :user, :premium => true
     login_as user
 
     fill_in "q", :with => "awesome product"

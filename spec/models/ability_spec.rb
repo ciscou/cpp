@@ -2,14 +2,14 @@ require "spec_helper"
 require "cancan/matchers"
 
 describe Ability do
-  let(:category)    { Factory.build :category }
-  let(:product)     { Factory.build :product, :category => category }
+  let(:category)    { FactoryGirl.build :category }
+  let(:product)     { FactoryGirl.build :product, :category => category }
   let(:old_product) { product.tap { |p| p.new_arrival = false } }
   let(:new_product) { product.tap { |p| p.new_arrival = true } }
 
   {
     :guest => nil,
-    :regular_user => Factory(:user, :admin => false, :premium => false)
+    :regular_user => FactoryGirl.create(:user, :admin => false, :premium => false)
   }.each do |k, v|
     describe "as #{k}" do
       subject { Ability.new(v) }
@@ -29,7 +29,7 @@ describe Ability do
   end
 
   describe "as premium user" do
-    subject { Ability.new(Factory :user, :admin => false, :premium => true) }
+    subject { Ability.new(FactoryGirl.create :user, :admin => false, :premium => true) }
 
     it { should be_able_to :access, :pages }
     it { should be_able_to :read,   old_product }
@@ -45,7 +45,7 @@ describe Ability do
   end
 
   describe "as admin" do
-    subject { Ability.new(Factory :user, :admin => true) }
+    subject { Ability.new(FactoryGirl.create :user, :admin => true) }
 
     it { should be_able_to :access, :all }
   end

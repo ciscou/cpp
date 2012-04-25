@@ -7,9 +7,9 @@ feature 'List products by category', %q{
 } do
 
   background do
-    @product1 = Factory :product
-    @product2 = Factory :product
-    @product3 = Factory :product, :category => @product1.category, :new_arrival => true
+    @product1 = FactoryGirl.create :product
+    @product2 = FactoryGirl.create :product
+    @product3 = FactoryGirl.create :product, :category => @product1.category, :new_arrival => true
   end
 
   scenario 'as an annonymous user' do
@@ -23,7 +23,7 @@ feature 'List products by category', %q{
   end
 
   scenario 'as a regular user' do
-    user = Factory :user, :premium => false
+    user = FactoryGirl.create :user, :premium => false
     login_as user
 
     click_link @product1.category.name
@@ -34,7 +34,7 @@ feature 'List products by category', %q{
   end
 
   scenario 'as a premium user' do
-    user = Factory :user, :premium => true
+    user = FactoryGirl.create :user, :premium => true
     login_as user
 
     click_link @product1.category.name

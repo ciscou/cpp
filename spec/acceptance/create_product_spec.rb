@@ -9,7 +9,7 @@ feature 'Create product', %q{
 } do
 
   background do
-    @category = Factory :category
+    @category = FactoryGirl.create :category
   end
 
   context "as guest" do
@@ -30,7 +30,7 @@ feature 'Create product', %q{
 
   context "as regular user" do
     background do
-      user = Factory :user, :admin => false
+      user = FactoryGirl.create :user, :admin => false
       login_as user
     end
 
@@ -47,7 +47,7 @@ feature 'Create product', %q{
 
   context "as admin" do
     background do
-      admin = Factory :user, :admin => true
+      admin = FactoryGirl.create :user, :admin => true
       login_as admin
     end
 
