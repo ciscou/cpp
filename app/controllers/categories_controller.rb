@@ -4,7 +4,7 @@ class CategoriesController < ApplicationController
   respond_to :html
 
   def index
-    @categories = @categories.order(:position).page params[:page]
+    @categories = @categories.page params[:page]
     respond_with @categories
   end
 
