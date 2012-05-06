@@ -15,4 +15,12 @@ class Category < ActiveRecord::Base
   def to_param
     "#{id}-#{name.parameterize}"
   end
+
+  def decoration_codes=(codes)
+    self.decorations_mask = Decoration.codes_to_mask(codes)
+  end
+
+  def decoration_codes
+    Decoration.mask_to_codes(decorations_mask)
+  end
 end
