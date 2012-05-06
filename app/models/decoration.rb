@@ -15,7 +15,7 @@ class Decoration
   end
 
   def self.mask_to_codes(mask)
-    mask.
+    (mask || "0" * DECORATIONS.size).
       each_char.
       map(&:to_i).
       each_with_index.
