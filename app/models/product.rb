@@ -9,8 +9,6 @@ class Product < ActiveRecord::Base
   scope :featured, order("random()").limit(5)
   scope :new_arrivals, where(:new_arrival => true).order("created_at desc")
 
-  default_scope order(:created_at).reverse_order
-
   validates :name, :presence => true, :uniqueness => true
   validates :picture, :presence => true
 

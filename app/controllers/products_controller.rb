@@ -7,6 +7,7 @@ class ProductsController < ApplicationController
   respond_to :html
 
   def index
+    @products = @products.order(:created_at).reverse_order
     respond_with @category, @products
   end
 
