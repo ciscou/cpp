@@ -8,6 +8,7 @@ class Product < ActiveRecord::Base
 
   scope :featured, order("random()").limit(5)
   scope :new_arrivals, where(:new_arrival => true).order("created_at desc")
+  scope :with_decoration, lambda { |decoration_code| where(:decoration_code => decoration_code) if decoration_code.present? }
 
   validates :name, :presence => true, :uniqueness => true
   validates :picture, :presence => true

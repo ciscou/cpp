@@ -24,6 +24,10 @@
     <%= f.label     :new_arrival, "¿Novedad?" %>
   </div>
   <div class="field">
+    <%= f.label :decoration_code, "Decoración de la foto" %><br />
+    <%= f.select :decoration_code, Decoration::DECORATIONS.map { |k, v| [v, k] } %>
+  </div>
+  <div class="field">
     <%= f.label :picture, "Foto" %><br />
     <%= f.file_field :picture %>
   </div>

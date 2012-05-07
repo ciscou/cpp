@@ -12,7 +12,8 @@ class ProductsController < ApplicationController
   end
 
   def search
-    @products = @products.search(params[:q])
+    @products = @products.with_decoration(params[:decoration_code])
+    @products = @products.search(params[:q]) if params[:q].present?
     respond_with @products, :template => "products/index"
   end
 
