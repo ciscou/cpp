@@ -23,4 +23,8 @@ class Category < ActiveRecord::Base
   def decoration_codes
     Decoration.mask_to_codes(decorations_mask)
   end
+
+  def decorations
+    decoration_codes.map { |c| Decoration.new(c) }
+  end
 end

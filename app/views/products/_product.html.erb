@@ -7,6 +7,12 @@
     <div class="image-title fn"><%= product.name %></div>
     <div class="image-desc">
       <p>En la categoría de <span class="category"><%= product.category.name %></span></p>
+      <% if product.category.decorations.any? %>
+        <p>
+        También disponible en estas decoraciones:
+        <%= product.category.decorations.map { |decoration| link_to(decoration.name, search_products_path(:decoration_code => decoration.code), :style => "text-decoration: underline;") }.to_sentence.html_safe %>
+        </p>
+      <% end %>
       <%= simple_format product.description, :class => "description" %>
       <% if can? :manage, :products %>
         <p>

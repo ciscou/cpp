@@ -21,6 +21,10 @@ class Decoration
     "multi_flower"         => "Multiflor"
   }
 
+  def initialize(code)
+    @code = code
+  end
+
   def self.codes_to_mask(codes)
     codes.
       select(&:present?).
@@ -37,5 +41,11 @@ class Decoration
       each_with_index.
       select { |c, _| c == 1 }.
       map { |_, i| DECORATIONS.keys[i] }
+  end
+
+  attr_reader :code
+
+  def name
+    DECORATIONS[@code]
   end
 end
