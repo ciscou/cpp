@@ -2,13 +2,14 @@ class Decoration
   DECORATIONS = {
     "bla" => "Bla",
     "ble" => "Ble",
-    "bli" => "Bli"
+    "bli" => "Bli",
+    "blo" => "Blo"
   }
 
   def self.codes_to_mask(codes)
     codes.
       select(&:present?).
-      map { |c| 2 ** DECORATIONS.keys.index(c) }.
+      map { |c| 2 ** DECORATIONS.keys.reverse.index(c) }.
       inject(0, :+).
       to_s(2).
       rjust(DECORATIONS.size, "0")
@@ -20,6 +21,6 @@ class Decoration
       map(&:to_i).
       each_with_index.
       select { |c, _| c == 1 }.
-      map { |_, i| DECORATIONS.keys.reverse[i] }
+      map { |_, i| DECORATIONS.keys[i] }
   end
 end
