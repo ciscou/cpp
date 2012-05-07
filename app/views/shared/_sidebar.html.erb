@@ -6,6 +6,8 @@
     <div class="content">
       <ul>
         <li><%= link_to "Últimas novedades (#{Product.new_arrivals.count})", new_arrivals_path %></li>
+        <li><%= link_to "Búsqueda 'cazuelas' (#{Product.search('cazuelas').count})", search_products_path(:q => 'cazuelas') %></li>
+        <li><%= link_to "Decoración 'Retro verde' (#{Product.with_decoration('green_retro').count})", search_products_path(:decoration_code => 'green_retro') %></li>
       </ul>
       <p><%= link_to "Ver todas las categorías", categories_path, :class => "link1" %></p>
     </div>
@@ -17,7 +19,7 @@
     <div class="content">
       <ul>
         <% Category.order(:position).all.each do |category| %>
-          <li><%= link_to "#{category.name} (#{category.products.accessible_by(current_ability).count} productos)", category_products_path(category) %></li>
+          <li><%= link_to "#{category.name} (#{category.products.accessible_by(current_ability).count})", category_products_path(category) %></li>
         <% end %>
       </ul>
     </div>
