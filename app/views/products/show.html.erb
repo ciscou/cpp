@@ -15,6 +15,13 @@
     <%= div_for @product do %>
 
       <%= image_tag @product.picture_url %>
+      <p>En la categoría de <span class="category"><%= link_to @product.category.name, category_products_path(@product.category) %></span></p>
+      <% if @product.category.decorations.any? %>
+        <p>
+        También disponible en estas decoraciones:
+        <%= @product.category.decorations.map { |decoration| link_to(decoration.name, search_products_path(:decoration_code => decoration.code), :style => "text-decoration: underline;") }.to_sentence.html_safe %>
+        </p>
+      <% end %>
       <%= simple_format @product.description %>
 
       <% if can? :manage, :products %>
