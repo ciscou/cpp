@@ -22,4 +22,8 @@ class Product < ActiveRecord::Base
   def to_param
     "#{id}-#{name.parameterize}"
   end
+
+  def decoration
+    Decoration.new(decoration_code)
+  end
 end
