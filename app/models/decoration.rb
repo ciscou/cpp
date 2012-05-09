@@ -16,7 +16,7 @@ class Decoration
     "green_alhambra"       => "Alhambra verde",
     "blue_retro"           => "Retro azul",
     "green_retro"          => "Retro verde",
-    "olive_r"              => "Aceituna R",
+    "poppy"                => "Amapola",
     "baecula"              => "Baécula",
     "multi_flower"         => "Multiflor"
   }
