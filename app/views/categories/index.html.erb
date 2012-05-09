@@ -2,7 +2,7 @@
 
 <div id="box6" class="box-style">
 
-  <% if Product.new_arrivals.any? %>
+  <% if can?(:read, :new_arrivals) and Product.new_arrivals.any? %>
     <div class="title">
       <h2><span>Categorías destacadas</span></h2>
     </div>
