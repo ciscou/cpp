@@ -21,8 +21,7 @@ feature 'List products by category', %q{
     page.current_url.should == pages_new_arrivals_url
 
     click_link "Catálogo"
-    within("#new_arrivals") { click_link "Últimas novedades" }
-    page.current_url.should == pages_new_arrivals_url
+    page.should have_no_css "#new_arrivals"
   end
 
   scenario 'as a regular user' do
@@ -33,8 +32,7 @@ feature 'List products by category', %q{
     page.current_url.should == pages_new_arrivals_url
 
     click_link "Catálogo"
-    within("#new_arrivals") { click_link "Últimas novedades" }
-    page.current_url.should == pages_new_arrivals_url
+    page.should have_no_css "#new_arrivals"
   end
 
   scenario 'as a premium user' do
