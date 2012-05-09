@@ -15,16 +15,12 @@
     <%= div_for @product do %>
 
       <%= image_tag @product.picture_url %>
-      <p>En la categoría de <span class="category"><%= link_to @product.category.name, category_products_path(@product.category) %></span></p>
       <% if @product.decoration.name.present? %>
         <p>
-        La decoración de la foto es <%= link_to(@product.decoration.name, search_products_path(:decoration_code => @product.decoration.code)) %>
-        </p>
-      <% end %>
-      <% if @product.category.decorations.any? %>
-        <p>
-        También disponible en estas decoraciones:
-        <%= @product.category.decorations.map { |decoration| link_to(decoration.name, search_products_path(:decoration_code => decoration.code), :style => "text-decoration: underline;") }.to_sentence.html_safe %>
+          <span style="font-weight: bold;">La decoración de la foto es <%= link_to(@product.decoration.name, search_products_path(:decoration_code => @product.decoration.code)) %>.</span>
+        <% if @product.category.decorations.any? %>
+          También disponible en las decoraciones <%= @product.category.decorations.map { |decoration| link_to(decoration.name, search_products_path(:decoration_code => decoration.code), :style => "text-decoration: underline;") }.to_sentence.html_safe %>
+        <% end %>
         </p>
       <% end %>
       <%= simple_format @product.description %>

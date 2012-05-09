@@ -4,18 +4,14 @@
     <div class="download">
       <%= link_to "Descargar Original", product.picture_url %>
     </div>
-    <div class="image-title fn"><%= product.name %></div>
+    <div class="image-title fn"><%= link_to product.name, [product.category, product] %></div>
     <div class="image-desc">
-      <p>En la categoría de <span class="category"><%= product.category.name %></span></p>
       <% if product.decoration.name.present? %>
         <p>
-        La decoración de la foto es <%= link_to(product.decoration.name, search_products_path(:decoration_code => product.decoration.code)) %>
-        </p>
-      <% end %>
-      <% if product.category.decorations.any? %>
-        <p>
-        También disponible en estas decoraciones:
-        <%= product.category.decorations.map { |decoration| link_to(decoration.name, search_products_path(:decoration_code => decoration.code), :style => "text-decoration: underline;") }.to_sentence.html_safe %>
+          <span style="font-weight: bold;">La decoración de la foto es <%= link_to(product.decoration.name, search_products_path(:decoration_code => product.decoration.code)) %>.</span>
+        <% if product.category.decorations.any? %>
+          También disponible en las decoraciones <%= product.category.decorations.map { |decoration| link_to(decoration.name, search_products_path(:decoration_code => decoration.code), :style => "text-decoration: underline;") }.to_sentence.html_safe %>
+        <% end %>
         </p>
       <% end %>
       <%= simple_format product.description, :class => "description" %>
