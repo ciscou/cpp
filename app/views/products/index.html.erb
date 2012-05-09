@@ -10,6 +10,8 @@
       Productos en la categoría <%= @category.name %>
     <% elsif params[:q] %>
       Resultado de la búsqueda: <%= params[:q].inspect %>
+    <% elsif params[:decoration_code] %>
+      Ejemplos de la decoración <%= Decoration.new(params[:decoration_code]).name %>
     <% else %>
       Últimas novedades
     <% end %>
