@@ -24,9 +24,9 @@ xml.urlset :xmlns => "http://www.sitemaps.org/schemas/sitemap/0.9" do
     xml.priority   0.8
   end
 
-  # contact static page
+  # contact us page
   xml.url do
-    xml.loc        pages_contact_url
+    xml.loc        new_contact_url
     xml.changefreq 'monthly'
     xml.priority   0.2
   end

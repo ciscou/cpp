@@ -16,6 +16,11 @@ class Ability
       end
     end
 
+    can :new, :contacts
+    if user.persisted?
+      can :create, :contacts
+    end
+
     can :read, :sitemaps
   end
 end

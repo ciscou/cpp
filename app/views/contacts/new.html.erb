@@ -1,0 +1,38 @@
+<% title "Contacte con nosotros" %>
+
+<div id="box7" class="box-style">
+  <div class="title">
+    <h2><span>Contacte con nosotros</span></h2>
+  </div>
+  <div class="content">
+    <p>
+    Puede contactar con nosotros a través de los siguientes medios:
+    </p>
+    <ul>
+      <li><strong>Teléfono</strong> 953 678 087</li>
+      <li><strong>Fax</strong> 953 670 902</li>
+      <li><strong>e-mail</strong> fabrica@ceramicapadilla.es</li>
+    </ul>
+    <p style="margin-top: 30px;">
+    <% if user_signed_in? %>
+      O si lo prefiere, puede rellenar el siguiente formulario:
+    <% else %>
+      O si lo prefiere, <%= link_to "inicie sesión", new_user_session_path %> y rellene el siguiente formulario:
+    <% end %>
+    </p>
+
+    <%= form_for @contact do |f| %>
+      <p>
+      <%= f.label :subject, "Asunto" %><br/>
+      <%= f.select :subject, Contact::SUBJECTS, { :prompt => "Por favor, elija el motivo de su consulta" }, :disabled => ! user_signed_in? %>
+      </p>
+      <p>
+      <%= f.label :body, "Mensaje" %><br/>
+      <%= f.text_area :body, :disabled => ! user_signed_in? %>
+      </p>
+      <p>
+      <%= f.submit "Enviar", :disabled => ! user_signed_in? %>
+      </p>
+    <% end %>
+  </div>
+</div>

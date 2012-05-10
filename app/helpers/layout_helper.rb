@@ -8,22 +8,24 @@ module LayoutHelper
   end
 
   def wrapper_class
-    case params[:action]
-    when "index"                  then params[:controller] == "products" ? "single" : "listings"
+    case action_name
+    when "index"                  then controller_name == "products" ? "single" : "listings"
     when "show"                   then "details"
-    when "search", "new_arrivals" then params[:controller] == "products" ? "single" : "default"
+    when "search", "new_arrivals" then controller_name == "products" ? "single" : "default"
     else                               "default"
     end
   end
 
   def active_tab?(tab)
     case tab
-    when "home", "who", "where", "contact"
-      params[:controller] == "pages" and
-      params[:action]     ==  tab
+    when "home", "who", "where"
+      controller_name == "pages" and
+      action_name     ==  tab
     when "categories"
-      params[:controller] == "categories" or
-      params[:controller] == "products"
+      controller_name == "categories" or
+      controller_name == "products"
+    when "contact"
+      controller_name == "contacts"
     end
   end
 end
