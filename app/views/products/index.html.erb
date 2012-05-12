@@ -1,5 +1,5 @@
-<% title @category ? @category.name : params[:q] ? "Resultado de la búsqueda" : "Últimas novedades" %>
-<% description @category ? @category.description : params[:q] ? "Productos que coinciden con la búsqueda #{params[:q].inspect}" : "Últimas novedades" %>
+<% title       @category ? @category.name        : params[:q] ? "Resultado de la búsqueda"                                      : params[:decoration_code] ? "Decoración #{Decoration.new(params[:decoration_code]).name}" : "Últimas novedades" %>
+<% description @category ? @category.description : params[:q] ? "Productos que coinciden con la búsqueda #{params[:q].inspect}" : params[:decoration_code] ? "Decoración #{Decoration.new(params[:decoration_code]).name}" : "Últimas novedades" %>
 
 <div id="box6" class="box-style">
 
