@@ -18,7 +18,8 @@ class Decoration
     "green_retro"          => "Retro verde",
     "poppy"                => "Amapola",
     "baecula"              => "Baécula",
-    "multi_flower"         => "Multiflor"
+    "multi_flower"         => "Multiflor",
+    "mabe"                 => "Mabe"
   }
 
   def initialize(code)
