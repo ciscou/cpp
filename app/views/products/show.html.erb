@@ -19,11 +19,14 @@
         <p>
           <span style="font-weight: bold;">La decoración de la foto es <%= link_to(@product.decoration.name, search_products_path(:decoration_code => @product.decoration.code)) %>.</span>
         <% if @product.category.decorations.any? %>
-          También disponible en las decoraciones <%= @product.category.decorations.map { |decoration| link_to(decoration.name, search_products_path(:decoration_code => decoration.code), :style => "text-decoration: underline;") }.to_sentence.html_safe %>
+          También disponible en las decoraciones:<br/>
+          <%= @product.category.decorations.map { |decoration| link_to(decoration.name, search_products_path(:decoration_code => decoration.code), :style => "text-decoration: underline; display: block; width: 150px; float: left;") }.join("").html_safe %>
         <% end %>
         </p>
       <% end %>
-      <%= simple_format @product.description %>
+      <div class="clearfix" style="padding-top: 20px">
+        <%= simple_format @product.description %>
+      </div>
 
       <% if can? :manage, :products %>
         <p>
