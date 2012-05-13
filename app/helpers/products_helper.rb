@@ -19,6 +19,6 @@ module ProductsHelper
 
   def link_to_search_products(query)
     link_to "Búsqueda '#{query}' (#{Product.accessible_by(current_ability).search(query).count})",
-      search_products_path(:q => '#{query}')
+      search_products_path(:q => query)
   end
 end
