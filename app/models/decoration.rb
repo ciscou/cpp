@@ -19,7 +19,9 @@ class Decoration
     "poppy"                => "Amapola",
     "baecula"              => "Baécula",
     "multi_flower"         => "Multiflor",
-    "mabe"                 => "Mabe"
+    "mabe"                 => "Mabe",
+    "bicolor"              => "Bicolor",
+    "granadine"            => "Granadino"
   }
 
   def initialize(code)
