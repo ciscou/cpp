@@ -6,8 +6,9 @@
     <div class="content">
       <ul>
         <li><%= link_to "Últimas novedades (#{Product.new_arrivals.count})", new_arrivals_path %></li>
-        <li><%= link_to "Búsqueda 'cazuelas' (#{Product.accessible_by(current_ability).search('cazuelas').count})", search_products_path(:q => 'cazuelas') %></li>
-        <li><%= link_to "Decoración 'Retro verde' (#{Product.accessible_by(current_ability).with_decoration('green_retro').count})", search_products_path(:decoration_code => 'green_retro') %></li>
+        <li><%= link_to_search_products "cuencos y ensaladeras" %></li>
+        <li><%= link_to_search_products "macetas" %></li>
+        <li><%= link_to_search_products "cazuelas" %></li>
       </ul>
       <p><%= link_to "Ver todas las categorías", categories_path, :class => "link1" %></p>
     </div>
