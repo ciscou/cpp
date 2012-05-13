@@ -14,7 +14,7 @@
         <p>Bienvenido, <%= current_user.email %>.</p>
         <p><%= link_to "Cerrar sesión", destroy_user_session_path, :method => :delete %></p>
       <% else %>
-        <p>Bienvenido, usuario anónimo.</p>
+        <p>Bienvenido a nuestra web.</p>
         <p>
           <%= link_to "Inicie sesión"  , new_user_session_path %> o
           <%= link_to "cree una cuenta", new_user_registration_path %>
