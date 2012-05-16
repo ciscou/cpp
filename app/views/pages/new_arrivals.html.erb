@@ -9,21 +9,13 @@
     </span></h2>
   </div>
   <div class="content">
-    <p>Lo sentimos, es necesario un permiso especial ver las últimas novedades. Si desea solicitar este permiso, no dude en <%= link_to "contactar con nosotros", new_contact_path %>.</p>
-    <p>Si ya dispone de una cuenta con permiso para ver las últimas novedades, por favor <%= link_to "inicie sesión", new_user_session_path %> para continuar.</p>
+    <p>Lo sentimos, sólo los usuarios clientes pueden ver las últimas novedades. Si desea solicitar una cuenta cliente, no dude en <%= link_to "contactar con nosotros", new_contact_path %>.</p>
+    <p>Si ya dispone de una cuenta cliente, por favor <%= link_to "inicie sesión", new_user_session_path %> para continuar.</p>
     <p>También puede usar el buscador, o mirar el resto del catálogo, clasificado en las siguientes categorías:</p>
     <ul class="style1">
       <% Category.order(:position).all.each do |category| %>
         <li><%= link_to category.name, category_products_path(category) %></li>
       <% end %>
     </ul>
-    <% if Product.new_arrivals.any? %>
-      <p>Los productos que encontrará en esta sección son los siguientes:</p>
-      <ul class="style1">
-        <% Product.new_arrivals.all.each do |product| %>
-          <li><%= product.name %> (En la categoría de <%= product.category.name %>)</li>
-        <% end %>
-      </ul>
-    <% end %>
   </div>
 </div>
