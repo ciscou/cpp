@@ -30,7 +30,7 @@
     </div>
     <div class="content">
       <% Category.order(:position).all.each do |category| %>
-        <% decorations = category.products.accessible_by(current_ability).where(:decoration_code => Decoration::DECORATION.keys).group(:decoration_code).count %>
+        <% decorations = category.products.accessible_by(current_ability).where(:decoration_code => Decoration::DECORATIONS.keys).group(:decoration_code).count %>
         <% if decorations.any? %>
           <h3>Decoraciones de <%= category.name %></h3>
           <ul>
