@@ -51,6 +51,13 @@ class Decoration
     DECORATIONS[tag] || {}
   end
 
+  def self.human_tag_name(tag)
+    {
+      "gardering" => "jardinería",
+      "household" => "menaje"
+    }[tag]
+  end
+
   attr_reader :tag, :code
 
   def name
