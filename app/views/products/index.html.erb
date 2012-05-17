@@ -1,20 +1,12 @@
-<% title       @category ? @category.name        : params[:q] ? "Resultado de la búsqueda"                                      : params[:decoration_code] ? "Decoración #{Decoration.new(params[:decoration_code]).name}" : "Últimas novedades" %>
-<% description @category ? @category.description : params[:q] ? "Productos que coinciden con la búsqueda #{params[:q].inspect}" : params[:decoration_code] ? "Decoración #{Decoration.new(params[:decoration_code]).name}" : "Últimas novedades" %>
+<% title       products_index_title       @category, @decoration, params[:q].presence %>
+<% description products_index_description @category, @decoration, params[:q].presence %>
 
 <div id="box6" class="box-style">
 
 <div class="title">
   <h2><span>
     <%= link_to "Catálogo", categories_path %> &rsaquo;
-    <% if @category %>
-      Productos en la categoría <%= @category.name %>
-    <% elsif params[:q] %>
-      Resultado de la búsqueda: <%= params[:q].inspect %>
-    <% elsif params[:decoration_code] %>
-      Ejemplos de la decoración <%= Decoration.new(params[:decoration_code]).name %>
-    <% else %>
-      Últimas novedades
-    <% end %>
+    <%= products_index_title(@category, @decoration, params[:q].presence) %>
   </span></h2>
 </div>
 

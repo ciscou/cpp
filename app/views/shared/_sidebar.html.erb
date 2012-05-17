@@ -24,15 +24,23 @@
         <% end %>
       </ul>
     </div>
+    <% if params[:foobar].present? %>
     <div class="title" style="margin-top: 20px;">
       <h2><span>Decoraciones</span></h2>
     </div>
     <div class="content">
-      <ul>
-        <% Decoration::DECORATIONS.each do |decoration_code, decoration_name| %>
-          <li><%= link_to "#{decoration_name} (#{Product.accessible_by(current_ability).with_decoration(decoration_code).count})", search_products_path(:decoration_code => decoration_code) %></li>
+      <% Category.order(:position).all.each do |category| %>
+        <% decorations = category.products.accessible_by(current_ability).where("decoration_code is not null").group(:decoration_code).count %>
+        <% if decorations.any? %>
+          <h3>Decoraciones de <%= category.name %></h3>
+          <ul>
+            <% decorations.each do |decoration_code, count| %>
+              <li><%= link_to "#{Decoration.new(decoration_code).name} (#{count})", category_products_path(category, :decoration_code => decoration_code) %></li>
+            <% end %>
+          </ul>
         <% end %>
-      </ul>
+      <% end %>
     </div>
+    <% end %>
   </div>
 </div>
