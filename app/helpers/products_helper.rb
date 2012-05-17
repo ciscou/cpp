@@ -24,13 +24,11 @@ module ProductsHelper
 
   def products_index_title(category, decoration, search)
     if category
-      category.name + if decoration
-                        " decorados en #{decoration.name}"
-                      else
-                        ""
-                      end
+      category.name
     elsif search
       "Resultado de la búsqueda #{search.inspect}"
+    elsif decoration
+      "Productos decorados en #{decoration.name}"
     else
       "Últimas novedades"
     end
@@ -38,13 +36,11 @@ module ProductsHelper
 
   def products_index_description(category, decoration, search)
     if category
-      category.description + if decoration
-                               " Se muestran los productos decorados en #{decoration.name}"
-                             else
-                               ""
-                             end
+      category.description
     elsif search
       "Productos que coinciden con la búsqueda #{search.inspect}"
+    elsif decoration
+      "Ejemplos de productos decorados en #{decoration.name}"
     else
       "Nuestras últimas creaciones, lo más nuevo del mercado"
     end

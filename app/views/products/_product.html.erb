@@ -9,10 +9,8 @@
       <% if product.decoration.name.present? %>
         <p>
           <span style="font-weight: bold;">La decoración de la foto es <%= link_to(product.decoration.name, category_products_path(product.category, :decoration_code => product.decoration.code)) %>.</span>
-        <% if product.category.decorations.any? %>
           También disponible en las decoraciones:<br/>
           <%= product.category.decorations.map { |decoration| link_to(decoration.name, category_products_path(product.category, :decoration_code => decoration.code), :style => "text-decoration: underline; display: block; width: 150px; float: left;") }.join("").html_safe %>
-        <% end %>
         </p>
       <% end %>
       <div class="clearfix" style="padding-top: 20px">
