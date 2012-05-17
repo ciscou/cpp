@@ -16,15 +16,7 @@ class Category < ActiveRecord::Base
     "#{id}-#{name.parameterize}"
   end
 
-  def decoration_codes=(codes)
-    self.decorations_mask = Decoration.codes_to_mask(codes)
-  end
-
-  def decoration_codes
-    Decoration.mask_to_codes(decorations_mask)
-  end
-
   def decorations
-    decoration_codes.map { |c| Decoration.new(c) }
+    Decoration.all_with_tag(decoration_tag)
   end
 end

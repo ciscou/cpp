@@ -8,7 +8,10 @@ class Product < ActiveRecord::Base
 
   scope :featured, order("random()").limit(5)
   scope :new_arrivals, where(:new_arrival => true).order("created_at desc")
-  scope :with_decoration, lambda { |decoration| where(:decoration_code => decoration.code) }
+  scope :with_decoration, lambda { |decoration|
+    joins(:category).where(:category => { :decoration_tag => decoration.tag },
+                           :decoration_code => decoration.code)
+  }
 
   validates :name, :presence => true, :uniqueness => true
   validates :picture, :presence => true
@@ -24,6 +27,6 @@ class Product < ActiveRecord::Base
   end
 
   def decoration
-    Decoration.new(decoration_code)
+    Decoration.new(category.decoration_tag, decoration_code)
   end
 end

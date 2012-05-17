@@ -2,53 +2,58 @@
 
 class Decoration
   DECORATIONS = {
-    "popular"              => "Popular",
-    "classic"              => "Clásico",
-    "228"                  => "228",
-    "207"                  => "207",
-    "carmen"               => "Carmen",
-    "honey_c1"             => "Miel C1",
-    "figs"                 => "Higos",
-    "olive_tree_r"         => "Oliva R",
-    "222"                  => "222",
-    "smoot_brushed_colors" => "Colores pincelados lisos",
-    "blue_alhambra"        => "Alhambra azul",
-    "green_alhambra"       => "Alhambra verde",
-    "blue_retro"           => "Retro azul",
-    "green_retro"          => "Retro verde",
-    "poppy"                => "Amapola",
-    "baecula"              => "Baécula",
-    "multi_flower"         => "Multiflor",
-    "mabe"                 => "Mabe",
-    "bicolor"              => "Bicolor",
-    "granadine"            => "Granadino"
+    "gardering" => {
+      "popular"              => "Popular",
+      "classic"              => "Clásico",
+      "228"                  => "228",
+      "207"                  => "207",
+      "carmen"               => "Carmen",
+      "honey_c1"             => "Miel C1",
+      "figs"                 => "Higos",
+      "olive_tree_r"         => "Oliva R",
+      "222"                  => "222",
+      "smooth_brushed_colors" => "Colores pincelados lisos",
+      "blue_alhambra"        => "Alhambra azul",
+      "green_alhambra"       => "Alhambra verde",
+      "blue_retro"           => "Retro azul",
+      "green_retro"          => "Retro verde",
+      "poppy"                => "Amapola",
+      "baecula"              => "Baécula",
+      "multi_flower"         => "Multiflor",
+      "mabe"                 => "Mabe",
+      "bicolor"              => "Bicolor",
+      "granadine"            => "Granadino"
+    },
+    "casseroles" => {
+      "ej1" => "Ejemplo 1",
+      "ej2" => "Ejemplo 2",
+      "ej3" => "Ejemplo 3"
+    }
   }
 
-  def initialize(code)
-    @code = code
+  def initialize(tag, code)
+    @tag, @code = tag, code
   end
 
-  def self.codes_to_mask(codes)
-    codes.
-      select(&:present?).
-      map { |c| 2 ** DECORATIONS.keys.reverse.index(c) }.
-      inject(0, :+).
-      to_s(2).
-      rjust(DECORATIONS.size, "0")
+  def self.all
+    DECORATIONS.keys.flat_map do |tag|
+      all_with_tag(tag)
+    end
   end
 
-  def self.mask_to_codes(mask)
-    (mask || "0" * DECORATIONS.size).
-      each_char.
-      map(&:to_i).
-      each_with_index.
-      select { |c, _| c == 1 }.
-      map { |_, i| DECORATIONS.keys[i] }
+  def self.all_with_tag(tag)
+    with_tag(tag).keys.map do |code|
+      Decoration.new(tag, code)
+    end
+  end
+
+  def self.with_tag(tag)
+    DECORATIONS[tag] || {}
   end
 
   attr_reader :code
 
   def name
-    DECORATIONS[@code]
+    self.class.with_tag(@tag)[@code]
   end
 end

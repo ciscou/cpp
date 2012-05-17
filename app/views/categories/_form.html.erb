@@ -23,14 +23,6 @@
     <%= f.label :picture, "Foto" %><br />
     <%= f.file_field :picture %>
   </div>
-  <div class="field">
-    <%= f.label :decoration_codes, "Decoraciones disponibles" %><br />
-    <%= hidden_field_tag :decoration_codes , "", :name => "category[decoration_codes][]" %>
-    <% Decoration::DECORATIONS.each do |k, v| %>
-      <%= check_box_tag "decoration_codes_#{k}", k, @category.decoration_codes.include?(k), :name => "category[decoration_codes][]" %>
-      <%= label_tag     "decoration_codes_#{k}", v %><br/>
-    <% end %>
-  </div>
   <div class="actions">
     <%= f.submit "Guardar" %>
   </div>

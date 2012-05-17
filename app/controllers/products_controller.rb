@@ -7,15 +7,15 @@ class ProductsController < ApplicationController
   respond_to :html
 
   def index
-    if params[:decoration_code]
-      @decoration = Decoration.new(params[:decoration_code])
-      @products = @products.with_decoration(@decoration)
-    end
     @products = @products.order(:created_at).reverse_order
     respond_with @category, @products
   end
 
   def search
+    if params[:decoration_code] && params[:decoration_tag]
+      @decoration = Decoration.new(params[:decoration_code], params[:decoration_code])
+      @products = @products.with_decoration(@decoration)
+    end
     @products = @products.search(params[:q]) if params[:q].present?
     respond_with @products, :template => "products/index"
   end
