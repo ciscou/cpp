@@ -9,7 +9,7 @@ class Product < ActiveRecord::Base
   scope :featured, order("random()").limit(5)
   scope :new_arrivals, where(:new_arrival => true).order("created_at desc")
   scope :with_decoration, lambda { |decoration|
-    joins(:category).where(:category => { :decoration_tag => decoration.tag },
+    joins(:category).where(:categories => { :decoration_tag => decoration.tag },
                            :decoration_code => decoration.code)
   }
 
