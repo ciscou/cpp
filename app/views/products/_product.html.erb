@@ -8,7 +8,7 @@
     <div class="image-desc">
       <% if product.decoration.name.present? %>
         <p>
-          <span style="font-weight: bold;">La decoración de la foto es <%= link_to(:decoration_tag => product.decoration.name, search_products_path(product.decoration.tag, :decoration_code => product.decoration.code)) %>.</span>
+          <span style="font-weight: bold;">La decoración de la foto es <%= link_to(product.decoration.name, search_products_path(:decoration_tag => product.decoration.tag, :decoration_code => product.decoration.code)) %>.</span>
           También disponible en las decoraciones:<br/>
           <%= product.category.decorations.map { |decoration| link_to(decoration.name, search_products_path(:decoration_tag => decoration.tag, :decoration_code => decoration.code), :style => "text-decoration: underline; display: block; width: 150px; float: left;") }.join("").html_safe %>
         </p>
