@@ -51,7 +51,7 @@ class Decoration
     DECORATIONS[tag] || {}
   end
 
-  attr_reader :code
+  attr_reader :tag, :code
 
   def name
     self.class.with_tag(@tag)[@code]
