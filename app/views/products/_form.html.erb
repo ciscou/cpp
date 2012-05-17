@@ -25,7 +25,7 @@
   </div>
   <div class="field">
     <%= f.label :decoration_code, "Decoración de la foto" %><br />
-    <%= f.select :decoration_code, Decoration.all_with_tag(@category.decoration_tag).map { |k, v| [v, k] }, :include_blank => true %>
+    <%= f.collection_select :decoration_code, Decoration.all_with_tag(@category.decoration_tag), :code, :name, :include_blank => true %>
   </div>
   <div class="field">
     <%= f.label :picture, "Foto" %><br />
