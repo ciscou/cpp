@@ -29,8 +29,8 @@
     </div>
     <div class="content">
       <% Decoration.all.group_by(&:tag).each do |decoration_tag, decorations| %>
-        <h3>Decoraciones de <%= Decoration.human_tag_name decoration_tag %></h3>
-        <ul>
+        <h3 style="margin-top: 12px;">Decoraciones de <%= Decoration.human_tag_name decoration_tag %></h3>
+        <ul style="margin-left: 12px;">
           <% decorations.each do |decoration| %>
             <% products = Product.accessible_by(current_ability).with_decoration(decoration) %>
             <li><%= link_to "#{decoration.name} (#{products.count})", search_products_path(:decoration_tag => decoration.tag, :decoration_code => decoration.code) %></li>
