@@ -24,7 +24,7 @@ class Decoration
       "bicolor"              => "Bicolor",
       "granadine"            => "Granadino"
     },
-    "casseroles" => {
+    "household" => {
       "ej1" => "Ejemplo 1",
       "ej2" => "Ejemplo 2",
       "ej3" => "Ejemplo 3"

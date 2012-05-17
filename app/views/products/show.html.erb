@@ -19,7 +19,7 @@
         <p>
           <span style="font-weight: bold;">La decoración de la foto es <%= link_to(@product.decoration.name, category_products_path(@product.category, :decoration_code => @product.decoration.code)) %>.</span>
           También disponible en las decoraciones:<br/>
-          <%= @product.category.decorations.map { |decoration| link_to(decoration.name, category_products_path(@product.category, :decoration_code => decoration.code), :style => "text-decoration: underline; display: block; width: 150px; float: left;") }.join("").html_safe %>
+          <%= @product.category.decorations.map { |decoration| link_to(decoration.name, search_products_path(:decoration_tag => decoration.tag, :decoration_code => decoration.code), :style => "text-decoration: underline; display: block; width: 150px; float: left;") }.join("").html_safe %>
         </p>
       <% end %>
       <div class="clearfix" style="padding-top: 20px">
