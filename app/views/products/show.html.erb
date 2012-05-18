@@ -15,13 +15,15 @@
     <%= div_for @product do %>
 
       <%= image_tag @product.picture_url %>
-      <% if @product.decoration.name.present? %>
-        <p>
+      <p>
+        <% if @product.decoration.name.present? %>
           <span style="font-weight: bold;">La decoración de la foto es <%= link_to_decoration @product.decoration %>.</span>
+        <% end %>
+        <% if @product.category.decorations.any? %>
           También disponible en las decoraciones:<br/>
           <%= safe_join @product.category.decorations.map { |decoration| link_to_decoration decoration, :style => "text-decoration: underline; display: block; width: 150px; float: left;" } %>
-        </p>
-      <% end %>
+        <% end %>
+      </p>
       <div class="clearfix" style="padding-top: 20px">
         <%= simple_format @product.description %>
       </div>
