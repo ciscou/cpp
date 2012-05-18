@@ -26,7 +26,7 @@
   </div>
 
   <div class="content">
-    <p>Actualmente disponemos de <%= Product.accessible_by(current_ability).count %> productos, clasificados en <%= Category.count %> categorías.</p>
+    <p>Actualmente disponemos de <%= accessible_products.count %> productos, clasificados en <%= Category.count %> categorías.</p>
     <p>Seleccione una de las siguientes categorías para ver un listado de sus productos</p>
   </div>
 

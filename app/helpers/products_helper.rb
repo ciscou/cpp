@@ -17,8 +17,12 @@ module ProductsHelper
     end
   end
 
+  def accessible_products
+    Product.accessible_by current_ability
+  end
+
   def link_to_search_products(query)
-    link_to "Búsqueda '#{query}' (#{Product.accessible_by(current_ability).search(query).count})",
+    link_to "Búsqueda '#{query}' (#{accessible_products.search(query).count})",
       search_products_path(:q => query)
   end
 

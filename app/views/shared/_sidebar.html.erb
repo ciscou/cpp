@@ -20,7 +20,7 @@
     <div class="content">
       <ul>
         <% Category.order(:position).all.each do |category| %>
-          <li><%= link_to "#{category.name} (#{category.products.accessible_by(current_ability).count})", category_products_path(category) %></li>
+          <li><%= link_to "#{category.name} (#{accessible_products.where(:category_id => category).count})", category_products_path(category) %></li>
         <% end %>
       </ul>
     </div>
@@ -32,7 +32,7 @@
         <h3 style="margin-top: 12px;">Decoraciones de <%= Decoration.human_tag_name decoration_tag %></h3>
         <ul style="margin-left: 12px;">
           <% decorations.each do |decoration| %>
-            <% products = Product.accessible_by(current_ability).with_decoration(decoration) %>
+            <% products = accessible_products.with_decoration(decoration) %>
             <li><%= link_to "#{decoration.name} (#{products.count})", search_products_path(:decoration_tag => decoration.tag, :decoration_code => decoration.code) %></li>
           <% end %>
         </ul>
