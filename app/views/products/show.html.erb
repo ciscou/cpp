@@ -1,5 +1,5 @@
-<%= title @product.name %>
-<%= description @product.description %>
+<% title @product.name %>
+<% description @product.description %>
 
 <div id="box7" class="box-style">
   <div class="title">
@@ -17,9 +17,9 @@
       <%= image_tag @product.picture_url %>
       <% if @product.decoration.name.present? %>
         <p>
-          <span style="font-weight: bold;">La decoración de la foto es <%= link_to(@product.decoration.name, search_products_path(:decoration_tag => @product.decoration.tag, :decoration_code => @product.decoration.code)) %>.</span>
+          <span style="font-weight: bold;">La decoración de la foto es <%= link_to_decoration @product.decoration %>.</span>
           También disponible en las decoraciones:<br/>
-          <%= @product.category.decorations.map { |decoration| link_to(decoration.name, search_products_path(:decoration_tag => decoration.tag, :decoration_code => decoration.code), :style => "text-decoration: underline; display: block; width: 150px; float: left;") }.join("").html_safe %>
+          <%= safe_join @product.category.decorations.map { |decoration| link_to_decoration decoration, :style => "text-decoration: underline; display: block; width: 150px; float: left;" } %>
         </p>
       <% end %>
       <div class="clearfix" style="padding-top: 20px">

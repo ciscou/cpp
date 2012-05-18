@@ -22,6 +22,12 @@ module ProductsHelper
       search_products_path(:q => query)
   end
 
+  def link_to_decoration(decoration, options = {})
+    link_to decoration.name,
+      search_products_path(:decoration_tag => decoration.tag, :decoration_code => decoration.code),
+      options
+  end
+
   def products_index_title(category, decoration, search)
     if category
       category.name
