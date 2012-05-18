@@ -2,32 +2,40 @@
 
 class Decoration
   DECORATIONS = {
-    "gardering" => {
-      "popular"              => "Popular",
-      "classic"              => "Clásico",
-      "228"                  => "228",
-      "207"                  => "207",
-      "carmen"               => "Carmen",
-      "honey_c1"             => "Miel C1",
-      "figs"                 => "Higos",
-      "olive_tree_r"         => "Oliva R",
-      "222"                  => "222",
-      "smooth_brushed_colors" => "Colores pincelados lisos",
-      "blue_alhambra"        => "Alhambra azul",
-      "green_alhambra"       => "Alhambra verde",
-      "blue_retro"           => "Retro azul",
-      "green_retro"          => "Retro verde",
-      "poppy"                => "Amapola",
-      "baecula"              => "Baécula",
-      "multi_flower"         => "Multiflor",
-      "mabe"                 => "Mabe",
-      "bicolor"              => "Bicolor",
-      "granadine"            => "Granadino"
-    },
     "household" => {
-      "ej1" => "Ejemplo 1",
-      "ej2" => "Ejemplo 2",
-      "ej3" => "Ejemplo 3"
+      "classic"        => "Clásico",
+      "orange_olive"   => "Aceituna naranja",
+      "blue_retro"     => "Retro azul",
+      "poppy"          => "Amapola",
+      "baecula"        => "Baécula",
+      "multi_flower"   => "Multiflor",
+      "granadine"      => "Granadino",
+      "flowered"       => "Rameados",
+      "red_olive"      => "Aceituna rojo",
+      "green_retro"    => "Retro verde",
+      "fantasy"        => "Fantasía",
+      "red_edge"       => "Filo rojo",
+      "olive_tree_r"   => "Oliva R",
+      "strokes"        => "Trazos",
+      "honey_poppy"    => "Amapola miel"
+    },
+    "gardering" => {
+      "popular"        => "Popular",
+      "poppy"          => "Amapola",
+      "blue_retro"     => "Retro azul",
+      "red_olive"      => "Aceituna rojo",
+      "classic"        => "Clásico",
+      "figs"           => "Higos",
+      "olive_tree_r"   => "Oliva R",
+      "blue_alhambra"  => "Alhambra azul",
+      "baecula"        => "Baécula",
+      "multi_flower"   => "Multiflor",
+      "green_retro"    => "Retro verde",
+      "brusheds"       => "Pincelados",
+      "green_alhambra" => "Alhambra verde",
+      "flowered"       => "Rameados",
+      "fantasy"        => "Fantasía",
+      "granadine"      => "Granadino"
     }
   }
 
