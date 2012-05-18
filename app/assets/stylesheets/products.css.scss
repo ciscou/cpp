@@ -1,3 +1,50 @@
 // Place all the styles related to the products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+a.other-decoration {
+  display: block;
+  float: left;
+  width: 150px;
+  text-decoration: underline;
+}
+
+div.description-wrapper {
+  padding-top: 20px;
+}
+
+a.link1.big {
+  font-size: 2em;
+}
+
+dl dt {
+  display: block;
+  float: left;
+  width: 80px;
+  font-weight: bold;
+}
+
+p.fill-contact-us-form {
+  margin-top: 30px;
+}
+
+#top-banner .byline.phone-number {
+  color: #3e3e3e;
+  font-weight: bold;
+}
+
+div.title.decorations {
+  margin-top: 20px;
+}
+
+h3.decorations-list {
+  margin-top: 12px;
+}
+
+ul.decorations {
+  margin-left: 12px;
+
+  li.decoration.hideable {
+    display: none;
+  }
+}
