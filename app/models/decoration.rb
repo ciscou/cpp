@@ -17,7 +17,8 @@ class Decoration
       "red_edge"       => "Filo rojo",
       "olive_tree_r"   => "Oliva R",
       "strokes"        => "Trazos",
-      "honey_poppy"    => "Amapola miel"
+      "honey_poppy"    => "Amapola miel",
+      "blue_orange"    => "Blue orange"
     },
     "gardering" => {
       "popular"        => "Popular",
@@ -35,7 +36,8 @@ class Decoration
       "green_alhambra" => "Alhambra verde",
       "flowered"       => "Rameados",
       "fantasy"        => "Fantasía",
-      "granadine"      => "Granadino"
+      "granadine"      => "Granadino",
+      "blue_orange"    => "Blue orange"
     }
   }
 
