@@ -12,8 +12,8 @@ class ProductsController < ApplicationController
   end
 
   def search
-    if params[:decoration_tag] && params[:decoration_code]
-      @decoration = Decoration.new(params[:decoration_tag], params[:decoration_code])
+    if params[:decoration_tag] || params[:decoration_code]
+      @decoration = Decoration.find_by_tag_and_code!(params[:decoration_tag], params[:decoration_code])
       @products = @products.with_decoration(@decoration)
     end
     @products = @products.search(params[:q]) if params[:q].present?

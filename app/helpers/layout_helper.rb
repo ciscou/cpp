@@ -8,6 +8,8 @@ module LayoutHelper
   end
 
   def wrapper_class
+    return @wrapper_class if @wrapper_class.present?
+
     case action_name
     when "index"                  then controller_name == "products" ? "single" : "listings"
     when "show"                   then "details"

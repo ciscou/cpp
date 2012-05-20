@@ -7,7 +7,7 @@
     <div class="image-title fn"><%= link_to product.name, [product.category, product] %></div>
     <div class="image-desc">
       <p>
-        <% if product.decoration.name.present? %>
+        <% if product.decoration.exists? %>
           <strong>La decoración de la foto es <%= link_to_decoration product.decoration %>.</strong>
         <% end %>
         <% if product.category.decorations.any? %>

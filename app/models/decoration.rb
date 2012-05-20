@@ -59,6 +59,17 @@ class Decoration
     DECORATIONS[tag] || {}
   end
 
+  def self.find_by_tag_and_code(tag, code)
+    new(tag, code)
+  end
+
+  def self.find_by_tag_and_code!(tag, code)
+    decoration = find_by_tag_and_code(tag, code)
+    raise ActiveRecord::RecordNotFound unless decoration.exists?
+
+    decoration
+  end
+
   def self.human_tag_name(tag)
     {
       "gardering" => "jardinería",
@@ -70,5 +81,9 @@ class Decoration
 
   def name
     self.class.with_tag(@tag)[@code]
+  end
+
+  def exists?
+    name.present?
   end
 end

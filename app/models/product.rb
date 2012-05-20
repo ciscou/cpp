@@ -27,6 +27,6 @@ class Product < ActiveRecord::Base
   end
 
   def decoration
-    Decoration.new(category.decoration_tag, decoration_code)
+    Decoration.find_by_tag_and_code(category.decoration_tag, decoration_code)
   end
 end

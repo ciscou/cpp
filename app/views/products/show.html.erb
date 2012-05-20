@@ -16,7 +16,7 @@
 
       <%= image_tag @product.picture_url %>
       <p>
-        <% if @product.decoration.name.present? %>
+        <% if @product.decoration.exists? %>
           <strong>La decoración de la foto es <%= link_to_decoration @product.decoration %>.</strong>
         <% end %>
         <% if @product.category.decorations.any? %>
