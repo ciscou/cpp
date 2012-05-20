@@ -21,7 +21,7 @@ Cpp::Application.routes.draw do
 
   resources :contacts, :only => [:new, :create], :path => "contacte-con-nosotros"
 
-  resource "sitemap"
+  resource "sitemap", :only => :show
 
   root :to => "pages#home"
 

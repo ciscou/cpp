@@ -49,6 +49,16 @@ xml.urlset :xmlns => "http://www.sitemaps.org/schemas/sitemap/0.9" do
     end
   end
 
+  # decorations
+  Decoration.all.each do |decoration|
+    xml.url do
+      xml.loc        search_products_url(:decoration_tag => decoration.tag, :decoration_code => decoration.code)
+      xml.lastmod    Product.with_decoration(decoration).order(:updated_at).last.try(:updated_at).try(:iso8601)
+      xml.changefreq 'weekly'
+      xml.priority   1.0
+    end
+  end
+
   # products
   accessible_products.all.each do |product|
     xml.url do
