@@ -38,7 +38,7 @@ module ProductsHelper
     elsif search
       "Resultado de la búsqueda #{search.inspect}"
     elsif decoration
-      "Productos decorados en #{decoration.name}"
+      "Productos de #{Decoration.human_tag_name decoration.tag} decorados en #{decoration.name}"
     else
       "Últimas novedades"
     end
