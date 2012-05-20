@@ -28,12 +28,11 @@
       <h2><span>Decoraciones</span></h2>
     </div>
     <div class="content">
-      <% Decoration.all.group_by(&:tag).each do |decoration_tag, decorations| %>
+      <% Decoration.all_including_products_count(current_ability).group_by(&:tag).each do |decoration_tag, decorations| %>
         <h3 class="decorations-list">Decoraciones de <%= Decoration.human_tag_name decoration_tag %></h3>
         <ul class="decorations">
           <% decorations.each_with_index do |decoration, idx| %>
-            <% products = accessible_products.with_decoration(decoration) %>
-            <li class="decoration <%= "hideable" if idx > 4 %>"><%= link_to "#{decoration.name} (#{products.count})", search_products_path(:decoration_tag => decoration.tag, :decoration_code => decoration.code) %></li>
+            <li class="decoration <%= "hideable" if idx > 4 %>"><%= link_to "#{decoration.name} (#{decoration.products_count})", search_products_path(:decoration_tag => decoration.tag, :decoration_code => decoration.code) %></li>
           <% end %>
           <li><%= link_to "Ver más", "#", :class => "link2 toggle-hideables", :data => { :toggled_text => "Ver menos" } %></li>
         </ul>
