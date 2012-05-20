@@ -55,4 +55,16 @@ module ProductsHelper
       "Nuestras últimas creaciones, lo más nuevo del mercado"
     end
   end
+
+  def products_index_nothing_found(category, decoration, search)
+    if category
+      "Lo sentimos, no se ha encontrado ningún producto en la categoría #{category.name}"
+    elsif search
+      "Lo sentimos, no se ha encontrado ningún producto para la búsqueda #{search.inspect}"
+    elsif decoration
+      "Lo sentimos, no se ha encontrado ningún producto de #{Decoration.human_tag_name decoration.tag} decorado en #{decoration.name}"
+    else
+      "Lo sentimos, no se ha encontrado ningún producto en últimas novedades"
+    end
+  end
 end

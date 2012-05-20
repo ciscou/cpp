@@ -30,16 +30,7 @@
 <% else %>
 
   <div class="content">
-    <p>
-      Lo sentimos, no se ha encontrado ningún producto
-      <% if @category %>
-        en la categoría <%= @category.name %>
-      <% elsif params[:q] %>
-        para la búsqueda <%= params[:q].inspect %>
-      <% else %>
-        nuevo
-      <% end %>
-    </p>
+    <p><%= products_index_nothing_found @category, @decoration, params[:q].presence %></p>
   </div>
 
 <% end %>
