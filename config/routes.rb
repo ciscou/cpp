@@ -25,6 +25,8 @@ Cpp::Application.routes.draw do
 
   root :to => "pages#home"
 
+  match "/:anything", :to => "pages#404"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
