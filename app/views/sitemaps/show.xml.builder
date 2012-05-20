@@ -1,3 +1,5 @@
+require 'ostruct'
+
 xml.instruct!
 
 xml.urlset :xmlns => "http://www.sitemaps.org/schemas/sitemap/0.9" do
@@ -5,7 +7,7 @@ xml.urlset :xmlns => "http://www.sitemaps.org/schemas/sitemap/0.9" do
   # homepage
   xml.url do
     xml.loc        root_url
-    xml.lastmod    Product.order(:updated_at).last.try(:updated_at).try(:iso8601)
+    xml.lastmod    (Product.order(:updated_at).last || OpenStruct.new(:updated_at => Time.current)).updated_at.iso8601
     xml.changefreq 'always'
     xml.priority   0.8
   end
@@ -34,7 +36,7 @@ xml.urlset :xmlns => "http://www.sitemaps.org/schemas/sitemap/0.9" do
   # catalog
   xml.url do
     xml.loc        categories_url
-    xml.lastmod    Category.order(:updated_at).last.try(:updated_at).try(:iso8601)
+    xml.lastmod    (Category.order(:updated_at).last || OpenStruct.new(:updated_at => Time.current)).updated_at.iso8601
     xml.changefreq 'weekly'
     xml.priority   1.0
   end
@@ -43,7 +45,7 @@ xml.urlset :xmlns => "http://www.sitemaps.org/schemas/sitemap/0.9" do
   Category.all.each do |category|
     xml.url do
       xml.loc        category_products_url(category)
-      xml.lastmod    category.products.order(:updated_at).last.try(:updated_at).try(:iso8601)
+      xml.lastmod    (category.products.order(:updated_at).last || OpenStruct.new(:updated_at => Time.current)).updated_at.iso8601
       xml.changefreq 'weekly'
       xml.priority   1.0
     end
@@ -53,7 +55,7 @@ xml.urlset :xmlns => "http://www.sitemaps.org/schemas/sitemap/0.9" do
   Decoration.all.each do |decoration|
     xml.url do
       xml.loc        search_products_url(:decoration_tag => decoration.tag, :decoration_code => decoration.code)
-      xml.lastmod    Product.with_decoration(decoration).order(:updated_at).last.try(:updated_at).try(:iso8601)
+      xml.lastmod    (Product.with_decoration(decoration).order(:updated_at).last || OpenStruct.new(:updated_at => Time.current)).updated_at.iso8601
       xml.changefreq 'weekly'
       xml.priority   1.0
     end
@@ -72,7 +74,7 @@ xml.urlset :xmlns => "http://www.sitemaps.org/schemas/sitemap/0.9" do
   # new arrivals section
   xml.url do
     xml.loc        new_arrivals_url
-    xml.lastmod    Product.new_arrivals.last.try(:updated_at).try(:iso8601)
+    xml.lastmod    (Product.new_arrivals.last || OpenStruct.new(:updated_at => Time.current)).updated_at.iso8601
     xml.changefreq 'weekly'
     xml.priority   0.7
   end
