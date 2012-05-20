@@ -19,13 +19,13 @@ Cpp::Application.routes.draw do
     end
   end
 
-  resources :contacts, :path => "contacte-con-nosotros"
+  resources :contacts, :only => [:new, :create], :path => "contacte-con-nosotros"
 
   resource "sitemap"
 
   root :to => "pages#home"
 
-  match "/:anything", :to => "pages#404"
+  match "*path", :to => "pages#404"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
