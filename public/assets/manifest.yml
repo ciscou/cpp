@@ -4,6 +4,7 @@ bg1_02.jpg: bg1_02-0ee2298bc8a98825c0154c93fc6bd453.jpg
 bg1_03.jpg: bg1_03-071bb0103e522b7420b6cd41cc4318c2.jpg
 bg1_04.jpg: bg1_04-bdc5b386eb56d59ec990da7dbdc8c410.jpg
 bg1_05.jpg: bg1_05-70a8d3c9736c75e2dfe2f036d7fe16de.jpg
+fachada-ceramica-padilla.jpg: fachada-ceramica-padilla-f1a31aa832ec8dd586fceba86de924db.jpg
 homepage01.jpg: homepage01-66689f97da138142b85db79a76bab918.jpg
 homepage02.gif: homepage02-2421b289452ae43e3aaf576460e97b4e.gif
 homepage03.jpg: homepage03-b207812f47aee770e7ecb7eb6d8af2e4.jpg
@@ -18,8 +19,9 @@ homepage11.jpg: homepage11-87d310a0fb1a44368ed3f35e72659617.jpg
 homepage12.jpg: homepage12-777e3c5d270ac06f261cec0ab3184721.jpg
 homepage13.gif: homepage13-6bb97cd5471ca8dd353c7b6eb14b51d4.gif
 homepage14.jpg: homepage14-6bb246c5257071d6e4d2514484b1fcea.jpg
+horno-ceramica-padilla.jpg: horno-ceramica-padilla-b72fc732d77c2fbc60a3714d9f331518.jpg
 loader.gif: loader-d523894b5db09f0a5681dd9328a2cd4e.gif
-quienes-somos.jpg: quienes-somos-1749b3b0428004f69a1987f46f6bcf7b.jpg
+quienes-somos-horno.jpg: quienes-somos-horno-e0f50a249fc52899705bd1fc0c85f57e.jpg
 spacer.gif: spacer-efb4fe7589bccc45af59714c77085d3c.gif
 subpage1_01.jpg: subpage1_01-d2493369762b1bb47fc5482cbe713b59.jpg
 subpage1_02.jpg: subpage1_02-18bc15c4ad82719e1e1ef80639dc9d47.jpg
@@ -31,4 +33,4 @@ subpage4_01.gif: subpage4_01-deae8a966b73407529e6e3ad1925deff.gif
 subpage4_02.gif: subpage4_02-3a4999463d9bb7044f826c4f4c025fdd.gif
 subpage4_03.gif: subpage4_03-f273671f12c2e49a298db08aae45d782.gif
 application.js: application-8900f04e70fe959bdf784ab8c649aa8f.js
-application.css: application-9285d185a168d69818d63f91668567d1.css
+application.css: application-a330d6ff677dfd0ef1700d64d95138a0.css
