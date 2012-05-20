@@ -50,7 +50,7 @@ module ProductsHelper
     elsif search
       "Productos que coinciden con la búsqueda #{search.inspect}"
     elsif decoration
-      "Ejemplos de productos decorados en #{decoration.name}"
+      "Ejemplos de productos de #{Decoration.human_tag_name decoration.tag} decorados en #{decoration.name}"
     else
       "Nuestras últimas creaciones, lo más nuevo del mercado"
     end
