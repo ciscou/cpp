@@ -11,7 +11,7 @@
     </div>
     <div id="colB">
       <% if user_signed_in? %>
-        <p>Bienvenido, <%= current_user.email %>.</p>
+        <p>Bienvenido, <%= truncate current_user.email, :length => 20 %>.</p>
         <p><%= link_to "Cerrar sesión", destroy_user_session_path, :method => :delete %></p>
       <% else %>
         <p>Bienvenido a nuestra web.</p>
@@ -20,6 +20,7 @@
           <%= link_to "cree una cuenta", new_user_registration_path %>
         </p>
       <% end %>
+      <a class="viewcart" href="mailto:&#102;&#097;&#098;&#114;&#105;&#099;&#097;&#064;&#099;&#101;&#114;&#097;&#109;&#105;&#099;&#097;&#112;&#097;&#100;&#105;&#108;&#108;&#097;&#046;&#101;&#115;?subject=[Pedido Web] Pedido">Hacer pedido</a>
     </div>
   </div>
 </div>
