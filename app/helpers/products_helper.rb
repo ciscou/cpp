@@ -62,7 +62,7 @@ module ProductsHelper
     elsif search
       "Lo sentimos, no se ha encontrado ningún producto para la búsqueda #{search.inspect}"
     elsif decoration
-      "Lo sentimos, no se ha encontrado ningún producto de #{Decoration.human_tag_name decoration.tag} decorado en #{decoration.name}"
+      "La decoración #{Decoration.human_tag_name decoration.tag} es una de nuestras #{link_to "últimas novedades", new_arrivals_path}, necesita una cuenta de cliente para poder verla. Si ya tiene una cuenta de cliente, por favor #{link_to "inicie sesión", new_user_session_path}. Si no, #{link_to "cree una cuenta", new_user_registration_path} y #{link_to "contacte con nosotros", new_contact_path}.".html_safe
     else
       "Lo sentimos, no se ha encontrado ningún producto en últimas novedades"
     end
