@@ -30,7 +30,6 @@
 <% else %>
 
   <div class="content">
-    <p><%= products_index_nothing_found @category, @decoration, params[:q].presence %></p>
     <% unless can? :new_arrivals, :products %>
       <p>Sólo los usuarios con una cuenta de cliente tienen acceso a las <%= link_to "últimas novedades", new_arrivals_path %>. Si ya tiene una cuenta de cliente, por favor <%= link_to "inicie sesión", new_user_session_path %>. De lo contrario, <%= link_to "cree una cuenta", new_user_registration_path %> y <%= link_to "contacte con nosotros", new_contact_path %></p>
     <% end %>
