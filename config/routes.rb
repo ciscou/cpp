@@ -1,9 +1,10 @@
 Cpp::Application.routes.draw do
   devise_for :users
 
-  match "quienes-somos" => "pages#who"         , :as => "pages_who"
-  match "donde-estamos" => "pages#where"       , :as => "pages_where"
-  match "novedades"     => "pages#new_arrivals", :as => "pages_new_arrivals"
+  match "quienes-somos"   => "pages#who"         , :as => "pages_who"
+  match "donde-estamos"   => "pages#where"       , :as => "pages_where"
+  match "novedades"       => "pages#new_arrivals", :as => "pages_new_arrivals"
+  match "nuestro-entorno" => "pages#environment" , :as => "pages_environment"
 
   resources :categories, :path => "catalogo" do
     get 'pagina/:page', :action => :index, :on => :collection

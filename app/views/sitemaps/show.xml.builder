@@ -26,6 +26,13 @@ xml.urlset :xmlns => "http://www.sitemaps.org/schemas/sitemap/0.9" do
     xml.priority   0.8
   end
 
+  # our environment page
+  xml.url do
+    xml.loc        pages_environment_url
+    xml.changefreq 'monthly'
+    xml.priority   0.2
+  end
+
   # contact us page
   xml.url do
     xml.loc        new_contact_url
