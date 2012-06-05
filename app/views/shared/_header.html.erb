@@ -20,7 +20,7 @@
           <%= link_to "cree una cuenta", new_user_registration_path %>
         </p>
       <% end %>
-      <a class="viewcart" href="mailto:&#102;&#097;&#098;&#114;&#105;&#099;&#097;&#064;&#099;&#101;&#114;&#097;&#109;&#105;&#099;&#097;&#112;&#097;&#100;&#105;&#108;&#108;&#097;&#046;&#101;&#115;?subject=[Pedido Web] Pedido">Hacer pedido</a>
+      <%= mail_to "fabrica@ceramicapadilla.es", "Hacer pedido", :subject => "[Pedido Web] Pedido", :encode => "hex", :class => "viewcart" %>
     </div>
   </div>
 </div>
