@@ -5,6 +5,7 @@ Cpp::Application.routes.draw do
   match "donde-estamos"   => "pages#where"       , :as => "pages_where"
   match "novedades"       => "pages#new_arrivals", :as => "pages_new_arrivals"
   match "nuestro-entorno" => "pages#environment" , :as => "pages_environment"
+  match "botijo"          => "pages#botijo"      , :as => "pages_botijo"
 
   resources :categories, :path => "catalogo" do
     get 'pagina/:page', :action => :index, :on => :collection
