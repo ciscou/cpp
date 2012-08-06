@@ -12,28 +12,33 @@
 
   <div class="content">
 
-    <%= div_for @product do %>
+    <%= div_for @product, :class => "hproduct" do %>
 
       <%= image_tag @product.picture_url %>
-      <p>
-        <% if @product.decoration.exists? %>
-          <strong>La decoración de la foto es <%= link_to_decoration @product.decoration %>.</strong>
-        <% end %>
-        <% if @product.category.decorations.any? %>
-          También disponible en las decoraciones:<br/>
-          <%= safe_join @product.category.decorations.map { |decoration| link_to_decoration decoration, :class => "other-decoration" } %>
-        <% end %>
-      </p>
-      <div class="clearfix description-wrapper">
-        <%= simple_format @product.description %>
-      </div>
-
-      <% if can? :manage, :products %>
+      <div class="image-desc">
         <p>
-          <%= link_to "Editar", edit_category_product_path(@product.category, @product) %> |
-          <%= link_to "Eliminar", [@product.category, @product], :method => :delete, :confirm => "¿Estás seguro?" %>
+          <strong class="image-title fn"><%= @product.name %></strong>
         </p>
-      <% end %>
+        <p>
+          <% if @product.decoration.exists? %>
+            <strong>La decoración de la foto es <%= link_to_decoration @product.decoration %>.</strong>
+          <% end %>
+          <% if @product.category.decorations.any? %>
+            También disponible en las decoraciones:<br/>
+            <%= safe_join @product.category.decorations.map { |decoration| link_to_decoration decoration, :class => "other-decoration" } %>
+          <% end %>
+        </p>
+        <div class="clearfix description-wrapper">
+          <%= simple_format @product.description, :class => "description" %>
+        </div>
+
+        <% if can? :manage, :products %>
+          <p>
+            <%= link_to "Editar", edit_category_product_path(@product.category, @product) %> |
+            <%= link_to "Eliminar", [@product.category, @product], :method => :delete, :confirm => "¿Estás seguro?" %>
+          </p>
+        <% end %>
+      </div>
 
     <% end %>
 
