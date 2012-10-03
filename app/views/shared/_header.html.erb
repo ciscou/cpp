@@ -10,8 +10,13 @@
       <p class="link"><%= link_to "Consulte nuestro catálogo", categories_path %></p>
     </div>
     <div id="colB">
+      <p>
+        <%= link_to "Español", params.merge(:locale => "es") %> |
+        <%= link_to "English", params.merge(:locale => "en") %> |
+        <%= link_to "Français", params.merge(:locale => "fr") %>
+      </p>
       <% if user_signed_in? %>
-        <p>Bienvenido, <%= truncate current_user.email, :length => 20 %>.</p>
+        <p>Bienvenido, <%= truncate current_user.email, :length => 18 %>.</p>
         <p><%= link_to "Cerrar sesión", destroy_user_session_path, :method => :delete %></p>
       <% else %>
         <p>Bienvenido a nuestra web.</p>
