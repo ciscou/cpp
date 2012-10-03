@@ -18,7 +18,7 @@ feature 'List products by category', %q{
     visit homepage
 
     click_link "Últimas novedades (3)"
-    page.current_url.should == pages_new_arrivals_url
+    page.current_url.should == pages_new_arrivals_url(locale: :es)
 
     click_link "Catálogo"
     page.should have_no_css "#new_arrivals"
@@ -29,7 +29,7 @@ feature 'List products by category', %q{
     login_as user
 
     click_link "Últimas novedades (3)"
-    page.current_url.should == pages_new_arrivals_url
+    page.current_url.should == pages_new_arrivals_url(locale: :es)
 
     click_link "Catálogo"
     page.should have_no_css "#new_arrivals"
@@ -40,14 +40,14 @@ feature 'List products by category', %q{
     login_as user
 
     click_link "Últimas novedades (3)"
-    page.current_url.should == new_arrivals_products_url
+    page.current_url.should == new_arrivals_products_url(locale: :es)
     page.should have_css ".product div.image-title", :text => @product1.name
     page.should have_css ".product div.image-title", :text => @product2.name
     page.should have_css ".product div.image-title", :text => @product3.name
 
     click_link "Catálogo"
     within("#new_arrivals") { click_link "Últimas novedades" }
-    page.current_url.should == new_arrivals_products_url
+    page.current_url.should == new_arrivals_products_url(locale: :es)
     page.should have_css ".product div.image-title", :text => @product1.name
     page.should have_css ".product div.image-title", :text => @product2.name
     page.should have_css ".product div.image-title", :text => @product3.name

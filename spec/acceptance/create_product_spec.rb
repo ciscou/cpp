@@ -23,8 +23,8 @@ feature 'Create product', %q{
     end
 
     scenario "should not be able to see the form" do
-      visit new_category_product_url(@category)
-      current_url.should == root_url
+      visit new_category_product_url(@category, locale: :es)
+      current_url.should == root_url(locale: :es)
     end
   end
 
@@ -40,8 +40,8 @@ feature 'Create product', %q{
     end
 
     scenario "should not be able to see the form" do
-      visit new_category_product_url(@category)
-      current_url.should == root_url
+      visit new_category_product_url(@category, locale: :es)
+      current_url.should == root_url(locale: :es)
     end
   end
 

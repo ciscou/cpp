@@ -16,7 +16,7 @@ feature 'Search products', %q{
     visit homepage
 
     fill_in "q", :with => "awesome product"
-    click_button "Buscar"
+    click_button "Buscador"
 
     page.should have_css    ".product div.image-title", :text => @product1.name
     page.should have_no_css ".product div.image-title", :text => @product2.name
@@ -28,7 +28,7 @@ feature 'Search products', %q{
     login_as user
 
     fill_in "q", :with => "awesome product"
-    click_button "Buscar"
+    click_button "Buscador"
 
     page.should have_css    ".product div.image-title", :text => @product1.name
     page.should have_no_css ".product div.image-title", :text => @product2.name
@@ -40,7 +40,7 @@ feature 'Search products', %q{
     login_as user
 
     fill_in "q", :with => "awesome product"
-    click_button "Buscar"
+    click_button "Buscador"
 
     page.should have_css    ".product div.image-title", :text => @product1.name
     page.should have_no_css ".product div.image-title", :text => @product2.name

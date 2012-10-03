@@ -20,7 +20,7 @@ feature 'Create category', %q{
 
     scenario "should not be able to see the form" do
       visit new_category_url
-      current_url.should == root_url
+      current_url.should == root_url(locale: :es)
     end
   end
 
@@ -37,7 +37,7 @@ feature 'Create category', %q{
 
     scenario "should not be able to see the form" do
       visit new_category_url
-      current_url.should == root_url
+      current_url.should == root_url(locale: :es)
     end
   end
 
