@@ -1,0 +1,9 @@
+es:
+  shared:
+    menu:
+      home: "Inicio"
+      categories: "Catálogo"
+      who: "¿Quiénes somos?"
+      where: "¿Dónde estamos?"
+      contact: "Contacte con nosotros"
+      search: "Buscador"

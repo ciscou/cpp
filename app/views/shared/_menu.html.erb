@@ -1,18 +1,18 @@
 <div id="header" class="container">
   <div id="menu">
     <ul>
-      <li<% if active_tab?("home") %> class="active"<% end %>><%= link_to content_tag(:span, "Inicio"), root_path %></li>
-      <li<% if active_tab?("categories") %> class="active"<% end %>><%= link_to content_tag(:span, "Catálogo"), categories_path %></li>
-      <li<% if active_tab?("who") %> class="active"<% end %>><%= link_to content_tag(:span, "¿Quiénes somos?"), pages_who_path %></li>
-      <li<% if active_tab?("where") %> class="active"<% end %>><%= link_to content_tag(:span, "¿Dónde estamos?"), pages_where_path %></li>
-      <li<% if active_tab?("contact") %> class="active"<% end %>><%= link_to content_tag(:span, "Contacte con nosotros"), new_contact_path %></li>
+      <li<% if active_tab?("home") %> class="active"<% end %>><%= link_to content_tag(:span, t(".home")), root_path %></li>
+      <li<% if active_tab?("categories") %> class="active"<% end %>><%= link_to content_tag(:span, t(".categories")), categories_path %></li>
+      <li<% if active_tab?("who") %> class="active"<% end %>><%= link_to content_tag(:span, t(".who")), pages_who_path %></li>
+      <li<% if active_tab?("where") %> class="active"<% end %>><%= link_to content_tag(:span, t(".where")), pages_where_path %></li>
+      <li<% if active_tab?("contact") %> class="active"<% end %>><%= link_to content_tag(:span, t(".contact")), new_contact_path %></li>
     </ul>
   </div>
   <div id="search">
     <%= form_tag search_products_path, :method => "get" do %>
       <fieldset>
-        <%= text_field_tag :q, params[:q], :class => "input-text", :placeholder => "Buscador" %>
-        <%= submit_tag "Buscar", :class => "input-submit" %>
+        <%= text_field_tag :q, params[:q], :class => "input-text", :placeholder => t(".search") %>
+        <%= submit_tag t(".search"), :class => "input-submit" %>
       </fieldset>
     <% end %>
   </div>
