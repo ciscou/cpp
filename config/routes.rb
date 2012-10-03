@@ -1,5 +1,5 @@
 Cpp::Application.routes.draw do
-  scope "(:locale)", :locale => /es|en|fr/ do
+  scope "(/:locale)", :locale => /es|en|fr/ do
     devise_for :users
 
     match "quienes-somos"   => "pages#who"         , :as => "pages_who"
@@ -25,10 +25,12 @@ Cpp::Application.routes.draw do
     resources :contacts, :only => [:new, :create], :path => "contacte-con-nosotros"
 
     resource "sitemap", :only => :show
-
-    match "*path", :to => "pages#404"
   end
 
   match "/:locale", :to => "pages#home", :locale => /es|en|fr/
+
+  match "/:locale/*path", :to => "pages#404", :locale => /es|en|fr/
+  match "*path", :to => "pages#404"
+
   root :to => "pages#home"
 end
