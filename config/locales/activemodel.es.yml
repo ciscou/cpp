@@ -1,0 +1,6 @@
+es:
+  activemodel:
+    attributes:
+      contact:
+        subject: "Asunto"
+        body: "Mensaje"

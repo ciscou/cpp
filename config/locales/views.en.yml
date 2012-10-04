@@ -7,3 +7,15 @@ en:
       where: "Where are we?"
       contact: "Contact us"
       search: "Search"
+  contacts:
+    new:
+      title: "Contact us"
+      intro: "You can contact us through the following means:"
+      phone: "Phone"
+      fax: "Fax"
+      email: "e-mail"
+      fill_form: "Or if you prefer, you can fill the form bellow:"
+      login_and_fill_form_html: "Or if you prefer, %{login} and fill the form bellow:"
+      login: "login"
+      subject_prompt: "Please select the reason for your inquiry"
+      submit: "Send"

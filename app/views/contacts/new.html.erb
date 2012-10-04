@@ -1,37 +1,37 @@
-<% title "Contacte con nosotros" %>
+<% title t ".title" %>
 
 <div id="box7" class="box-style">
   <div class="title">
-    <h2><span>Contacte con nosotros</span></h2>
+    <h2><span><%= t ".title" %></span></h2>
   </div>
   <div class="content">
     <p>
-    Puede contactar con nosotros a través de los siguientes medios:
+    <%= t ".intro" %>
     </p>
     <dl>
-      <dt>Teléfono</dt> <dd>953 678 087</dd>
-      <dt>Fax</dt>      <dd>953 670 902</dd>
-      <dt>e-mail</dt>   <dd><%= mail_to "fabrica@ceramicapadilla.es", nil, :encode => "hex" %></dd>
+      <dt><%= t ".phone" %></dt> <dd>953 678 087</dd>
+      <dt><%= t ".fax" %></dt>   <dd>953 670 902</dd>
+      <dt><%= t ".email" %></dt> <dd><%= mail_to "fabrica@ceramicapadilla.es", nil, :encode => "hex" %></dd>
     </dl>
     <p class="fill-contact-us-form">
     <% if user_signed_in? %>
-      O si lo prefiere, puede rellenar el siguiente formulario:
+      <%= t ".fill_form" %>
     <% else %>
-      O si lo prefiere, <%= link_to "inicie sesión", new_user_session_path %> y rellene el siguiente formulario:
+      <%= t ".login_and_fill_form_html", :login => link_to(t(".login"), new_user_session_path) %>
     <% end %>
     </p>
 
     <%= form_for @contact do |f| %>
       <p>
-      <%= f.label :subject, "Asunto" %><br/>
-      <%= f.select :subject, Contact::SUBJECTS, { :prompt => "Por favor, elija el motivo de su consulta" }, :disabled => ! user_signed_in? %>
+      <%= f.label :subject %><br/>
+      <%= f.select :subject, Contact.subjects, { :prompt => t(".subject_prompt") }, :disabled => ! user_signed_in? %>
       </p>
       <p>
-      <%= f.label :body, "Mensaje" %><br/>
+      <%= f.label :body %><br/>
       <%= f.text_area :body, :disabled => ! user_signed_in? %>
       </p>
       <p>
-      <%= f.submit "Enviar", :disabled => ! user_signed_in? %>
+      <%= f.submit t(".submit"), :disabled => ! user_signed_in? %>
       </p>
     <% end %>
   </div>

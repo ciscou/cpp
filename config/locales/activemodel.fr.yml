@@ -1,0 +1,6 @@
+fr:
+  activemodel:
+    attributes:
+      contact:
+        subject: "Subject"
+        body: "Message"

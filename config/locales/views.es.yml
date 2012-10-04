@@ -7,3 +7,15 @@ es:
       where: "¿Dónde estamos?"
       contact: "Contacte con nosotros"
       search: "Buscador"
+  contacts:
+    new:
+      title: "Contacte con nosotros"
+      intro: "Puede contactar con nosotros a través de los siguientes medios:"
+      phone: "Teléfono"
+      fax: "Fax"
+      email: "e-mail"
+      fill_form: "O si lo prefiere, puede rellenar el siguiente formulario:"
+      login_and_fill_form_html: "O si lo prefiere, %{login} y rellene el siguiente formulario:"
+      login: "inicie sesión"
+      subject_prompt: "Por favor, elija el motivo de su consulta"
+      submit: "Enviar"
