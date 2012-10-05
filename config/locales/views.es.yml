@@ -1,5 +1,18 @@
 es:
   shared:
+    header:
+      title: "Cerámica Padilla Padilla"
+      subtitle: "Cerámica artística pintada a mano"
+      call_us: "Llámenos al teléfono %{phone_number}"
+      check_catalog: "Consulte nuestro catálogo"
+      welcome_user: "Bienvenido, %{user_name}."
+      logout: "Cerrar sesión"
+      welcome_annonymous: "Bienvenido a nuestra web."
+      login_or_signup_html: "%{login} o %{signup}"
+      login: "Inicie sesión"
+      signup: "cree una cuenta"
+      place_order: "Hacer pedido"
+      order_subject: "[Pedido Web] Pedido"
     menu:
       home: "Inicio"
       categories: "Catálogo"

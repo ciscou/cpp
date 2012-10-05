@@ -1,13 +1,13 @@
 <div id="top-header" class="container">
   <div id="logo">
-    <h1><%= link_to "Cerámica Padilla Padilla", root_path %></h1>
+    <h1><%= link_to t(".title"), root_path %></h1>
   </div>
   <div id="top-banner">
     <div id="colA">
-      <h2>Cerámica Padilla Padilla</h2>
-      <p class="byline">Cerámica artística pintada a mano</p>
-      <p class="byline phone-number">Ll&aacute;menos al tel&eacute;fono 953 678 087</p>
-      <p class="link"><%= link_to "Consulte nuestro catálogo", categories_path %></p>
+      <h2><%= t ".title" %></h2>
+      <p class="byline"><%= t ".subtitle" %></p>
+      <p class="byline phone-number"><%= t ".call_us", :phone_number_prefix => "+34 ", :phone_number => "953 678 087" %></p>
+      <p class="link"><%= link_to t(".check_catalog"), categories_path %></p>
     </div>
     <div id="colB">
       <p>
@@ -16,16 +16,19 @@
         <%= link_to_unless_current "Français", params.merge(:locale => "fr") %>
       </p>
       <% if user_signed_in? %>
-        <p>Bienvenido, <%= truncate current_user.email, :length => 18 %>.</p>
-        <p><%= link_to "Cerrar sesión", destroy_user_session_path, :method => :delete %></p>
+        <p><%= t ".welcome_user", :user_name => truncate(current_user.email, :length => 18) %></p>
+        <p><%= link_to t(".logout"), destroy_user_session_path, :method => :delete %></p>
       <% else %>
-        <p>Bienvenido a nuestra web.</p>
+        <p><%= t ".welcome_annonymous" %></p>
         <p>
-          <%= link_to "Inicie sesión"  , new_user_session_path %> o
-          <%= link_to "cree una cuenta", new_user_registration_path %>
+          <%=
+            t ".login_or_signup_html",
+              :login => link_to(t(".login") , new_user_session_path),
+              :signup => link_to(t(".signup"), new_user_registration_path)
+          %>
         </p>
       <% end %>
-      <%= mail_to "fabrica@ceramicapadilla.es", "Hacer pedido", :subject => "[Pedido Web] Pedido", :encode => "hex", :class => "viewcart" %>
+      <%= mail_to "fabrica@ceramicapadilla.es", t(".place_order"), :subject => t(".order_subject"), :encode => "hex", :class => "viewcart" %>
     </div>
   </div>
 </div>

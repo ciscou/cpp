@@ -1,5 +1,18 @@
 fr:
   shared:
+    header:
+      title: "Cerámica Padilla Padilla"
+      subtitle: "Hand painted ceramic art"
+      call_us: "Call us at %{phone_number_prefix}%{phone_number}"
+      check_catalog: "Check our catalog"
+      welcome_user: "Welcome, %{user_name}."
+      logout: "Logout"
+      welcome_annonymous: "Welcome to our web."
+      login_or_signup_html: "%{login} or %{signup}"
+      login: "Login"
+      signup: "signup"
+      place_order: "Place order"
+      order_subject: "[Web Order] Order"
     menu:
       home: "Home"
       categories: "Catalog"
