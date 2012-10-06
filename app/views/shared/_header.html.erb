@@ -11,9 +11,9 @@
     </div>
     <div id="colB">
       <p>
-        <%= link_to_unless_current "Español",  params.merge(:locale => "es") %> |
-        <%= link_to_unless_current "English",  params.merge(:locale => "en") %> |
-        <%= link_to_unless_current "Français", params.merge(:locale => "fr") %>
+        <%= link_to_locale "Español",  :es %> |
+        <%= link_to_locale "English",  :en %> |
+        <%= link_to_locale "Français", :fr %>
       </p>
       <% if user_signed_in? %>
         <p><%= t ".welcome_user", :user_name => truncate(current_user.email, :length => 18) %></p>

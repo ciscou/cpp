@@ -30,4 +30,8 @@ module LayoutHelper
       controller_name == "contacts"
     end
   end
+
+  def link_to_locale(body, locale)
+    link_to_unless I18n.locale == locale, body, params.merge(:locale => locale)
+  end
 end
