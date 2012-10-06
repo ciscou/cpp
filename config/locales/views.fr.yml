@@ -2,7 +2,7 @@ fr:
   shared:
     header:
       title: "Cerámica Padilla Padilla"
-      subtitle: "Ceramic artistique peinte à la main"
+      subtitle: "Céramique artistique peinte à la main"
       call_us: "Appellez-nous au %{phone_number_prefix}%{phone_number}"
       check_catalog: "Consultez notre catalogue"
       welcome_user: "Bienvenue, %{user_name}."
@@ -17,7 +17,7 @@ fr:
       home: "Accueil"
       categories: "Catalogue"
       who: "Qui sommes-nous ?"
-      where: "Oú sommes-nous ?"
+      where: "Où sommes-nous ?"
       contact: "Contactez-nous"
       search: "Rechercher"
   contacts:
