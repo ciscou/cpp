@@ -1,19 +1,19 @@
 # encoding: utf-8
 
 module ProductsHelper
-  def new_arrivals_path
+  def new_arrivals_path(options = {})
     if can? :new_arrivals, :products
-      new_arrivals_products_path
+      new_arrivals_products_path options
     else
-      pages_new_arrivals_path
+      pages_new_arrivals_path options
     end
   end
 
-  def new_arrivals_url
+  def new_arrivals_url(options = {})
     if can? :new_arrivals, :products
-      new_arrivals_products_url
+      new_arrivals_products_url options
     else
-      pages_new_arrivals_url
+      pages_new_arrivals_url options
     end
   end
 
