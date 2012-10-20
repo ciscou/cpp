@@ -25,7 +25,11 @@ module LayoutHelper
       action_name     ==  tab
     when "categories"
       controller_name == "categories" or
-      controller_name == "products"
+      controller_name == "products" or
+      (
+        controller_name == "pages" and
+        action_name == "new_arrivals"
+      )
     when "contact"
       controller_name == "contacts"
     end
