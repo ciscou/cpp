@@ -20,6 +20,16 @@ fr:
       where: "Où sommes-nous ?"
       contact: "Contactez-nous"
       search: "Rechercher"
+    sidebar:
+      highlighted_categories: "Highlighted categories"
+      new_arrivals: "New arrivals (%{count})"
+      highlighted_search: "'%{query}' search (%{count})"
+      see_all_categories: "See all categories"
+      all_categories: "All categories"
+      decorations: "Decorations"
+      decoration_name: "%{name} decorations"
+      see_more: "See more"
+      see_less: "See less"
   contacts:
     new:
       title: "Contactez-nous"

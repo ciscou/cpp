@@ -1,21 +1,21 @@
 <div id="sidebar">
   <div id="box1" class="box-style">
     <div class="title">
-      <h2><span>Categorías destacadas</span></h2>
+      <h2><span><%= t ".highlighted_categories" %></span></h2>
     </div>
     <div class="content">
       <ul>
-        <li><%= link_to "Últimas novedades (#{Product.new_arrivals.count})", new_arrivals_path %></li>
+        <li><%= link_to t(".new_arrivals", count: Product.new_arrivals.count), new_arrivals_path %></li>
         <li><%= link_to_search_products "cuencos y ensaladeras" %></li>
         <li><%= link_to_search_products "macetas" %></li>
         <li><%= link_to_search_products "cazuelas" %></li>
       </ul>
-      <p><%= link_to "Ver todas las categorías", categories_path, :class => "link1" %></p>
+      <p><%= link_to t(".see_all_categories"), categories_path, :class => "link1" %></p>
     </div>
   </div>
   <div id="box2" class="box-style">
     <div class="title">
-      <h2><span>Todas las categorías</span></h2>
+      <h2><span><%= t ".all_categories" %></span></h2>
     </div>
     <div class="content">
       <ul>
@@ -25,16 +25,16 @@
       </ul>
     </div>
     <div class="title decorations">
-      <h2><span>Decoraciones</span></h2>
+      <h2><span><%= t ".decorations" %></span></h2>
     </div>
     <div class="content">
       <% Decoration.all_including_products_count(current_ability).group_by(&:tag).each do |decoration_tag, decorations| %>
-        <h3 class="decorations-list">Decoraciones de <%= Decoration.human_tag_name decoration_tag %></h3>
+        <h3 class="decorations-list"><%= t ".decoration_name", name: Decoration.human_tag_name(decoration_tag) %></h3>
         <ul class="decorations">
           <% decorations.each_with_index do |decoration, idx| %>
             <li class="decoration <%= "hideable" if idx > 4 %>"><%= link_to "#{decoration.name} (#{decoration.products_count})", search_products_path(:decoration_tag => decoration.tag, :decoration_code => decoration.code) %></li>
           <% end %>
-          <li><%= link_to "Ver más", "#", :class => "link2 toggle-hideables", :data => { :toggled_text => "Ver menos" } %></li>
+          <li><%= link_to t(".see_more"), "#", :class => "link2 toggle-hideables", :data => { :toggled_text => t(".see_less") } %></li>
         </ul>
       <% end %>
     </div>

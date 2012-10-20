@@ -20,6 +20,16 @@ es:
       where: "¿Dónde estamos?"
       contact: "Contacte con nosotros"
       search: "Buscador"
+    sidebar:
+      highlighted_categories: "Categorías destacadas"
+      new_arrivals: "Últimas novedades (%{count})"
+      highlighted_search: "Búsqueda '%{query}' (%{count})"
+      see_all_categories: "Ver todas las categorías"
+      all_categories: "Todas las categorías"
+      decorations: "Decoraciones"
+      decoration_name: "Decoraciones de %{name}"
+      see_more: "Ver más"
+      see_less: "Ver menos"
   contacts:
     new:
       title: "Contacte con nosotros"
