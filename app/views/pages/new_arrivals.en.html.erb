@@ -1,0 +1,21 @@
+<%= title "New arrivals" %>
+<%= description "New arrivals" %>
+
+<div id="box7" class="box-style">
+  <div class="title">
+    <h2><span>
+      <%= link_to "Catalog", categories_path %> &rsaquo;
+      New arrivals
+    </span></h2>
+  </div>
+  <div class="content">
+    <p>We're sorry, only premium users can see the new arrivals. If you want to get a premium account, don't hesitate to <%= link_to "contact us", new_contact_path %>.</p>
+    <p>If you already have a premium account, please <%= link_to "log in", new_user_session_path %> to continue.</p>
+    <p>You can also use the search box, or see the rest of the catalog, classified in the following categories:</p>
+    <ul class="style1">
+      <% Category.order(:position).all.each do |category| %>
+        <li><%= link_to category.name, category_products_path(category) %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
