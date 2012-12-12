@@ -9,11 +9,11 @@ class Ability
     else
       can :access, :pages
       can :read, :categories
-      if user.premium?
+#     if user.premium?
         can [:read, :search, :new_arrivals], :products
-      else
-        can [:read, :search               ], :products, :new_arrival => false
-      end
+#     else
+#       can [:read, :search               ], :products, :new_arrival => false
+#     end
     end
 
     can :new, :contacts
