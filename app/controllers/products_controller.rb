@@ -16,7 +16,13 @@ class ProductsController < ApplicationController
       @decoration = Decoration.find_by_tag_and_code!(params[:decoration_tag], params[:decoration_code])
       @products = @products.with_decoration(@decoration)
     end
-    @products = @products.search(params[:q]) if params[:q].present?
+
+    if params[:q].present?
+       @products = @products.search(params[:q])
+    else
+       @products = @products.order(:created_at).reverse_order
+    end
+
     respond_with @products, :template => "products/index"
   end
 
