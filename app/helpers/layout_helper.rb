@@ -20,7 +20,10 @@ module LayoutHelper
 
   def active_tab?(tab)
     case tab
-    when "home", "who", "where"
+    when "who"
+      controller_name == "pages" and
+      action_name.in? %w[who how_we_work]
+    when "home", "where"
       controller_name == "pages" and
       action_name     ==  tab
     when "categories"
