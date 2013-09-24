@@ -33,15 +33,39 @@
         <div class="content">
           <ul>
             <li>
+              <h3><%= link_to "Decoración de una maceta", pages_pot_path %></h3>
+              <p>
+                <%= link_to pages_pot_path do %>
+                  <%= image_tag "right-sidebar/maceta.jpg" %>
+                <% end %>
+              </p>
+              <p>Mire cómo pintamos a mano una maceta para decorar su hogar.</p>
+            </li>
+            <li>
               <h3><%= link_to "Cómo trabajamos", pages_how_we_work_path %></h3>
+              <p>
+                <%= link_to pages_how_we_work_path do %>
+                  <%= image_tag "right-sidebar/como-trabajamos.jpg" %>
+                <% end %>
+              </p>
               <p>Descubra cómo construimos y pintamos nuestros productos a mano.</p>
             </li>
             <li>
               <h3><%= link_to "Elaboración de un botijo", pages_botijo_path %></h3>
+              <p>
+                <%= link_to pages_botijo_path do %>
+                  <%= image_tag "right-sidebar/botijo.jpg" %>
+                <% end %>
+              </p>
               <p>Descubra cómo elaboramos un botijo de forma artesanal.</p>
             </li>
             <li>
               <h3><%= link_to "Nuestro entorno", pages_environment_path %></h3>
+              <p>
+                <%= link_to pages_environment_path do %>
+                  <%= image_tag "right-sidebar/environment.jpg" %>
+                <% end %>
+              </p>
               <p>Cerca de nosotros puede encontrar bellos paisajes naturales, así como visitar ciudades y monumentos patrimonio de la humanidad.</p>
             </li>
           </ul>

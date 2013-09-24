@@ -33,15 +33,39 @@
         <div class="content">
           <ul>
             <li>
+              <h3><%= link_to "Decoration of a pot", pages_pot_path %></h3>
+              <p>
+                <%= link_to pages_pot_path do %>
+                  <%= image_tag "right-sidebar/maceta.jpg" %>
+                <% end %>
+              </p>
+              <p>See how we paint by hand a plant pot to decorate your house.</p>
+            </li>
+            <li>
               <h3><%= link_to "How we work", pages_how_we_work_path %></h3>
+              <p>
+                <%= link_to pages_how_we_work_path do %>
+                  <%= image_tag "right-sidebar/como-trabajamos.jpg" %>
+                <% end %>
+              </p>
               <p>Discover how we build and paint our products by hand.</p>
             </li>
             <li>
               <h3><%= link_to "Production of a 'botijo'", pages_botijo_path %></h3>
+              <p>
+                <%= link_to pages_botijo_path do %>
+                  <%= image_tag "right-sidebar/botijo.jpg" %>
+                <% end %>
+              </p>
               <p>Discover how we hand craft a 'botijo', a typical Spanish jug that keeps water cool.</p>
             </li>
             <li>
               <h3><%= link_to "Our environment", pages_environment_path %></h3>
+              <p>
+                <%= link_to pages_environment_path do %>
+                  <%= image_tag "right-sidebar/environment.jpg" %>
+                <% end %>
+              </p>
               <p>You can find beautiful landscapes near us, and visit towns and monuments that are declared world heritage.</p>
             </li>
           </ul>
