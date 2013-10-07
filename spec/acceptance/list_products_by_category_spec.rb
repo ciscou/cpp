@@ -12,29 +12,8 @@ feature 'List products by category', %q{
     @product3 = FactoryGirl.create :product, :category => @product1.category, :new_arrival => true
   end
 
-  scenario 'as an annonymous user' do
-    visit homepage
-
-    click_link @product1.category.name
-
-    page.should have_css    ".product div.image-title", :text => @product1.name
-    page.should have_no_css ".product div.image-title", :text => @product2.name
-    page.should have_no_css ".product div.image-title", :text => @product3.name
-  end
-
-  scenario 'as a regular user' do
-    user = FactoryGirl.create :user, :premium => false
-    login_as user
-
-    click_link @product1.category.name
-
-    page.should have_css    ".product div.image-title", :text => @product1.name
-    page.should have_no_css ".product div.image-title", :text => @product2.name
-    page.should have_no_css ".product div.image-title", :text => @product3.name
-  end
-
-  scenario 'as a premium user' do
-    user = FactoryGirl.create :user, :premium => true
+  scenario 'should see the products of the selected category' do
+    user = FactoryGirl.create :user
     login_as user
 
     click_link @product1.category.name

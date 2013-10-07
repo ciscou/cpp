@@ -14,17 +14,8 @@ feature 'List categories', %q{
                  FactoryGirl.create :product, :category => @category1, :new_arrival => true
   end
 
-  scenario 'as regular user, should see the two categories but not the new arrivals section' do
-    visit homepage
-    click_link "Catálogo"
-
-    page.should have_no_css "#new_arrivals"
-    page.should have_css ".category h2"    , :text => @category1.name
-    page.should have_css ".category h2"    , :text => @category2.name
-  end
-
-  scenario 'as premium user, should see the two categories and the new arrivals section' do
-    user = FactoryGirl.create :user, :premium => true
+  scenario 'should see the two categories and the new arrivals section' do
+    user = FactoryGirl.create :user
     login_as user
     click_link "Catálogo"
 

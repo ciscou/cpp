@@ -5,7 +5,6 @@ Cpp::Application.routes.draw do
     match "quienes-somos"   => "pages#who"         , :as => "pages_who"
     match "como-trabajamos" => "pages#how_we_work" , :as => "pages_how_we_work"
     match "donde-estamos"   => "pages#where"       , :as => "pages_where"
-    match "novedades"       => "pages#new_arrivals", :as => "pages_new_arrivals"
     match "nuestro-entorno" => "pages#environment" , :as => "pages_environment"
     match "botijo"          => "pages#botijo"      , :as => "pages_botijo"
     match "maceta"          => "pages#pot"         , :as => "pages_pot"

@@ -14,29 +14,8 @@ feature 'List products by category', %q{
     @product3 = FactoryGirl.create :product, :new_arrival => true
   end
 
-  scenario 'as an annonymous user' do
-    visit homepage
-
-    click_link "Últimas novedades (3)"
-    page.current_url.should == pages_new_arrivals_url(locale: :es)
-
-    click_link "Catálogo"
-    page.should have_no_css "#new_arrivals"
-  end
-
-  scenario 'as a regular user' do
-    user = FactoryGirl.create :user, :premium => false
-    login_as user
-
-    click_link "Últimas novedades (3)"
-    page.current_url.should == pages_new_arrivals_url(locale: :es)
-
-    click_link "Catálogo"
-    page.should have_no_css "#new_arrivals"
-  end
-
-  scenario 'as a premium user' do
-    user = FactoryGirl.create :user, :premium => true
+  scenario 'should see the new arrivals section' do
+    user = FactoryGirl.create :user
     login_as user
 
     click_link "Últimas novedades (3)"
