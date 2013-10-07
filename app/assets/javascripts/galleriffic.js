@@ -53,40 +53,6 @@ jQuery(document).ready(function($) {
       }
     });
 
-    // PageLoad function
-    // This function is called when:
-    // 1. after calling $.history.init();
-    // 2. after calling $.history.load();
-    // 3. after pushing "Go Back" button of a browser
-    function pageload(hash) {
-      // alert("pageload: " + hash);
-      // hash doesn't contain the first # character.
-      if(hash) {
-        $.galleriffic.gotoImage(hash);
-      } else {
-        gallery.gotoIndex(0);
-      }
-    }
-
-    // Initialize history plugin.
-    // The callback is called at once by present location.hash.
-    $.history.init(pageload);
-
-    // set onlick event for buttons using the jQuery 1.3 live method
-    $("a[rel='history']").live('click', function(e) {
-      if (e.button != 0) return true;
-
-      var hash = this.href;
-      hash = hash.replace(/^.*#/, '');
-
-      // moves to a new page. 
-      // pageload is called at once. 
-      // hash don't contain "#", "?"
-      $.history.load(hash);
-
-      return false;
-    });
-
     window.scrollBy(0, 240);
   }
 
