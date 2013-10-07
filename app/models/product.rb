@@ -1,4 +1,4 @@
-require 'texticle/searchable'
+require 'textacular/searchable'
 
 class Product < ActiveRecord::Base
   include CarrierWavePictureRenamer

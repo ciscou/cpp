@@ -48,7 +48,7 @@ feature 'Create category', %q{
     end
 
     scenario 'with valid attributes' do
-      click_link "Catálogo"
+      within("#menu") { click_link "Catálogo" }
 
       page.should have_no_css ".category"
 
@@ -59,7 +59,7 @@ feature 'Create category', %q{
       attach_file "Foto", Rails.root.join("spec", "acceptance", "data", "example_picture.jpg")
       click_button "Guardar"
 
-      click_link "Catálogo"
+      within("#menu") { click_link "Catálogo" }
 
       within ".category" do
         page.should have_css "h2", :text => "Now this is an awesome category!"

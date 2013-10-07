@@ -24,7 +24,7 @@ feature 'List products by category', %q{
     page.should have_css ".product div.image-title", :text => @product2.name
     page.should have_css ".product div.image-title", :text => @product3.name
 
-    click_link "Catálogo"
+    within("#menu") { click_link "Catálogo" }
     within("#new_arrivals") { click_link "Últimas novedades" }
     page.current_url.should == new_arrivals_products_url(locale: :es)
     page.should have_css ".product div.image-title", :text => @product1.name

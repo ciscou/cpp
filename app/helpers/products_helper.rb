@@ -22,7 +22,7 @@ module ProductsHelper
   end
 
   def link_to_search_products(query)
-    link_to t(".highlighted_search", query: query, count: accessible_products.search(query).count),
+    link_to t(".highlighted_search", query: query, count: accessible_products.advanced_search(query).count),
       search_products_path(:q => query)
   end
 

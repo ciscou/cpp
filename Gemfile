@@ -30,7 +30,7 @@ gem "cancan", :git => "git://github.com/ryanb/cancan.git", :branch => "2.0"
 
 gem 'kaminari'
 
-gem 'texticle', '~> 2.0', :require => 'texticle/rails'
+gem 'textacular', '~> 3.0'
 
 gem 'newrelic_rpm'
 

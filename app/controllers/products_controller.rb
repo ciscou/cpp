@@ -18,7 +18,7 @@ class ProductsController < ApplicationController
     end
 
     if params[:q].present?
-       @products = @products.search(params[:q])
+       @products = @products.advanced_search(params[:q])
     else
        @products = @products.order(:created_at).reverse_order
     end

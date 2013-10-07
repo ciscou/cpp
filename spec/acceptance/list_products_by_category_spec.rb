@@ -16,7 +16,9 @@ feature 'List products by category', %q{
     user = FactoryGirl.create :user
     login_as user
 
-    click_link @product1.category.name
+    within "#product_#{@product1.id}" do
+      click_link @product1.category.name
+    end
 
     page.should have_css    ".product div.image-title", :text => @product1.name
     page.should have_no_css ".product div.image-title", :text => @product2.name
