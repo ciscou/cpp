@@ -58,6 +58,9 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
     erubis (2.7.0)
+    exception_notification (4.0.1)
+      actionmailer (>= 3.0.4)
+      activesupport (>= 3.0.4)
     excon (0.28.0)
     execjs (2.0.2)
     factory_girl (4.3.0)
@@ -197,6 +200,7 @@ DEPENDENCIES
   carrierwave
   coffee-rails
   devise
+  exception_notification
   factory_girl_rails
   ffaker
   fog

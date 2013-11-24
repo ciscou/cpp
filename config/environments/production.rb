@@ -60,4 +60,10 @@ Cpp::Application.configure do
   config.active_support.deprecation = :notify
 
   config.eager_load = true
+
+  config.middleware.use ExceptionNotification::Rack, :email => {
+    :email_prefix => "[CPP] ",
+    :sender_address => %{"notifier" <notifier@ceramicapadilla.es>},
+    :exception_recipients => %w[francismpp@gmail.com]
+  }
 end
