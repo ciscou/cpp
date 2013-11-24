@@ -78,7 +78,7 @@ xml.urlset :xmlns => "http://www.sitemaps.org/schemas/sitemap/0.9" do
   end
 
   # products
-  accessible_products.all.each do |product|
+  Product.all.each do |product|
     xml.url do
       xml.loc        category_product_url(product.category, product, :locale => locale)
       xml.lastmod    product.updated_at.iso8601

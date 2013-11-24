@@ -49,8 +49,8 @@ class Decoration
     end
   end
 
-  def self.all_including_products_count(ability)
-    products = Product.joins(:category).accessible_by(ability).
+  def self.all_including_products_count
+    products = Product.joins(:category).
       group(:decoration_tag, :decoration_code).order("count_all desc").count
     decorations = products.map do |(decoration_tag, decoration_code), products_count|
       new(decoration_tag, decoration_code).tap do |decoration|

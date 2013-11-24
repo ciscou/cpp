@@ -6,7 +6,7 @@
   ) %></div>
   <div class="clearfix"></div>
   <%= simple_format category.description %>
-  <% if can? :manage, :categories %>
+  <% if current_user_is_admin? %>
     <p>
       <%= link_to "Editar", edit_category_path(category) %> |
       <%= link_to "Subir", move_higher_category_path(category), :method => :post %> |

@@ -7,7 +7,7 @@
 				<h2><span>Productos destacados</span></h2>
 			</div>
 
-      <% accessible_products.featured.each do |product| %>
+      <% Product.featured.each do |product| %>
         <%= div_for product, :class => "item-box hproduct" do %>
           <h2 class="fn"><%= link_to product.name, category_products_path(product.category, :anchor => product.to_param) %></h2>
           <div><%= link_to(

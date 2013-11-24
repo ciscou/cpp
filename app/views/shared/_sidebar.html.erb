@@ -5,7 +5,7 @@
     </div>
     <div class="content">
       <ul>
-        <li><%= link_to t(".new_arrivals", count: Product.new_arrivals.count), new_arrivals_path %></li>
+        <li><%= link_to t(".new_arrivals", count: Product.new_arrivals.count), new_arrivals_products_path %></li>
         <li><%= link_to_search_products "cuencos y ensaladeras" %></li>
         <li><%= link_to_search_products "macetas" %></li>
         <li><%= link_to_search_products "cazuelas" %></li>
@@ -20,7 +20,7 @@
     <div class="content">
       <ul>
         <% Category.order(:position).all.each do |category| %>
-          <li><%= link_to "#{category.name} (#{accessible_products.where(:category_id => category).count})", category_products_path(category) %></li>
+          <li><%= link_to "#{category.name} (#{Product.where(:category_id => category).count})", category_products_path(category) %></li>
         <% end %>
       </ul>
     </div>
@@ -28,7 +28,7 @@
       <h2><span><%= t ".decorations" %></span></h2>
     </div>
     <div class="content">
-      <% Decoration.all_including_products_count(current_ability).group_by(&:tag).each do |decoration_tag, decorations| %>
+      <% Decoration.all_including_products_count.group_by(&:tag).each do |decoration_tag, decorations| %>
         <h3 class="decorations-list"><%= t ".decoration_name", name: Decoration.human_tag_name(decoration_tag) %></h3>
         <ul class="decorations">
           <% decorations.each_with_index do |decoration, idx| %>

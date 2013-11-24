@@ -1,17 +1,17 @@
 class ProductsController < ApplicationController
-  before_filter :load_category, :except => [:search, :new_arrivals] # FIXME change to load_and_authorize_resource :category
-
-  load_and_authorize_resource :through => :category, :except => [:search, :new_arrivals]
-  load_and_authorize_resource                        :only   => [:search, :new_arrivals]
+  before_filter :ensure_admin_user, except: [:index, :search, :new_arrivals, :show]
+  before_filter :load_category, :except => [:search, :new_arrivals]
 
   respond_to :html
 
   def index
-    @products = @products.order(:created_at).reverse_order
+    @products = @category.products.order(:created_at).reverse_order
     respond_with @category, @products
   end
 
   def search
+    @products = Product.scoped
+
     if params[:decoration_tag] || params[:decoration_code]
       @decoration = Decoration.find_by_tag_and_code!(params[:decoration_tag], params[:decoration_code])
       @products = @products.with_decoration(@decoration)
@@ -27,33 +27,39 @@ class ProductsController < ApplicationController
   end
 
   def new_arrivals
-    @products = @products.new_arrivals
+    @products = Product.new_arrivals
     respond_with @products, :template => "products/index"
   end
 
   def show
+    load_product
     respond_with @category, @product
   end
 
   def new
+    @product = @category.products.build
     respond_with @category, @product
   end
 
   def edit
+    load_product
     respond_with @category, @product
   end
 
   def create
+    @product = @category.products.build(product_attributes)
     @product.save
     respond_with @category, @product, :location => category_products_url(@category, :anchor => @product.to_param)
   end
 
   def update
-    @product.save
+    load_product
+    @product.update_attributes(product_attributes)
     respond_with @category, @product, :location => category_products_url(@category, :anchor => @product.to_param)
   end
 
   def destroy
+    load_product
     @product.destroy
     respond_with @category, @product
   end
@@ -62,5 +68,13 @@ class ProductsController < ApplicationController
 
   def load_category
     @category = Category.find(params[:category_id])
+  end
+
+  def load_product
+    @product = @category.products.find(params[:id])
+  end
+
+  def product_attributes
+    params[:product]
   end
 end

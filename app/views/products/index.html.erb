@@ -35,7 +35,7 @@
 
 <% end %>
 
-<% if can? :manage, :products %>
+<% if current_user_is_admin? %>
   <% if @category %>
     <div class="content">
       <p>

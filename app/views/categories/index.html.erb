@@ -2,7 +2,7 @@
 
 <div id="box6" class="box-style">
 
-  <% if can?(:new_arrivals, :products) && Product.new_arrivals.any? %>
+  <% if Product.new_arrivals.any? %>
     <div class="title">
       <h2><span>Categorías destacadas</span></h2>
     </div>
@@ -12,10 +12,10 @@
     </div>
 
     <div id="new_arrivals" class="item-box" do %>
-      <h2><%= link_to "Últimas novedades", new_arrivals_path %></h2>
+      <h2><%= link_to "Últimas novedades", new_arrivals_products_path %></h2>
       <p><%= link_to(
         image_tag(Product.new_arrivals.first.picture_url(:small), :class => "alignleft", :alt => "Novedades"),
-        new_arrivals_path
+        new_arrivals_products_path
       ) %></p>
       <p>Esté atento a las últimas novedades añadidas a la web.</p>
     </div>
@@ -26,7 +26,7 @@
   </div>
 
   <div class="content">
-    <p>Actualmente disponemos de <%= accessible_products.count %> productos, clasificados en <%= Category.count %> categorías.</p>
+    <p>Actualmente disponemos de <%= Product.count %> productos, clasificados en <%= Category.count %> categorías.</p>
     <p>Seleccione una de las siguientes categorías para ver un listado de sus productos</p>
   </div>
 
@@ -40,7 +40,7 @@
 
 </div>
 
-<% if can? :manage, :categories %>
+<% if current_user_is_admin? %>
   <div class="clearfix"></div>
   <div class="content">
     <p>

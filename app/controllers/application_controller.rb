@@ -5,11 +5,18 @@ class ApplicationController < ActionController::Base
 
   rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
 
-  enable_authorization :unless => :devise_controller? do |exception|
-    redirect_to root_url, :alert => exception.message
-  end
-
   private
+
+  def current_user_is_admin?
+    user_signed_in? && current_user.admin?
+  end
+  helper_method :current_user_is_admin?
+
+  def ensure_admin_user
+    unless current_user_is_admin?
+      redirect_to root_url, alert: "No tiene permisos para realizar esa acción"
+    end
+  end
 
   def set_locale
     I18n.locale = params[:locale].presence || session[:locale].presence || I18n.default_locale
