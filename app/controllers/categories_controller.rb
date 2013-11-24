@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_filter :ensure_admin_user, except: :index
+  before_action :ensure_admin_user, except: :index
 
   respond_to :html
 
