@@ -1,4 +1,6 @@
 Cpp::Application.routes.draw do
+  resources :failures, only: :index
+
   scope "(/:locale)", :locale => /es|en|fr/ do
     devise_for :users
 
