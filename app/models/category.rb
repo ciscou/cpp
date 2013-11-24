@@ -8,7 +8,7 @@ class Category < ActiveRecord::Base
   validates :name, :presence => true, :uniqueness => true
   validates :picture, :presence => true
 
-  default_scope order(:position)
+  default_scope -> { order(:position) }
 
   mount_uploader :picture, PictureUploader
 

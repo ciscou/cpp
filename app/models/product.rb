@@ -6,9 +6,9 @@ class Product < ActiveRecord::Base
 
   belongs_to :category
 
-  scope :featured, order("random()").limit(5)
-  scope :new_arrivals, where(:new_arrival => true).order("created_at desc")
-  scope :with_decoration, lambda { |decoration|
+  scope :featured, -> { order("random()").limit(5) }
+  scope :new_arrivals, -> { where(:new_arrival => true).order("created_at desc") }
+  scope :with_decoration, ->(decoration) {
     joins(:category).where(:categories => { :decoration_tag => decoration.tag },
                            :decoration_code => decoration.code)
   }

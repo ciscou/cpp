@@ -19,7 +19,7 @@
     </div>
     <div class="content">
       <ul>
-        <% Category.order(:position).all.each do |category| %>
+        <% Category.order(:position).each do |category| %>
           <li><%= link_to "#{category.name} (#{Product.where(:category_id => category).count})", category_products_path(category) %></li>
         <% end %>
       </ul>

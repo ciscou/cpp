@@ -55,6 +55,6 @@ class CategoriesController < ApplicationController
   end
 
   def category_attributes
-    params[:category]
+    params.require(:category).permit(:name, :description, :picture, :decoration_tag)
   end
 end

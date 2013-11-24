@@ -10,7 +10,7 @@ class ProductsController < ApplicationController
   end
 
   def search
-    @products = Product.scoped
+    @products = Product.all
 
     if params[:decoration_tag] || params[:decoration_code]
       @decoration = Decoration.find_by_tag_and_code!(params[:decoration_tag], params[:decoration_code])
@@ -75,6 +75,6 @@ class ProductsController < ApplicationController
   end
 
   def product_attributes
-    params[:product]
+    params.require(:product).permit(:name, :description, :picture, :new_arrival, :decoration_code)
   end
 end

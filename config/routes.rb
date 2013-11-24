@@ -2,12 +2,12 @@ Cpp::Application.routes.draw do
   scope "(/:locale)", :locale => /es|en|fr/ do
     devise_for :users
 
-    match "quienes-somos"   => "pages#who"         , :as => "pages_who"
-    match "como-trabajamos" => "pages#how_we_work" , :as => "pages_how_we_work"
-    match "donde-estamos"   => "pages#where"       , :as => "pages_where"
-    match "nuestro-entorno" => "pages#environment" , :as => "pages_environment"
-    match "botijo"          => "pages#botijo"      , :as => "pages_botijo"
-    match "maceta"          => "pages#pot"         , :as => "pages_pot"
+    get "quienes-somos"   => "pages#who"         , :as => "pages_who"
+    get "como-trabajamos" => "pages#how_we_work" , :as => "pages_how_we_work"
+    get "donde-estamos"   => "pages#where"       , :as => "pages_where"
+    get "nuestro-entorno" => "pages#environment" , :as => "pages_environment"
+    get "botijo"          => "pages#botijo"      , :as => "pages_botijo"
+    get "maceta"          => "pages#pot"         , :as => "pages_pot"
 
     resources :categories, :path => "catalogo" do
       get 'pagina/:page', :action => :index, :on => :collection
@@ -28,10 +28,10 @@ Cpp::Application.routes.draw do
     resource "sitemap", :only => :show
   end
 
-  match "/:locale", :to => "pages#home", :locale => /es|en|fr/
+  get "/:locale", :to => "pages#home", :locale => /es|en|fr/
 
-  match "/:locale/*path", :to => "pages#404", :locale => /es|en|fr/
-  match "*path", :to => "pages#404"
+  get "/:locale/*path", :to => "pages#404", :locale => /es|en|fr/
+  get "*path", :to => "pages#404"
 
   root :to => "pages#home"
 end

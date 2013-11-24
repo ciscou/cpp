@@ -35,7 +35,7 @@
         <% if current_user_is_admin? %>
           <p>
             <%= link_to "Editar", edit_category_product_path(@product.category, @product) %> |
-            <%= link_to "Eliminar", [@product.category, @product], :method => :delete, :confirm => "¿Estás seguro?" %>
+            <%= link_to "Eliminar", [@product.category, @product], method: :delete, data: { confirm: "¿Estás seguro?" } %>
           </p>
         <% end %>
       </div>
