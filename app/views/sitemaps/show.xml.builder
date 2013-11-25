@@ -89,7 +89,7 @@ xml.urlset :xmlns => "http://www.sitemaps.org/schemas/sitemap/0.9" do
 
   # new arrivals section
   xml.url do
-    xml.loc        new_arrivals_url :locale => locale
+    xml.loc        new_arrivals_products_url :locale => locale
     xml.lastmod    (Product.new_arrivals.last || OpenStruct.new(:updated_at => Time.current)).updated_at.iso8601
     xml.changefreq 'weekly'
     xml.priority   0.7
