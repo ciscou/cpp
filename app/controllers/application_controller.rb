@@ -29,6 +29,6 @@ class ApplicationController < ActionController::Base
 
   def record_not_found
     @wrapper_class = "details"
-    render "pages/404", :status => 404
+    render "pages/error_404", :status => 404
   end
 end
