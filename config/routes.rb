@@ -32,8 +32,8 @@ Cpp::Application.routes.draw do
 
   get "/:locale", :to => "pages#home", :locale => /es|en|fr/
 
-  get "/:locale/*path", :to => "pages#404", :locale => /es|en|fr/
-  get "*path", :to => "pages#404"
+  get "/:locale/*path", :to => "pages#error_404", :locale => /es|en|fr/
+  get "*path", :to => "pages#error_404"
 
   root :to => "pages#home"
 end
