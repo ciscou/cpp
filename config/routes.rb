@@ -1,6 +1,4 @@
 Cpp::Application.routes.draw do
-  resources :failures, only: :index
-
   scope "(/:locale)", :locale => /es|en|fr/ do
     devise_for :users
 
@@ -11,14 +9,14 @@ Cpp::Application.routes.draw do
     get "botijo"          => "pages#botijo"      , :as => "pages_botijo"
     get "maceta"          => "pages#pot"         , :as => "pages_pot"
 
-    resources :categories, :path => "catalogo" do
+    resources :categories, only: [:index, :new, :edit, :create, :update, :destroy], :path => "catalogo" do
       get 'pagina/:page', :action => :index, :on => :collection
       post 'move_lower' , :on => :member
       post 'move_higher', :on => :member
       resources :products, :path => "productos"
     end
 
-    resources :products, :path => "productos" do
+    resources :products, only: [], :path => "productos" do
       collection do
         get 'busqueda' , :action => :search,       :as => :search
         get 'novedades', :action => :new_arrivals, :as => :new_arrivals
