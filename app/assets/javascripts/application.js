@@ -7,4 +7,8 @@
 //= require jquery
 //= require jquery.ui.all
 //= require jquery_ujs
-//= require_tree .
+//= require jquery.galleriffic
+//= require jquery.opacityrollover
+//= require external_links_in_new_window
+//= require galleriffic
+//= require products

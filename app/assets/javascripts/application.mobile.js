@@ -7,5 +7,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require external_links_in_new_window
 
 $(function(){ $(document).foundation(); });
