@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="<%= I18n.locale %>">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Cerámica Padilla Padilla<%= " - #{yield(:title)}" if content_for?(:title) %></title>
+    <meta name="keywords" content="cerámica, cerámica padilla, pintado a mano, artesanía, regalos personalizados" />
+    <% if content_for?(:description) %><meta name="description" content="<%= yield(:description) %>" /><% end %>
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    <%= stylesheet_link_tag    "application.mobile" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+    <%= render "shared/google_analytics" %>
+  </head>
+
+  <body>
+    <%= yield %>
+    <%= javascript_include_tag "application.mobile" %>
+  </body>
+</html>

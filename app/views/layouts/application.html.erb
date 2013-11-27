@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="<%= I18n.locale %>">
 <head>
+  <meta charset="utf-8" />
   <title>Cerámica Padilla Padilla<%= " - #{yield(:title)}" if content_for?(:title) %></title>
   <meta name="keywords" content="cerámica, cerámica padilla, pintado a mano, artesanía, regalos personalizados" />
   <% if content_for?(:description) %><meta name="description" content="<%= yield(:description) %>" /><% end %>
