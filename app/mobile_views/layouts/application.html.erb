@@ -16,7 +16,12 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="row">
+      <div class="large-12 columns">
+        <%= render "layouts/navbar" %>
+        <%= yield %>
+      </div>
+    </div>
     <%= javascript_include_tag "application.mobile" %>
   </body>
 </html>

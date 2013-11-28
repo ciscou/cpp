@@ -7,7 +7,7 @@
 </ul>
 
 <% if @products.any? %>
-  <ul class="clearing-thumbs" data-clearing>
+  <ul id="products" class="clearing-thumbs" data-clearing>
     <%= render @products %>
   </ul>
 <% else %>
