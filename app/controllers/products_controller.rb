@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   before_action :ensure_admin_user, except: [:index, :search, :new_arrivals, :show]
   before_action :load_category, :except => [:search, :new_arrivals]
 
-  before_action :check_for_mobile, only: [:index, :show]
+  before_action :check_for_mobile, only: [:index, :new_arrivals, :search, :show]
 
   respond_to :html
 
