@@ -1,6 +1,8 @@
 class CategoriesController < ApplicationController
   before_action :ensure_admin_user, except: :index
 
+  before_action :check_for_mobile, only: :index
+
   respond_to :html
 
   def index

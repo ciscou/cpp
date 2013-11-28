@@ -1,0 +1,31 @@
+<% title "Catálogo" %>
+
+<h2>Categorías destacadas</h2>
+
+<% if Product.new_arrivals.any? %>
+  <h3><%= link_to "Últimas novedades", new_arrivals_products_path %></h3>
+  <p class="text-center">
+    <%= link_to(
+      image_tag(Product.new_arrivals.first.picture_url(:small), :alt => "Novedades"),
+      new_arrivals_products_path
+    ) %>
+  </p>
+  <p>
+    Esté atento a las últimas novedades añadidas a la web.
+  </p>
+<% end %>
+
+<h2>Todas las categorías</h2>
+
+<% @categories.each do |category| %>
+  <h3><%= link_to category.name, category_products_path(category) %></h3>
+  <p class="text-center">
+    <%= link_to(
+      image_tag(category.picture_url(:small), :alt => category.name),
+      category_products_path(category)
+    ) %>
+  </p>
+  <%= simple_format category.description %>
+<% end %>
+
+<%= paginate @categories %>
