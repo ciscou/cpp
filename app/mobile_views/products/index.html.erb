@@ -10,3 +10,9 @@
 <% else %>
   <p><%= products_index_nothing_found @category, @decoration, params[:q].presence %></p>
 <% end %>
+
+<%= simple_format @category.description if @category.description.present? %>
+
+<p>
+  Pulse sobre una foto para verla más grande. Podrá cambiar de foto arrastrando con el dedo. Para salir pulse en la x.
+</p>

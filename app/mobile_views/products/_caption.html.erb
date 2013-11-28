@@ -1,2 +1,2 @@
 <h3><%= link_to product.name, [product.category, product] %></h3>
-<%= simple_format product.description %>
+<p><%= truncate product.description, length: 80 %></p>
