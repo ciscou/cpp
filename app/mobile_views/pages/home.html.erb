@@ -1,0 +1,18 @@
+<% title "Inicio" %>
+
+<h2>Productos destacados</h2>
+
+<% Product.featured.each do |product| %>
+  <%= div_for product do %>
+    <h3><%= link_to product.name, category_products_path(product.category, :anchor => product.to_param) %></h2>
+    <p class="text-center">
+      <%= link_to(
+        image_tag(product.picture_url(:small), :alt => product.name),
+        category_products_path(product.category, :anchor => product.to_param)
+      ) %>
+    </p>
+    <%= simple_format product.description %>
+  <% end %>
+<% end%>
+
+<h3><%= link_to "Ver más productos", categories_path %></h3>
