@@ -1,0 +1,7 @@
+<% flash.each do |k, v| %>
+  <% level = { notice: :success, alert: :alert }[k] %>
+  <div data-alert class="alert-box radius <%= level %>">
+    <%= v %>
+    <a href="#" class="close">&times;</a>
+  </div>
+<% end %>
