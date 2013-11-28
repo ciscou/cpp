@@ -27,6 +27,24 @@ class ApplicationController < ActionController::Base
     { :locale => I18n.locale }
   end
 
+  def check_for_mobile
+    session[:mobile_override] = params[:mobile] if params[:mobile]
+    prepare_for_mobile if mobile_device?
+  end
+
+  def prepare_for_mobile
+    prepend_view_path Rails.root.join("app", "mobile_views")
+  end
+
+  def mobile_device?
+    if session[:mobile_override]
+      session[:mobile_override] == "1"
+    else
+      request.user_agent =~ /Mobile|webOS/
+    end
+  end
+  helper_method :mobile_device?
+
   def record_not_found
     @wrapper_class = "details"
     render "pages/error_404", :status => 404

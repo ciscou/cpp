@@ -1,0 +1,15 @@
+<% title       products_index_title       @category, @decoration, params[:q].presence %>
+<% description products_index_description @category, @decoration, params[:q].presence %>
+
+<ul class="breadcrumbs">
+  <li><%= link_to "Catálogo", categories_path %></li>
+  <li><%= products_index_title(@category, @decoration, params[:q].presence) %></li>
+</ul>
+
+<% if @products.any? %>
+  <ul class="clearing-thumbs" data-clearing>
+    <%= render @products %>
+  </ul>
+<% else %>
+  <p><%= products_index_nothing_found @category, @decoration, params[:q].presence %></p>
+<% end %>

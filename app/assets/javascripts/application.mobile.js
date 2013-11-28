@@ -8,5 +8,6 @@
 //= require jquery_ujs
 //= require foundation
 //= require external_links_in_new_window
+//= require products.mobile
 
 $(function(){ $(document).foundation(); });
