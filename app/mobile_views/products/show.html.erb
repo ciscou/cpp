@@ -7,7 +7,9 @@
   En la categoría de <%= link_to @product.category.name, category_products_path(@product.category) %>
 </p>
 
-<%= image_tag @product.picture_url %>
+<p>
+  <%= image_tag @product.picture_url %>
+</p>
 
 <p>
   <% if @product.decoration.exists? %>
@@ -15,7 +17,7 @@
   <% end %>
   <% if @product.category.decorations.any? %>
     También disponible en las decoraciones:<br/>
-    <%= safe_join @product.category.decorations.map { |decoration| link_to_decoration decoration, :class => "other-decoration" } %>
+    <%= safe_join @product.category.decorations.map { |decoration| link_to_decoration decoration }, ", " %>
   <% end %>
 </p>
 
