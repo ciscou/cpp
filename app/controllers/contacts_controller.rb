@@ -1,6 +1,8 @@
 # encoding: utf-8
 
 class ContactsController < ApplicationController
+  before_action :check_for_mobile
+
   def new
     @contact = Contact.new
   end

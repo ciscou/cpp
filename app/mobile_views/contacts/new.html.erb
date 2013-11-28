@@ -1,0 +1,45 @@
+<% title t ".title" %>
+
+<h2><%= t ".title" %></h2>
+
+<p>
+  <%= t ".intro" %>
+</p>
+<dl>
+  <dt><%= t ".phone" %></dt> <dd><%= link_to "953 678 087", "tel:953678087" %></dd>
+  <dt><%= t ".fax" %></dt>   <dd>953 670 902</dd>
+  <dt><%= t ".email" %></dt> <dd><%= mail_to "fabrica@ceramicapadilla.es", nil, encode: "hex" %></dd>
+</dl>
+<p>
+  <% if user_signed_in? %>
+    <%= t ".fill_form" %>
+  <% else %>
+    <%= t ".login_and_fill_form_html", login: link_to(t(".login"), new_user_session_path) %>
+  <% end %>
+</p>
+
+<%= form_for @contact do |f| %>
+  <div class="row">
+    <div class="large-12 columns <%= "error" if @contact.errors[:subject].any? %>">
+      <%= f.label :subject %>
+      <%= f.select :subject, Contact.subjects, { prompt: t(".subject_prompt") }, disabled: ! user_signed_in? %>
+      <% if @contact.errors[:subject].any? %>
+        <small class="error"><%= @contact.errors[:subject].to_sentence %></small>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-12 columns <%= "error" if @contact.errors[:body].any? %>">
+      <%= f.label :body %>
+      <%= f.text_area :body, disabled: ! user_signed_in? %>
+      <% if @contact.errors[:body].any? %>
+        <small class="error"><%= @contact.errors[:body].to_sentence %></small>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-12 columns">
+      <%= f.submit t(".submit"), class: "button", disabled: ! user_signed_in? %>
+    </div>
+  </div>
+<% end %>
