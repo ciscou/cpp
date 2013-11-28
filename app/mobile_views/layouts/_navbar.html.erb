@@ -29,6 +29,10 @@
           </div>
         <% end %>
       </li>
+      <li class="divider"></li>
+      <li class="has-form">
+        <%= mail_to "fabrica@ceramicapadilla.es", "Hacer pedido", subject: "[Pedido Web] Pedido", encode: "hex", class: "button" %>
+      </li>
     </ul>
   </section>
 </nav>
