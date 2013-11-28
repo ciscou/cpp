@@ -8,7 +8,7 @@ xml.urlset :xmlns => "http://www.sitemaps.org/schemas/sitemap/0.9" do
 
   # homepage
   xml.url do
-    xml.loc        root_url :locale => locale
+    xml.loc        localized_root_url :locale => locale
     xml.lastmod    (Product.order(:updated_at).last || OpenStruct.new(:updated_at => Time.current)).updated_at.iso8601
     xml.changefreq 'always'
     xml.priority   0.8

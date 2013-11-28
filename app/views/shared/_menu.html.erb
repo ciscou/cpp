@@ -1,7 +1,7 @@
 <div id="header" class="container">
   <div id="menu">
     <ul>
-      <li<% if active_tab?("home") %> class="active"<% end %>><%= link_to content_tag(:span, t(".home")), root_path %></li>
+      <li<% if active_tab?("home") %> class="active"<% end %>><%= link_to content_tag(:span, t(".home")), localized_root_path %></li>
       <li<% if active_tab?("categories") %> class="active"<% end %>><%= link_to content_tag(:span, t(".categories")), categories_path %></li>
       <li<% if active_tab?("who") %> class="active"<% end %>><%= link_to content_tag(:span, t(".who")), pages_who_path %></li>
       <li<% if active_tab?("where") %> class="active"<% end %>><%= link_to content_tag(:span, t(".where")), pages_where_path %></li>

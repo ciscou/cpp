@@ -28,7 +28,7 @@ Cpp::Application.routes.draw do
     resource "sitemap", :only => :show
   end
 
-  get "/:locale", :to => "pages#home", :locale => /es|en|fr/
+  get "/:locale", :to => "pages#home", :as => :localized_root, :locale => /es|en|fr/
 
   get "/:locale/*path", :to => "pages#error_404", :locale => /es|en|fr/
   get "*path", :to => "pages#error_404"

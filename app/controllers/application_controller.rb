@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
 
   def ensure_admin_user
     unless current_user_is_admin?
-      redirect_to root_url, alert: "No tiene permisos para realizar esa acción"
+      redirect_to localized_root_url, alert: "No tiene permisos para realizar esa acción"
     end
   end
 
