@@ -1,0 +1,22 @@
+<% title @product.name %>
+<% description @product.description %>
+
+<h2><%= @product.name %></h2>
+
+<p>
+  En la categoría de <%= link_to @product.category.name, category_products_path(@product.category) %>
+</p>
+
+<%= image_tag @product.picture_url %>
+
+<p>
+  <% if @product.decoration.exists? %>
+    <strong>La decoración de la foto es <%= link_to_decoration @product.decoration %>.</strong>
+  <% end %>
+  <% if @product.category.decorations.any? %>
+    También disponible en las decoraciones:<br/>
+    <%= safe_join @product.category.decorations.map { |decoration| link_to_decoration decoration, :class => "other-decoration" } %>
+  <% end %>
+</p>
+
+<%= simple_format @product.description, :class => "description" %>
