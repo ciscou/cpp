@@ -40,7 +40,8 @@ class ApplicationController < ActionController::Base
     if session[:mobile_override]
       session[:mobile_override] == "1"
     else
-      request.user_agent =~ /Mobile|webOS/
+#     request.user_agent =~ /Mobile|webOS/
+      false
     end
   end
   helper_method :mobile_device?
