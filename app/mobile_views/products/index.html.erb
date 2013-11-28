@@ -1,10 +1,7 @@
 <% title       products_index_title       @category, @decoration, params[:q].presence %>
 <% description products_index_description @category, @decoration, params[:q].presence %>
 
-<ul class="breadcrumbs">
-  <li><%= link_to "Catálogo", categories_path %></li>
-  <li><%= products_index_title(@category, @decoration, params[:q].presence) %></li>
-</ul>
+<h2><%= products_index_title(@category, @decoration, params[:q].presence) %></h2>
 
 <% if @products.any? %>
   <ul id="products" class="clearing-thumbs" data-clearing>
