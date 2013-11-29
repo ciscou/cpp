@@ -981,7 +981,7 @@
 // $topbar-transition-speed: 300ms;
 // Using rem-calc for the below breakpoint causes issues with top bar
 // $topbar-breakpoint: #{upper-bound($medium-range)}; // Change to 9999px for always mobile layout
-// $topbar-media-query: "only screen and (min-width: #{upper-bound($medium-range)})";
+   $topbar-media-query: "only screen and (min-width: 1280px)";
 
 // Divider Styles
 // $topbar-divider-border-bottom: solid 1px lighten($topbar-bg-color, 10%);
