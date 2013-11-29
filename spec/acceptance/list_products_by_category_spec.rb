@@ -9,20 +9,31 @@ feature 'List products by category', %q{
   background do
     @product1 = FactoryGirl.create :product
     @product2 = FactoryGirl.create :product
-    @product3 = FactoryGirl.create :product, :category => @product1.category, :new_arrival => true
+    @product3 = FactoryGirl.create :product, category: @product1.category, new_arrival: true
   end
 
-  scenario 'should see the products of the selected category' do
-    user = FactoryGirl.create :user
-    login_as user
+  scenario 'should see the products of the selected category (from desktop)' do
+    visit root_path
 
     within "#product_#{@product1.id}" do
       click_link @product1.category.name
     end
 
-    page.should have_css    ".product div.image-title", :text => @product1.name
-    page.should have_no_css ".product div.image-title", :text => @product2.name
-    page.should have_css    ".product div.image-title", :text => @product3.name
+    page.should have_css    ".product div.image-title", text: @product1.name
+    page.should have_no_css ".product div.image-title", text: @product2.name
+    page.should have_css    ".product div.image-title", text: @product3.name
+  end
+
+  scenario 'should see the products of the selected category (from mobile)' do
+    visit root_path(mobile: 1)
+
+    within "#product_#{@product1.id} .picture" do
+      click_link @product1.name
+    end
+
+    page.should have_css    "#product_#{@product1.id}"
+    page.should have_no_css "#product_#{@product2.id}"
+    page.should have_css    "#product_#{@product3.id}"
   end
 
 end

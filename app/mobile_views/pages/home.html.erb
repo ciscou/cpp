@@ -6,7 +6,7 @@
   <% Product.featured.each do |product| %>
     <%= content_tag_for :li, product do %>
       <h3><%= link_to product.name, category_products_path(product.category, anchor: product.to_param) %></h2>
-      <p class="text-center">
+      <p class="text-center picture">
         <%= link_to(
           image_tag(product.picture_url(:small), alt: product.name),
           category_products_path(product.category, anchor: product.to_param)
