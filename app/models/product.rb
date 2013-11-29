@@ -6,7 +6,7 @@ class Product < ActiveRecord::Base
 
   belongs_to :category
 
-  scope :featured, -> { order("random()").limit(5) }
+  scope :featured, -> { order("random()").limit(6) }
   scope :new_arrivals, -> { where(:new_arrival => true).order("created_at desc") }
   scope :with_decoration, ->(decoration) {
     joins(:category).where(:categories => { :decoration_tag => decoration.tag },
