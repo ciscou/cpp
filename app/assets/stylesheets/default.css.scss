@@ -585,6 +585,7 @@ div.field_with_errors {
 
 div#error_explanation,
 div.notice,
+div.info,
 div.alert {
   padding: 5px;
   margin-bottom: 15px;
@@ -594,6 +595,11 @@ div#error_explanation,
 div.alert {
   border: 1px solid #FF0900;
   background-color: #ffaaaa;
+}
+
+div.info {
+  border: 1px solid blue;
+  background-color: #aaaabb;
 }
 
 div.notice {

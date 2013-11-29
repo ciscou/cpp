@@ -24,6 +24,12 @@
     <% flash.each do |k, v| %>
       <div class="content <%= k %>"><%= v %></div>
     <% end %>
+    <% if session["mobile_override"] %>
+      <div class="content info">
+        Está viendo la página como en el ordenador, pero creemos que le puede interesar
+        <%= link_to "ver la versión móvil", mobile: 1 %>.
+      </div>
+    <% end %>
 
       <div id="content">
 
