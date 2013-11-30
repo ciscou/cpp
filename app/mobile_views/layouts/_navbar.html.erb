@@ -17,21 +17,35 @@
     </ul>
 
     <ul class="right">
-      <li class="has-form">
-        <%= form_tag search_products_path, method: "get" do %>
-          <div class="row collapse">
-            <div class="large-8 small-9 columns">
-              <%= text_field_tag :q, params[:q], placeholder: "Maceta" %>
-            </div>
-            <div class="large-4 small-3 columns">
-              <%= submit_tag "Buscar", class: "button expand" %>
-            </div>
-          </div>
-        <% end %>
-      </li>
-      <li class="divider"></li>
-      <li class="has-form">
-        <%= mail_to "fabrica@ceramicapadilla.es", "Hacer pedido", subject: "[Pedido Web] Pedido", encode: "hex", class: "button" %>
+      <li class="has-dropdown">
+        <a href="#">Más opciones</a>
+        <ul class="dropdown">
+          <li class="has-dropdown">
+            <a href="#">Idioma</a>
+            <ul class="dropdown">
+              <li><%= link_to "Español",  params.merge(locale: :es) %></li>
+              <li><%= link_to "English",  params.merge(locale: :en) %></li>
+              <li><%= link_to "Français", params.merge(locale: :fr) %></li>
+            </ul>
+          </li>
+          <li>
+            <%= link_to "Buscar...", search_products_path(q: "") %>
+          </li>
+          <li>
+            <% if user_signed_in? %>
+              <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %>
+            <% else %>
+              <%= link_to "Iniciar sesión", new_user_session_path %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "Ver como en el ordenador", params.merge(mobile: 0) %>
+          </li>
+          <li class="divider"></li>
+          <li>
+            <%= mail_to "fabrica@ceramicapadilla.es", "Hacer pedido", subject: "[Pedido Web] Pedido", encode: "hex" %>
+          </li>
+        </ul>
       </li>
     </ul>
   </section>

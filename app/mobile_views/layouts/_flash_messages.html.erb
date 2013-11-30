@@ -9,7 +9,7 @@
 <div data-alert id="mobile-announcement" class="alert-box radius info">
   <strong>¡Bienvenido a la versión móvil de ceramicapadilla.es!</strong>
   Aunque estamos trabajando para que todo funcione correctamente, puede que prefiera
-  <%= link_to "ver esta página como en el ordenador", mobile: 0 %>.
+  <%= link_to "ver esta página como en el ordenador", params.merge(mobile: 0) %>.
   Puede cerrar este anuncio pulsando en la x a la derecha.
   <a href="#" class="close">&times;</a>
 </div>

@@ -1,14 +1,27 @@
-<% title       products_index_title       @category, @decoration, params[:q].presence %>
-<% description products_index_description @category, @decoration, params[:q].presence %>
+<% title       products_index_title       @category, @decoration, params[:q] %>
+<% description products_index_description @category, @decoration, params[:q] %>
 
-<h2><%= products_index_title(@category, @decoration, params[:q].presence) %></h2>
+<h2><%= products_index_title(@category, @decoration, params[:q]) %></h2>
+
+<% if params[:q] %>
+  <%= form_tag search_products_path, method: "get" do %>
+    <div class="row collapse">
+      <div class="small-9 columns">
+        <%= text_field_tag :q, params[:q] %>
+      </div>
+      <div class="small-3 columns">
+        <%= submit_tag "Buscar", class: "button postfix" %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
 
 <% if @products.any? %>
   <ul id="products" class="clearing-thumbs" data-clearing>
     <%= render @products %>
   </ul>
 <% else %>
-  <p><%= products_index_nothing_found @category, @decoration, params[:q].presence %></p>
+  <p><%= products_index_nothing_found @category, @decoration, params[:q] %></p>
 <% end %>
 
 <% if @category %>

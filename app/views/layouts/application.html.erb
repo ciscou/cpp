@@ -27,7 +27,7 @@
     <% if session["mobile_override"] %>
       <div class="content info">
         Está viendo la página como en el ordenador, pero creemos que le puede interesar
-        <%= link_to "ver la versión móvil", mobile: 1 %>.
+        <%= link_to "ver la versión móvil", params.merge(mobile: 1) %>.
       </div>
     <% end %>
 

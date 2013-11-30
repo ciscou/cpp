@@ -1,12 +1,12 @@
-<% title       products_index_title       @category, @decoration, params[:q].presence %>
-<% description products_index_description @category, @decoration, params[:q].presence %>
+<% title       products_index_title       @category, @decoration, params[:q] %>
+<% description products_index_description @category, @decoration, params[:q] %>
 
 <div id="box6" class="box-style">
 
 <div class="title">
   <h2><span>
     <%= link_to "Catálogo", categories_path %> &rsaquo;
-    <%= products_index_title(@category, @decoration, params[:q].presence) %>
+    <%= products_index_title(@category, @decoration, params[:q]) %>
   </span></h2>
 </div>
 
@@ -30,7 +30,7 @@
 <% else %>
 
   <div class="content">
-    <p><%= products_index_nothing_found @category, @decoration, params[:q].presence %></p>
+    <p><%= products_index_nothing_found @category, @decoration, params[:q] %></p>
   </div>
 
 <% end %>
