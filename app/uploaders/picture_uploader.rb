@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class PictureUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or ImageScience support:

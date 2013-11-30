@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 require 'acceptance/acceptance_helper'
 
 feature 'List products by category', %q{

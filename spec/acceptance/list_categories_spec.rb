@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 require 'acceptance/acceptance_helper'
 
 feature 'List categories', %q{
@@ -16,7 +14,7 @@ feature 'List categories', %q{
   end
 
   scenario 'should see the two categories and the new arrivals section (from desktop)' do
-    visit root_path
+    visit homepage
     click_link "Catálogo"
 
     page.should have_css "#new_arrivals h2", text: "Últimas novedades"
@@ -25,7 +23,7 @@ feature 'List categories', %q{
   end
 
   scenario 'should see the two categories and the new arrivals section (from mobile)' do
-    visit root_path(mobile: 1)
+    visit homepage(locale: :es, mobile: 1)
     click_link "Catálogo"
 
     page.should have_css "#new_arrivals h3", text: "Últimas novedades"

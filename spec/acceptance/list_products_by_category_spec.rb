@@ -13,7 +13,7 @@ feature 'List products by category', %q{
   end
 
   scenario 'should see the products of the selected category (from desktop)' do
-    visit root_path
+    visit homepage
 
     within "#product_#{@product1.id}" do
       click_link @product1.category.name
@@ -25,7 +25,7 @@ feature 'List products by category', %q{
   end
 
   scenario 'should see the products of the selected category (from mobile)' do
-    visit root_path(mobile: 1)
+    visit homepage(mobile: 1)
 
     within "#product_#{@product1.id} .picture" do
       click_link @product1.name

@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 require 'acceptance/acceptance_helper'
 
 feature 'Create category', %q{
@@ -20,7 +18,7 @@ feature 'Create category', %q{
 
     scenario "should not be able to see the form" do
       visit new_category_url
-      current_url.should == localized_root_url(locale: :es)
+      current_path.should == homepage(locale: :es)
     end
   end
 
@@ -37,7 +35,7 @@ feature 'Create category', %q{
 
     scenario "should not be able to see the form" do
       visit new_category_url
-      current_url.should == localized_root_url(locale: :es)
+      current_path.should == homepage(locale: :es)
     end
   end
 

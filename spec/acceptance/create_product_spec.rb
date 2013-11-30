@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 require 'acceptance/acceptance_helper'
 
 feature 'Create product', %q{
@@ -24,7 +22,7 @@ feature 'Create product', %q{
 
     scenario "should not be able to see the form" do
       visit new_category_product_url(@category, locale: :es)
-      current_url.should == localized_root_url(locale: :es)
+      current_path.should == homepage(locale: :es)
     end
   end
 
@@ -41,7 +39,7 @@ feature 'Create product', %q{
 
     scenario "should not be able to see the form" do
       visit new_category_product_url(@category, locale: :es)
-      current_url.should == localized_root_url(locale: :es)
+      current_path.should == homepage(locale: :es)
     end
   end
 

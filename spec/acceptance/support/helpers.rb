@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 module HelperMethods
   def login_as(user)
     visit new_user_session_path

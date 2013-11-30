@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 module ProductsHelper
   def link_to_search_products(query)
     link_to t(".highlighted_search", query: query, count: Product.advanced_search(query).count),
