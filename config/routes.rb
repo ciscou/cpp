@@ -1,6 +1,6 @@
 Cpp::Application.routes.draw do
   scope "(/:locale)", :locale => /es|en|fr/ do
-    devise_for :users
+    devise_for :users, controllers: { sessions: :sessions, registrations: :registrations }
 
     get "quienes-somos"   => "pages#who"         , :as => "pages_who"
     get "como-trabajamos" => "pages#how_we_work" , :as => "pages_how_we_work"
