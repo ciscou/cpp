@@ -11,4 +11,8 @@
 //= require external_links_in_new_window
 //= require products.mobile
 
-$(function(){ $(document).foundation(); });
+$(function(){ $(document).foundation({
+  topbar: {
+    back_text: "&lt; Atrás"
+  }
+}); });
