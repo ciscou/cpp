@@ -14,7 +14,7 @@ class ContactsController < ApplicationController
       ContactsMailer.contact(current_user, @contact).deliver
       redirect_to(new_contact_path, :notice => "¡Gracias por su mensaje! En breve nos pondremos en contacto con usted")
     else
-      flash.now.alert = "Rellene todos los campos, por favor"
+      flash.now.alert = "Por favor, rellene todos los campos"
       render :new
     end
   end
