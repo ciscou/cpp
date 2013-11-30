@@ -27,7 +27,6 @@ feature 'Search products', %q{
     visit homepage(locale: :en)
 
     fill_in "q", with: "awesomeness product"
-    save_and_open_page
     click_button "Search"
 
     page.should have_css    ".product div.image-title", text: @product1.en_name
