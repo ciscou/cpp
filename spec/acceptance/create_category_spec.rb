@@ -54,8 +54,10 @@ feature 'Create category', %q{
 
       click_link "Añadir otra categoría"
 
-      fill_in "Nombre", :with => "Now this is an awesome category!"
-      fill_in "Descripción", :with => "This category will be soon full of awesome products.\n\nJust come back in a few minutes"
+      within_fieldset "español" do
+        fill_in "Nombre", with: "Now this is an awesome category!"
+        fill_in "Descripción", with: "This category will be soon full of awesome products.\n\nJust come back in a few minutes"
+      end
       attach_file "Foto", Rails.root.join("spec", "acceptance", "data", "example_picture.jpg")
       click_button "Guardar"
 

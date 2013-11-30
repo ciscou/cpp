@@ -57,6 +57,8 @@ class CategoriesController < ApplicationController
   end
 
   def category_attributes
-    params.require(:category).permit(:name, :description, :picture, :decoration_tag)
+    params.
+      require(:category).
+      permit(:es_name, :es_description, :en_name, :en_description, :fr_name, :fr_description, :picture, :decoration_tag)
   end
 end
