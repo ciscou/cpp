@@ -1,8 +1,5 @@
-require 'textacular/searchable'
-
 class Product < ActiveRecord::Base
   include CarrierWavePictureRenamer
-  extend Searchable(:name, :description)
 
   belongs_to :category
 
@@ -13,13 +10,17 @@ class Product < ActiveRecord::Base
                            :decoration_code => decoration.code)
   }
 
-  validates :name, :presence => true, :uniqueness => true
+  validates :es_name, :presence => true, :uniqueness => true
   validates :picture, :presence => true
 
   mount_uploader :picture, PictureUploader
 
-  def self.searchable_language
-    'spanish'
+  def name
+    localized_name.presence || es_name
+  end
+
+  def description
+    localized_description.presence || es_description
   end
 
   def to_param
@@ -28,5 +29,13 @@ class Product < ActiveRecord::Base
 
   def decoration
     Decoration.find_by_tag_and_code(category.decoration_tag, decoration_code)
+  end
+
+  def localized_name
+    send("#{I18n.locale}_name")
+  end
+
+  def localized_description
+    send("#{I18n.locale}_description")
   end
 end

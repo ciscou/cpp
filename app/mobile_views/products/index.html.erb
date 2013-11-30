@@ -18,7 +18,7 @@
 
 <% if @products.any? %>
   <ul id="products" class="clearing-thumbs" data-clearing>
-    <%= render @products %>
+    <%= render partial: "product", collection: @products, as: :product %>
   </ul>
 <% else %>
   <p><%= products_index_nothing_found @category, @decoration, params[:q] %></p>

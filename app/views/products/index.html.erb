@@ -22,7 +22,7 @@
   </div>
   <div id="thumbs" class="navigation">
     <ul class="thumbs noscript">
-      <%= render @products %>
+      <%= render partial: "product", collection: @products, as: :product %>
     </ul>
   </div>
   <div class="clearfix"></div>

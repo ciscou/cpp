@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
   end
 
   def search
-    @products = Product.all
+    @products = localized_product_class.all
 
     if params[:decoration_tag] || params[:decoration_code]
       @decoration = Decoration.find_by_tag_and_code!(params[:decoration_tag], params[:decoration_code])
@@ -29,12 +29,12 @@ class ProductsController < ApplicationController
        @products = @products.order(:created_at).reverse_order
     end
 
-    respond_with @products, :template => "products/index"
+    respond_with @products, template: "products/index"
   end
 
   def new_arrivals
     @products = Product.new_arrivals
-    respond_with @products, :template => "products/index"
+    respond_with @products, template: "products/index"
   end
 
   def show
@@ -72,6 +72,10 @@ class ProductsController < ApplicationController
 
   private
 
+  def localized_product_class
+    "#{I18n.locale}_product".classify.constantize
+  end
+
   def load_category
     @category = Category.find(params[:category_id])
   end
@@ -81,6 +85,8 @@ class ProductsController < ApplicationController
   end
 
   def product_attributes
-    params.require(:product).permit(:name, :description, :picture, :new_arrival, :decoration_code)
+    params.
+      require(:product).
+      permit(:es_name, :es_description, :en_name, :en_description, :fr_name, :fr_description, :picture, :new_arrival, :decoration_code)
   end
 end

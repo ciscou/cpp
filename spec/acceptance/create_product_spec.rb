@@ -58,8 +58,10 @@ feature 'Create product', %q{
 
       click_link "Añadir otro producto a esta categoría"
 
-      fill_in "Nombre", :with => "Now this is an awesome product!"
-      fill_in "Descripción", :with => "This is the most awesome product yet in this category.\n\nNot only because this is the only one"
+      within_fieldset "español" do
+        fill_in "Nombre", :with => "Now this is an awesome product!"
+        fill_in "Descripción", :with => "This is the most awesome product yet in this category.\n\nNot only because this is the only one"
+      end
       check "¿Novedad?"
       attach_file "Foto", Rails.root.join("spec", "acceptance", "data", "example_picture.jpg")
       click_button "Guardar"

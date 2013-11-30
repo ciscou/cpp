@@ -11,14 +11,19 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name, "Nombre" %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :description, "Descripción" %><br />
-    <%= f.text_area :description %>
-  </div>
+  <% { es: "español", en: "inglés", fr: "francés" }.each do |k, v| %>
+    <fieldset class="<%= k %>">
+      <legend><%= v %></legend>
+      <div class="field">
+        <%= f.label "#{k}_name", "Nombre" %><br />
+        <%= f.text_field "#{k}_name" %>
+      </div>
+      <div class="field">
+        <%= f.label "#{k}_description", "Descripción" %><br />
+        <%= f.text_area "#{k}_description" %>
+      </div>
+    </fieldset>
+  <% end %>
   <div class="field">
     <%= f.check_box :new_arrival %>
     <%= f.label     :new_arrival, "¿Novedad?" %>

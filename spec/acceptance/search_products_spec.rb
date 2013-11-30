@@ -7,9 +7,9 @@ feature 'Search products', %q{
 } do
 
   background do
-    @product1 = FactoryGirl.create :product, :name => "an awesome product"
-    @product2 = FactoryGirl.create :product, :name => "another cool product"
-    @product3 = FactoryGirl.create :product, :name => "a new awesome product", :new_arrival => true
+    @product1 = FactoryGirl.create :product, :es_name => "an awesome product"
+    @product2 = FactoryGirl.create :product, :es_name => "another cool product"
+    @product3 = FactoryGirl.create :product, :es_name => "a new awesome product", :new_arrival => true
   end
 
   scenario 'should find products whose name matches search terms' do
@@ -18,9 +18,9 @@ feature 'Search products', %q{
     fill_in "q", :with => "awesome product"
     click_button "Buscador"
 
-    page.should have_css    ".product div.image-title", :text => @product1.name
-    page.should have_no_css ".product div.image-title", :text => @product2.name
-    page.should have_css    ".product div.image-title", :text => @product3.name
+    page.should have_css    ".product div.image-title", :text => @product1.es_name
+    page.should have_no_css ".product div.image-title", :text => @product2.es_name
+    page.should have_css    ".product div.image-title", :text => @product3.es_name
   end
 
 end
