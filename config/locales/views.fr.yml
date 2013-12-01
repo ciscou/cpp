@@ -3,11 +3,11 @@ fr:
     flash_messages:
       mobile_announcement:
         title: "¡Bienvenue sur la version mobile de ceramicapadilla.es!"
-        message_html: "Même si on travaille pour que tout fonctionne correctement, c'est possible que vous préférerez %{desktop_version}. Vous pouvez fermer cet message appouyant sur le x à droite."
+        message_html: "Même si on travaille pour que tout fonctionne correctement, c'est possible que vous préférerez %{desktop_version}. Vous pouvez fermer cet message en appouyant sur le x à droite."
         desktop_version: "utiliser la version d'ordinateur"
       desktop_announcement:
         message_html: "Vous utilisez la version d'ordinateur de ce site internet, mais nous pensons que vous pouvez être interesé en %{mobile_version}."
-        mobile_version: "utilisez la version mobile"
+        mobile_version: "utiliser la version mobile"
     navbar:
       categories: "Catalog"
       who: "Who are we?"
