@@ -10,18 +10,18 @@
 
   <section class="top-bar-section">
     <ul class="left">
-      <li<% if active_tab?("categories") %> class="active"<% end %>><%= link_to "Catálogo", categories_path %></li>
-      <li<% if active_tab?("who") %> class="active"<% end %>><%= link_to "¿Quiénes somos?", pages_who_path %></li>
-      <li<% if active_tab?("where") %> class="active"<% end %>><%= link_to "¿Dónde estamos?", pages_where_path %></li>
-      <li<% if active_tab?("contact") %> class="active"<% end %>><%= link_to "Contacte con nosotros", new_contact_path %></li>
+      <li<% if active_tab?("categories") %> class="active"<% end %>><%= link_to t(".categories"), categories_path %></li>
+      <li<% if active_tab?("who") %> class="active"<% end %>><%= link_to t(".who"), pages_who_path %></li>
+      <li<% if active_tab?("where") %> class="active"<% end %>><%= link_to t(".where"), pages_where_path %></li>
+      <li<% if active_tab?("contact") %> class="active"<% end %>><%= link_to t(".contact"), new_contact_path %></li>
     </ul>
 
     <ul class="right">
       <li class="has-dropdown">
-        <a href="#">Más opciones</a>
+        <a href="#"><%= t ".more" %></a>
         <ul class="dropdown">
           <li class="has-dropdown">
-            <a href="#">Idioma</a>
+            <a href="#"><%= t ".language" %></a>
             <ul class="dropdown">
               <li><%= link_to "Español",  params.merge(locale: :es) %></li>
               <li><%= link_to "English",  params.merge(locale: :en) %></li>
@@ -29,21 +29,21 @@
             </ul>
           </li>
           <li>
-            <%= link_to "Buscar...", search_products_path(q: "") %>
+            <%= link_to t(".search"), search_products_path(q: "") %>
           </li>
           <li>
             <% if user_signed_in? %>
-              <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %>
+              <%= link_to t(".logout"), destroy_user_session_path, method: :delete %>
             <% else %>
-              <%= link_to "Iniciar sesión", new_user_session_path %>
+              <%= link_to t(".login"), new_user_session_path %>
             <% end %>
           </li>
           <li>
-            <%= link_to "Ver como en el ordenador", params.merge(mobile: 0) %>
+            <%= link_to t(".desktop_version"), params.merge(mobile: 0) %>
           </li>
           <li class="divider"></li>
           <li>
-            <%= mail_to "fabrica@ceramicapadilla.es", "Hacer pedido", subject: "[Pedido Web] Pedido", encode: "hex" %>
+            <%= mail_to "fabrica@ceramicapadilla.es", t(".place_order"), subject: t(".order_subject"), encode: "hex" %>
           </li>
         </ul>
       </li>

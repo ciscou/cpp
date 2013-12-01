@@ -1,4 +1,18 @@
 en:
+  layouts:
+    navbar:
+      categories: "Catalog"
+      who: "Who are we?"
+      where: "Where are we?"
+      contact: "Contact us"
+      more: "More options"
+      language: "Language"
+      search: "Search..."
+      login: "Login"
+      logout: "Logout"
+      desktop_version: "Desktop version"
+      place_order: "Place order"
+      order_subject: "[Web Order] Order"
   shared:
     header:
       title: "Cerámica Padilla Padilla"
