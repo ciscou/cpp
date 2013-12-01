@@ -35,4 +35,9 @@ Cpp::Application.configure do
   config.active_support.deprecation = :stderr
 
   config.eager_load = false
+
+  config.after_initialize do
+    Bullet.enable = true
+    Bullet.raise = true
+  end
 end

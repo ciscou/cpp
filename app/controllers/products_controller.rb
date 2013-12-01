@@ -8,11 +8,12 @@ class ProductsController < ApplicationController
 
   def index
     @products = @category.products.order(:created_at).reverse_order
+    @products = @products.includes(:category) # redundant, but hey...
     respond_with @category, @products
   end
 
   def search
-    @products = localized_product_class.all
+    @products = localized_product_class.includes(:category)
 
     if params[:decoration_tag] || params[:decoration_code]
       @decoration = Decoration.find_by_tag_and_code!(params[:decoration_tag], params[:decoration_code])
@@ -33,7 +34,7 @@ class ProductsController < ApplicationController
   end
 
   def new_arrivals
-    @products = Product.new_arrivals
+    @products = Product.includes(:category).new_arrivals
     respond_with @products, template: "products/index"
   end
 

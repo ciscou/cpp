@@ -49,6 +49,7 @@ gem 'unicorn'
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'ffaker'
+  gem 'bullet'
 end
 
 group :test do
