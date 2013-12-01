@@ -9,10 +9,10 @@
     </ul>
   </div>
   <div id="search">
-    <%= form_tag search_products_path, :method => "get" do %>
+    <%= form_tag search_products_path, method: :get do %>
       <fieldset>
-        <%= text_field_tag :q, params[:q], :class => "input-text", :placeholder => t(".search") %>
-        <%= submit_tag t(".search"), :class => "input-submit" %>
+        <%= text_field_tag :q, @query, class: "input-text", placeholder: t(".search") %>
+        <%= submit_tag t(".search"), class: "input-submit" %>
       </fieldset>
     <% end %>
   </div>

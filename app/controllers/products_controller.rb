@@ -8,7 +8,6 @@ class ProductsController < ApplicationController
 
   def index
     @products = @category.products.order(:created_at).reverse_order
-    @products = @products.includes(:category) # redundant, but hey...
     respond_with @category, @products
   end
 
@@ -21,21 +20,22 @@ class ProductsController < ApplicationController
     end
 
     if params.key? :q
-       @products = if params[:q].present?
-                     @products.advanced_search(params[:q])
-                   else
-                     @products.none
-                   end
+      @query = params[:q]
+      @products = if @query.present?
+                    @products.advanced_search @query
+                  else
+                    @products.none
+                  end
     else
-       @products = @products.order(:created_at).reverse_order
+      @products = @products.order(:created_at).reverse_order
     end
 
-    respond_with @products, template: "products/index"
+    respond_with @products
   end
 
   def new_arrivals
     @products = Product.includes(:category).new_arrivals
-    respond_with @products, template: "products/index"
+    respond_with @products
   end
 
   def show

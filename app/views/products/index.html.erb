@@ -1,48 +1,29 @@
-<% title       products_index_title       @category, @decoration, params[:q] %>
-<% description products_index_description @category, @decoration, params[:q] %>
+<% title       @category.name %>
+<% description @category.description %>
 
 <div id="box6" class="box-style">
 
 <div class="title">
   <h2><span>
     <%= link_to "Catálogo", categories_path %> &rsaquo;
-    <%= products_index_title(@category, @decoration, params[:q]) %>
+    <%= @category.name %>
   </span></h2>
 </div>
 
 <% if @products.any? %>
-
-  <div id="gallery" class="galleriffic">
-    <div id="controls" class="controls"></div>
-    <div class="slideshow-container">
-      <div id="loading" class="loader"></div>
-      <div id="slideshow" class="slideshow"></div>
-    </div>
-    <div id="caption" class="caption-container"></div>
-  </div>
-  <div id="thumbs" class="navigation">
-    <ul class="thumbs noscript">
-      <%= render partial: "product", collection: @products, as: :product %>
-    </ul>
-  </div>
-  <div class="clearfix"></div>
-
+  <%= render "listing", products: @products, category: @category %>
 <% else %>
-
   <div class="content">
-    <p><%= products_index_nothing_found @category, @decoration, params[:q] %></p>
+    <p>Lo sentimos, no se ha encontrado ningún producto en la categoría <%= @category.name %></p>
   </div>
-
 <% end %>
 
 <% if current_user_is_admin? %>
-  <% if @category %>
-    <div class="content">
-      <p>
-        <%= link_to 'Añadir otro producto a esta categoría', new_category_product_path(@category) %>
-      </p>
-    </div>
-  <% end %>
+  <div class="content">
+    <p>
+      <%= link_to 'Añadir otro producto a esta categoría', new_category_product_path(@category) %>
+    </p>
+  </div>
 <% end %>
 
 </div>

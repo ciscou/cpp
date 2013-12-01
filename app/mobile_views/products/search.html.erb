@@ -1,0 +1,33 @@
+<% title       search_title       @decoration, @query %>
+<% description search_description @decoration, @query %>
+
+<h2><%= search_title @decoration, @query %></h2>
+
+<% if @query %>
+  <%= form_tag search_products_path, method: :get do %>
+    <div class="row collapse">
+      <div class="small-9 columns">
+        <%= text_field_tag :q, @query %>
+      </div>
+      <div class="small-3 columns">
+        <%= submit_tag "Buscar", class: "button postfix" %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+
+<% if @products.any? %>
+  <ul id="products" class="clearing-thumbs" data-clearing>
+    <% @products.each do |product| %>
+      <%= render product, category: product.category %>
+    <% end %>
+  </ul>
+<% else %>
+  <p><%= search_nothing_found @decoration, @query %></p>
+<% end %>
+
+<p>
+  Pulse sobre una foto para verla más grande. Podrá cambiar de foto arrastrando con el dedo. Para salir pulse en la x.
+</p>
+
+<p><%= link_to "Volver al catálogo", categories_path, class: "button radius expand" %></p>

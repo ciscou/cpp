@@ -1,32 +1,17 @@
-<% title       products_index_title       @category, @decoration, params[:q] %>
-<% description products_index_description @category, @decoration, params[:q] %>
+<% title       @category.name %>
+<% description @category.description %>
 
-<h2><%= products_index_title(@category, @decoration, params[:q]) %></h2>
-
-<% if params[:q] %>
-  <%= form_tag search_products_path, method: "get" do %>
-    <div class="row collapse">
-      <div class="small-9 columns">
-        <%= text_field_tag :q, params[:q] %>
-      </div>
-      <div class="small-3 columns">
-        <%= submit_tag "Buscar", class: "button postfix" %>
-      </div>
-    </div>
-  <% end %>
-<% end %>
+<h2><%= @category.name %></h2>
 
 <% if @products.any? %>
   <ul id="products" class="clearing-thumbs" data-clearing>
-    <%= render partial: "product", collection: @products, as: :product %>
+    <%= render partial: "product", collection: @products, as: :product, locals: { category: @category } %>
   </ul>
 <% else %>
-  <p><%= products_index_nothing_found @category, @decoration, params[:q] %></p>
+  <p>Lo sentimos, no se ha encontrado ningún producto en la categoría <%= @category.name %></p>
 <% end %>
 
-<% if @category %>
-  <%= simple_format @category.description if @category.description.present? %>
-<% end %>
+<%= simple_format @category.description if @category.description.present? %>
 
 <p>
   Pulse sobre una foto para verla más grande. Podrá cambiar de foto arrastrando con el dedo. Para salir pulse en la x.

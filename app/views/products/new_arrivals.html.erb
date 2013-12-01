@@ -1,0 +1,21 @@
+<% title       "Últimas novedades" %>
+<% description "Nuestras últimas creaciones, lo más nuevo del mercado" %>
+
+<div id="box6" class="box-style">
+
+<div class="title">
+  <h2><span>
+    <%= link_to "Catálogo", categories_path %> &rsaquo;
+    Últimas novedades
+  </span></h2>
+</div>
+
+<% if @products.any? %>
+  <%= render "listing", products: @products, category: nil %>
+<% else %>
+  <div class="content">
+    <p>Lo sentimos, no se ha encontrado ningún producto en últimas novedades</p>
+  </div>
+<% end %>
+
+</div>

@@ -1,0 +1,21 @@
+<% title       search_title       @decoration, @query %>
+<% description search_description @decoration, @query %>
+
+<div id="box6" class="box-style">
+
+<div class="title">
+  <h2><span>
+    <%= link_to "Catálogo", categories_path %> &rsaquo;
+    <%= search_title @decoration, @query %>
+  </span></h2>
+</div>
+
+<% if @products.any? %>
+  <%= render "listing", products: @products, category: nil %>
+<% else %>
+  <div class="content">
+    <p><%= search_nothing_found @decoration, @query %></p>
+  </div>
+<% end %>
+
+</div>
