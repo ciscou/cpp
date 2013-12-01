@@ -31,6 +31,8 @@ class Product < ActiveRecord::Base
     Decoration.find_by_tag_and_code(category.decoration_tag, decoration_code)
   end
 
+  private
+
   def localized_name
     send("#{I18n.locale}_name")
   end
