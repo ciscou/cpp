@@ -64,3 +64,4 @@ en:
       login: "login"
       subject_prompt: "Please select the reason for your inquiry"
       submit: "Send"
+      submitting: "Sending..."

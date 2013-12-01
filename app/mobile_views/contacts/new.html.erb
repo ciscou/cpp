@@ -39,7 +39,7 @@
   </div>
   <div class="row">
     <div class="large-12 columns">
-      <%= f.submit t(".submit"), class: "button radius", disabled: ! user_signed_in? %>
+      <%= f.submit t(".submit"), class: "button radius", disabled: ! user_signed_in?, disable_with: t(".submitting") %>
     </div>
   </div>
 <% end %>

@@ -64,3 +64,4 @@ es:
       login: "inicie sesión"
       subject_prompt: "Por favor, elija el motivo de su consulta"
       submit: "Enviar"
+      submitting: "Enviando..."

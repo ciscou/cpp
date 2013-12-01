@@ -64,3 +64,4 @@ fr:
       login: "vous connecter"
       subject_prompt: "Sélectionnez le motif de votre demande"
       submit: "Envoyer"
+      submitting: "Envoi en cours..."
