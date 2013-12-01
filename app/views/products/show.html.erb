@@ -5,7 +5,7 @@
   <div class="title">
     <h2><span>
       <%= link_to "Catálogo", categories_path %> &rsaquo;
-      <%= link_to @product.category.name, category_products_path(@product.category) %> &rsaquo;
+      <%= link_to @category.name, category_products_path(@category) %> &rsaquo;
       <%= @product.name %>
     </span></h2>
   </div>
@@ -23,9 +23,9 @@
           <% if @product.decoration.exists? %>
             <strong>La decoración de la foto es <%= link_to_decoration @product.decoration %>.</strong>
           <% end %>
-          <% if @product.category.decorations.any? %>
+          <% if @category.decorations.any? %>
             También disponible en las decoraciones:<br/>
-            <%= safe_join @product.category.decorations.map { |decoration| link_to_decoration decoration, :class => "other-decoration" } %>
+            <%= safe_join @category.decorations.map { |decoration| link_to_decoration decoration, :class => "other-decoration" } %>
           <% end %>
         </p>
         <div class="clearfix description-wrapper">
@@ -34,8 +34,8 @@
 
         <% if current_user_is_admin? %>
           <p>
-            <%= link_to "Editar", edit_category_product_path(@product.category, @product) %> |
-            <%= link_to "Eliminar", [@product.category, @product], method: :delete, data: { confirm: "¿Estás seguro?" } %>
+            <%= link_to "Editar", edit_category_product_path(@category, @product) %> |
+            <%= link_to "Eliminar", [@category, @product], method: :delete, data: { confirm: "¿Estás seguro?" } %>
           </p>
         <% end %>
       </div>

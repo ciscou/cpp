@@ -7,19 +7,19 @@
   <%= image_tag @product.picture_url %>
 </p>
 
-<% if @product.decoration.exists? || @product.category.decorations.any? %>
+<% if @product.decoration.exists? || @category.decorations.any? %>
   <p>
     <% if @product.decoration.exists? %>
       <strong>La decoración de la foto es <%= link_to_decoration @product.decoration %>.</strong>
     <% end %>
-    <% if @product.category.decorations.any? %>
+    <% if @category.decorations.any? %>
       También disponible en las decoraciones:
     <% end %>
   </p>
 <% end %>
-<% if @product.category.decorations.any? %>
+<% if @category.decorations.any? %>
   <ul class="inline-list">
-    <% @product.category.decorations.each do |decoration| %>
+    <% @category.decorations.each do |decoration| %>
       <li><%= link_to_decoration decoration %></li>
     <% end %>
   </ul>
@@ -27,4 +27,4 @@
 
 <%= simple_format @product.description, :class => "description" %>
 
-<p><%= link_to "Volver a #{@product.category.name}", category_products_path(@product.category, anchor: @product.to_param), class: "button radius expand" %></p>
+<p><%= link_to "Volver a #{@category.name}", category_products_path(@category, anchor: @product.to_param), class: "button radius expand" %></p>
