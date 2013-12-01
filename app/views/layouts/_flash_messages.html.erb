@@ -1,0 +1,9 @@
+<% flash.each do |k, v| %>
+  <div class="content <%= k %>"><%= v %></div>
+<% end %>
+
+<% if session["mobile_override"] %>
+  <div class="content info">
+    <%= t ".desktop_announcement.message_html", mobile_version: link_to(t(".desktop_announcement.mobile_version"), params.merge(mobile: 1)) %>
+  </div>
+<% end %>

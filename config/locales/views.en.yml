@@ -1,5 +1,13 @@
 en:
   layouts:
+    flash_messages:
+      mobile_announcement:
+        title: "¡Welcome to the mobile version of ceramicapadilla.es!"
+        message_html: "Even if we are working to make everything work correctly, it is possible that you prefer %{desktop_version}. You can close this announcement clicking on the x at the right side."
+        desktop_version: "see the desktop version"
+      desktop_announcement:
+        message_html: "You're seeing the desktop version of this page, but we thing that you may be interested in %{mobile_version}."
+        mobile_version: "seeing the mobile version"
     navbar:
       categories: "Catalog"
       who: "Who are we?"

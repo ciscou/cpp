@@ -21,15 +21,7 @@
 
     <div id="page" class="container">
 
-    <% flash.each do |k, v| %>
-      <div class="content <%= k %>"><%= v %></div>
-    <% end %>
-    <% if session["mobile_override"] %>
-      <div class="content info">
-        Está viendo la página como en el ordenador, pero creemos que le puede interesar
-        <%= link_to "ver la versión móvil", params.merge(mobile: 1) %>.
-      </div>
-    <% end %>
+      <%= render "layouts/flash_messages" %>
 
       <div id="content">
 
