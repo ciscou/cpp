@@ -3,6 +3,7 @@
 <h2>Productos destacados</h2>
 
 <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3">
+  <% cache [ I18n.locale, "home_featured_products" ], expires_in: 1.hour, race_condition_ttl: 10 do %>
   <% @products.each do |product| %>
     <%= content_tag_for :li, product do %>
       <h3><%= link_to product.name, category_products_path(product.category, anchor: product.to_param) %></h2>
@@ -14,6 +15,7 @@
       </p>
       <%= simple_format product.description %>
     <% end %>
+  <% end%>
   <% end%>
 </ul>
 

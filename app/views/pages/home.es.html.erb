@@ -7,6 +7,7 @@
 				<h2><span>Productos destacados</span></h2>
 			</div>
 
+      <% cache [ I18n.locale, "home_featured_products" ], expires_in: 1.hour, race_condition_ttl: 10 do %>
       <% @products.each do |product| %>
         <%= div_for product, :class => "item-box hproduct" do %>
           <h2 class="fn"><%= link_to product.name, category_products_path(product.category, :anchor => product.to_param) %></h2>
@@ -19,6 +20,7 @@
           <%= simple_format product.description, :class => "description" %>
         <% end %>
       <% end%>
+    <% end %>
 
 			<div class="content">
 				<p><%= link_to "Ver más productos", categories_path, :class => "link1 big" %></p>

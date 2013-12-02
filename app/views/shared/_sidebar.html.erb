@@ -1,6 +1,6 @@
 <div id="sidebar">
   <div id="box1" class="box-style">
-  <% cache sidebar_highlighted_categories_cache_key do %>
+  <% cache [ I18n.locale, sidebar_highlighted_categories_cache_key ] do %>
     <div class="title">
       <h2><span><%= t ".highlighted_categories" %></span></h2>
     </div>
@@ -16,7 +16,7 @@
   <% end %>
   </div>
   <div id="box2" class="box-style">
-  <% cache sidebar_all_categories_cache_key do %>
+  <% cache [ I18n.locale, sidebar_all_categories_cache_key ] do %>
     <div class="title">
       <h2><span><%= t ".all_categories" %></span></h2>
     </div>
@@ -28,7 +28,7 @@
       </ul>
     </div>
   <% end %>
-  <% cache sidebar_decorations_cache_key do %>
+  <% cache [ I18n.locale, sidebar_decorations_cache_key ] do %>
     <div class="title decorations">
       <h2><span><%= t ".decorations" %></span></h2>
     </div>
