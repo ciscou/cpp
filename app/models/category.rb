@@ -3,10 +3,10 @@ class Category < ActiveRecord::Base
 
   acts_as_list
 
-  has_many :products, :dependent => :destroy
+  has_many :products, dependent: :destroy
 
-  validates :es_name, :presence => true, :uniqueness => true
-  validates :picture, :presence => true
+  validates :es_name, presence: true, uniqueness: true
+  validates :picture, presence: true
 
   default_scope -> { order(:position) }
 

@@ -1,17 +1,17 @@
 class Product < ActiveRecord::Base
   include CarrierWavePictureRenamer
 
-  belongs_to :category
+  belongs_to :category, touch: true
 
   scope :featured, -> { order("random()").limit(6) }
-  scope :new_arrivals, -> { where(:new_arrival => true).order("created_at desc") }
+  scope :new_arrivals, -> { where(new_arrival: true).order("created_at desc") }
   scope :with_decoration, ->(decoration) {
-    joins(:category).where(:categories => { :decoration_tag => decoration.tag },
-                           :decoration_code => decoration.code)
+    joins(:category).where(categories: { decoration_tag: decoration.tag },
+                           decoration_code: decoration.code)
   }
 
-  validates :es_name, :presence => true, :uniqueness => true
-  validates :picture, :presence => true
+  validates :es_name, presence: true, uniqueness: true
+  validates :picture, presence: true
 
   mount_uploader :picture, PictureUploader
 
