@@ -11,6 +11,14 @@ module CacheHelper
     latest_category_cache_key("sidebar_decorations")
   end
 
+  def new_arrivals_cache_key
+    latest_product_cache_key("new_arrivals")
+  end
+
+  def all_categories_cache_key
+    latest_category_cache_key("all_categories")
+  end
+
   private
 
   def latest_product_cache_key(prefix)
