@@ -24,9 +24,9 @@ Cpp::Application.routes.draw do
     end
 
     resources :contacts, :only => [:new, :create], :path => "contacte-con-nosotros"
-
-    resource "sitemap", :only => :show
   end
+
+  resource "sitemap", :only => :show
 
   get "/:locale", :to => "pages#home", :as => :localized_root, :locale => /es|en|fr/
 
