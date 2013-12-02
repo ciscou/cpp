@@ -40,6 +40,9 @@ gem 'foundation-rails'
 # Use unicorn as the web server
 gem 'unicorn'
 
+gem 'memcachier'
+gem 'dalli'
+
 # Deploy with Capistrano
 # gem 'capistrano'
 
