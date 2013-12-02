@@ -2,6 +2,7 @@
 
 <div id="box6" class="box-style">
 
+  <% cache [ I18n.locale, new_arrivals_cache_key ] do %>
   <% if Product.new_arrivals.any? %>
     <div class="title">
       <h2><span>Categorías destacadas</span></h2>
@@ -11,7 +12,6 @@
       <p>A continuación encontrará un listado de las categorías más solicitadas</p>
     </div>
 
-    <% cache [ I18n.locale, new_arrivals_cache_key ] do %>
     <div id="new_arrivals" class="item-box" do %>
       <h2><%= link_to "Últimas novedades", new_arrivals_products_path %></h2>
       <p><%= link_to(
@@ -20,14 +20,14 @@
       ) %></p>
       <p>Esté atento a las últimas novedades añadidas a la web.</p>
     </div>
-    <% end %>
+  <% end %>
   <% end %>
 
+  <% cache [ I18n, all_categories_cache_key ] do %>
   <div class="title">
     <h2><span>Todas las categorías</span></h2>
   </div>
 
-  <% cache [ I18n, all_categories_cache_key ] do %>
   <div class="content">
     <p>Actualmente disponemos de <%= Product.count %> productos, clasificados en <%= Category.count %> categorías.</p>
     <p>Seleccione una de las siguientes categorías para ver un listado de sus productos</p>

@@ -1,5 +1,6 @@
 <% title "Catálogo" %>
 
+<% cache [ I18n.locale, new_arrivals_cache_key ] do %>
 <h2>Categorías destacadas</h2>
 
 <% if Product.new_arrivals.any? %>
@@ -18,7 +19,9 @@
     </li>
   </ul>
 <% end %>
+<% end %>
 
+<% cache [ I18n, all_categories_cache_key ] do %>
 <h2>Todas las categorías</h2>
 
 <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3">
@@ -39,3 +42,4 @@
 </ul>
 
 <%= paginate @categories %>
+<% end %>
