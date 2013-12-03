@@ -1,7 +1,8 @@
 <% title       @category.name %>
 <% description @category.description %>
 
-<h2><%= @category.name %></h2>
+<% cache [ I18n.locale, :mobile, @category, :products ] do %>
+<h2 data-generated-at="<%= Time.current.to_s(:db) %>"><%= @category.name %></h2>
 
 <% if @products.any? %>
   <ul id="products" class="clearing-thumbs" data-clearing>
@@ -12,6 +13,7 @@
 <% end %>
 
 <%= simple_format @category.description if @category.description.present? %>
+<% end %>
 
 <p>
   Pulse sobre una foto para verla más grande. Podrá cambiar de foto arrastrando con el dedo. Para salir pulse en la x.

@@ -3,7 +3,8 @@
 
 <div id="box6" class="box-style">
 
-<div class="title">
+<% cache [ I18n.locale, @category, :products ] do %>
+<div class="title" data-generated-at="<%= Time.current.to_s(:db) %>">
   <h2><span>
     <%= link_to "Catálogo", categories_path %> &rsaquo;
     <%= @category.name %>
@@ -16,6 +17,7 @@
   <div class="content">
     <p>Lo sentimos, no se ha encontrado ningún producto en la categoría <%= @category.name %></p>
   </div>
+<% end %>
 <% end %>
 
 <% if current_user_is_admin? %>
