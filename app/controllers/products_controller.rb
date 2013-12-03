@@ -13,23 +13,17 @@ class ProductsController < ApplicationController
   end
 
   def search
-    @products = localized_product_class.includes(:category)
+    @query      = params[:q]
+    @decoration = Decoration.find_by_tag_and_code(params[:decoration_tag], params[:decoration_code])
+    @products   = localized_product_class.includes(:category)
 
-    if params[:decoration_tag] && params[:decoration_code]
-      @decoration = Decoration.find_by_tag_and_code!(params[:decoration_tag], params[:decoration_code])
-      @products = @products.with_decoration(@decoration)
-    end
-
-    if params.key? :q
-      @query = params[:q]
-      @products = if @query.present?
-                    @products.advanced_search @query
-                  else
-                    @products.none
-                  end
-    else
-      @products = @products.order(created_at: :desc)
-    end
+    @products = if @decoration.exists?
+                  @products.with_decoration(@decoration).order(created_at: :desc)
+                elsif @query.present?
+                  @products.advanced_search @query
+                else
+                  @products.none
+                end
 
     respond_with @products
   end
