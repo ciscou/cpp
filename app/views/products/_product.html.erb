@@ -4,15 +4,15 @@
     <div class="download">
       <%= link_to "Descargar Original", product.picture_url %>
     </div>
-    <div class="image-title fn"><%= link_to product.name, [category, product] %></div>
+    <div class="image-title fn"><%= link_to product.name, [product.category, product] %></div>
     <div class="image-desc">
       <p>
         <% if product.decoration.exists? %>
           <strong>La decoración de la foto es <%= link_to_decoration product.decoration %>.</strong>
         <% end %>
-        <% if category.decorations.any? %>
+        <% if product.category.decorations.any? %>
           También disponible en las decoraciones:<br/>
-          <%= safe_join category.decorations.map { |decoration| link_to_decoration decoration, :class => "other-decoration" } %>
+          <%= safe_join product.category.decorations.map { |decoration| link_to_decoration decoration, :class => "other-decoration" } %>
         <% end %>
       </p>
       <div class="clearfix description-wrapper">
@@ -20,8 +20,8 @@
       </div>
       <% if current_user_is_admin? %>
         <p>
-          <%= link_to "Editar", edit_category_product_path(category, product) %> |
-          <%= link_to "Eliminar", [category, product], method: :delete, data: { confirm: "¿Estás seguro?" } %>
+          <%= link_to "Editar", edit_category_product_path(product.category, product) %> |
+          <%= link_to "Eliminar", [product.category, product], method: :delete, data: { confirm: "¿Estás seguro?" } %>
         </p>
       <% end %>
     </div>

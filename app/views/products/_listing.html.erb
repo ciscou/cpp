@@ -9,7 +9,7 @@
 <div id="thumbs" class="navigation">
   <ul class="thumbs noscript">
     <% products.each do |product| %>
-      <%= render partial: "product", collection: products, as: :product, locals: { category: category || product.category } %>
+      <%= render partial: "product", collection: products, as: :product %>
     <% end %>
   </ul>
 </div>

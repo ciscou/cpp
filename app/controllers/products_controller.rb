@@ -7,14 +7,15 @@ class ProductsController < ApplicationController
   respond_to :html
 
   def index
-    @products = @category.products.order(:created_at).reverse_order
+    @products = @category.products.order(created_at: :desc)
+    @products = @products.includes(:category) # redundant, but hey...
     respond_with @category, @products
   end
 
   def search
     @products = localized_product_class.includes(:category)
 
-    if params[:decoration_tag] || params[:decoration_code]
+    if params[:decoration_tag] && params[:decoration_code]
       @decoration = Decoration.find_by_tag_and_code!(params[:decoration_tag], params[:decoration_code])
       @products = @products.with_decoration(@decoration)
     end
@@ -27,7 +28,7 @@ class ProductsController < ApplicationController
                     @products.none
                   end
     else
-      @products = @products.order(:created_at).reverse_order
+      @products = @products.order(created_at: :desc)
     end
 
     respond_with @products

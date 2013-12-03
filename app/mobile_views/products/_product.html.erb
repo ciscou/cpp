@@ -1,5 +1,5 @@
 <%= content_tag_for :li, product do %>
   <%= link_to product.picture_url, class: "th radius", data: { hash: product.to_param } do %>
-    <%= image_tag product.picture_url(:thumb), alt: product.name, data: { caption: escape_once(render("caption", category: category, product: product)) } %>
+    <%= image_tag product.picture_url(:thumb), alt: product.name, data: { caption: escape_once(render("caption", product: product)) } %>
   <% end %>
 <% end %>

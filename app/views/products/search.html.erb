@@ -11,7 +11,7 @@
 </div>
 
 <% if @products.any? %>
-  <%= render "listing", products: @products, category: nil %>
+  <%= render "listing", products: @products %>
 <% else %>
   <div class="content">
     <p><%= search_nothing_found @decoration, @query %></p>
