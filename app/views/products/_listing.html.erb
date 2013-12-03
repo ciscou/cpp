@@ -8,9 +8,7 @@
 </div>
 <div id="thumbs" class="navigation">
   <ul class="thumbs noscript">
-    <% products.each do |product| %>
-      <%= render partial: "product", collection: products, as: :product %>
-    <% end %>
+    <%= render partial: "product", collection: products %>
   </ul>
 </div>
 <div class="clearfix"></div>
