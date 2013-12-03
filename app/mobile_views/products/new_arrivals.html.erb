@@ -11,10 +11,12 @@
 <% else %>
   <p>Lo sentimos, no se ha encontrado ningún producto en últimas novedades</p>
 <% end %>
-<% end %>
 
-<p>
-  Pulse sobre una foto para verla más grande. Podrá cambiar de foto arrastrando con el dedo. Para salir pulse en la x.
-</p>
+<% if @products.any? %>
+  <p>
+    Pulse sobre una foto para verla más grande. Podrá cambiar de foto arrastrando con el dedo. Para salir pulse en la x.
+  </p>
+<% end %>
+<% end %>
 
 <p><%= link_to "Volver al catálogo", categories_path, class: "button radius expand" %></p>

@@ -20,12 +20,12 @@
   <ul id="products" class="clearing-thumbs" data-clearing>
     <%= render partial: "product", collection: @products, as: :product %>
   </ul>
+
+  <p>
+    Pulse sobre una foto para verla más grande. Podrá cambiar de foto arrastrando con el dedo. Para salir pulse en la x.
+  </p>
 <% else %>
   <p><%= search_nothing_found @decoration, @query %></p>
 <% end %>
-
-<p>
-  Pulse sobre una foto para verla más grande. Podrá cambiar de foto arrastrando con el dedo. Para salir pulse en la x.
-</p>
 
 <p><%= link_to "Volver al catálogo", categories_path, class: "button radius expand" %></p>
