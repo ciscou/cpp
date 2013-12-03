@@ -3,14 +3,14 @@
 
 <div id="box6" class="box-style">
 
-<% cache [ I18n.locale, new_arrivals_cache_key, :products ] do %>
-<div class="title" data-generated-at="<%= Time.current.to_s(:db) %>">
+<div class="title">
   <h2><span>
     <%= link_to "Catálogo", categories_path %> &rsaquo;
     Últimas novedades
   </span></h2>
 </div>
 
+<% cache_products_new_arrivals do %>
 <% if @products.any? %>
   <%= render "listing", products: @products %>
 <% else %>

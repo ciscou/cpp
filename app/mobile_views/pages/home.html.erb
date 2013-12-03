@@ -1,9 +1,9 @@
 <% title "Inicio" %>
 
+<% cache_home_featured_products do %>
 <h2>Productos destacados</h2>
 
-<% cache [ I18n.locale, :mobile, "home_featured_products" ], expires_in: 1.hour, race_condition_ttl: 10 do %>
-<ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3" data-generated-at="<%= Time.current.to_s(:db) %>">
+<ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3">
   <% @products.each do |product| %>
     <%= content_tag_for :li, product do %>
       <h3><%= link_to product.name, category_products_path(product.category, anchor: product.to_param) %></h2>

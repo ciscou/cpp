@@ -1,7 +1,7 @@
 <div id="sidebar">
   <div id="box1" class="box-style">
-  <% cache [ I18n.locale, sidebar_highlighted_categories_cache_key ] do %>
-    <div class="title" data-generated-at="<%= Time.current.to_s(:db) %>">
+  <% cache_sidebar_highlighted_categories do %>
+    <div class="title">
       <h2><span><%= t ".highlighted_categories" %></span></h2>
     </div>
     <div class="content">
@@ -16,8 +16,8 @@
   <% end %>
   </div>
   <div id="box2" class="box-style">
-  <% cache [ I18n.locale, sidebar_all_categories_cache_key ] do %>
-    <div class="title" data-generated-at="<%= Time.current.to_s(:db) %>">
+  <% cache_sidebar_all_categories do %>
+    <div class="title">
       <h2><span><%= t ".all_categories" %></span></h2>
     </div>
     <div class="content">
@@ -28,8 +28,8 @@
       </ul>
     </div>
   <% end %>
-  <% cache [ I18n.locale, sidebar_decorations_cache_key ] do %>
-    <div class="title decorations" data-generated-at="<%= Time.current.to_s(:db) %>">
+  <% cache_sidebar_decorations do %>
+    <div class="title decorations">
       <h2><span><%= t ".decorations" %></span></h2>
     </div>
     <div class="content">

@@ -2,9 +2,9 @@
 
 <div id="box6" class="box-style">
 
-  <% cache [ I18n.locale, new_arrivals_cache_key ] do %>
+  <% cache_category_new_arrivals do %>
   <% if Product.new_arrivals.any? %>
-    <div class="title" data-generated-at="<%= Time.current.to_s(:db) %>">
+    <div class="title">
       <h2><span>Categorías destacadas</span></h2>
     </div>
 
@@ -23,8 +23,8 @@
   <% end %>
   <% end %>
 
-  <% cache [ I18n.locale, all_categories_cache_key ] do %>
-  <div class="title" data-generated-at="<%= Time.current.to_s(:db) %>">
+  <% cache_categories_index do %>
+  <div class="title">
     <h2><span>Todas las categorías</span></h2>
   </div>
 

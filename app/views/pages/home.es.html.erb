@@ -3,8 +3,8 @@
 <div id="two-columns">
 	<div id="column1">
 		<div id="box3" class="box-style">
-      <% cache [ I18n.locale, "home_featured_products" ], expires_in: 1.hour, race_condition_ttl: 10 do %>
-      <div class="title" data-generated-at="<%= Time.current.to_s(:db) %>">
+      <% cache_home_featured_products do %>
+      <div class="title">
 				<h2><span>Productos destacados</span></h2>
 			</div>
 

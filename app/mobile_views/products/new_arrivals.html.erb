@@ -1,9 +1,9 @@
 <% title       "Últimas novedades" %>
 <% description "Nuestras últimas creaciones, lo más nuevo del mercado" %>
 
-<% cache [ I18n.locale, new_arrivals_cache_key, :mobile, :products ] do %>
-<h2 data-generated-at="<%= Time.current.to_s(:db) %>">Últimas novedades</h2>
+<h2>Últimas novedades</h2>
 
+<% cache_products_new_arrivals do %>
 <% if @products.any? %>
   <ul id="products" class="clearing-thumbs" data-clearing>
     <%= render partial: "product", collection: @products, as: :product %>
