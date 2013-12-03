@@ -11,30 +11,30 @@ module ProductsHelper
   end
 
   def search_title(decoration, search)
-    if search.present?
-      "Resultado de la búsqueda #{search.inspect}"
-    elsif decoration
+    if decoration.exists?
       "Productos de #{Decoration.human_tag_name decoration.tag} decorados en #{decoration.name}"
+    elsif search.present?
+      "Resultado de la búsqueda #{search.inspect}"
     else
       "Búsqueda"
     end
   end
 
   def search_description(decoration, search)
-    if search.present?
+    if decoration.exists?
+      "Ejemplos de productos de #{Decoration.human_tag_name decoration.tag} pintados a mano con nuestra decoración llamada #{decoration.name}"
+    elsif search.present?
       "Productos que coinciden con la búsqueda #{search.inspect}"
-    elsif decoration
-      "Ejemplos de productos de #{Decoration.human_tag_name decoration.tag} decorados en #{decoration.name}"
     else
       "Búsqueda"
     end
   end
 
   def search_nothing_found(decoration, search)
-    if search.present?
+    if decoration.exists?
+      "Lo sentimos, no se ha encontrado ningún producto para la decoración #{decoration.name} de #{Decoration.human_tag_name decoration.tag}. Pero eso no significa que no los fabriquemos, llámenos y le informaremos."
+    elsif search.present?
       "Lo sentimos, no se ha encontrado ningún producto para la búsqueda #{search.inspect}"
-    elsif
-      "La decoración #{Decoration.human_tag_name decoration.tag} es una de nuestras #{link_to "últimas novedades", new_arrivals_products_path}, necesita una cuenta de cliente para poder verla. Si ya tiene una cuenta de cliente, por favor #{link_to "inicie sesión", new_user_session_path}. Si no, #{link_to "cree una cuenta", new_user_registration_path} y #{link_to "contacte con nosotros", new_contact_path}.".html_safe
     else
       "Introduzca algo en la caja de búsqueda"
     end
