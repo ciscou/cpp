@@ -4,7 +4,7 @@
 <div id="box6" class="box-style">
 
 <% cache [ I18n.locale, new_arrivals_cache_key, :products ] do %>
-<div class="title">
+<div class="title" data-generated-at="<%= Time.current.to_s(:db) %>">
   <h2><span>
     <%= link_to "Catálogo", categories_path %> &rsaquo;
     Últimas novedades
