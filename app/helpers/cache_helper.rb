@@ -40,7 +40,7 @@ module CacheHelper
     keys.unshift(I18n.locale, mobile_device? ? :mobile : :desktop)
 
     cache keys, options do
-      html = content_tag :div, class: "cache", data: { generated_at: Time.current.to_s(:db), key: keys.join("/") } do
+      html = content_tag :div, class: "cache", data: { generated_at: Time.current.to_s(:db), key: keys.map { |k| k.respond_to?(:cache_key) ? k.cache_key : k }.join("/") } do
         block.call
       end
       safe_concat html
