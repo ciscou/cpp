@@ -1,7 +1,8 @@
 <% title       "Últimas novedades" %>
 <% description "Nuestras últimas creaciones, lo más nuevo del mercado" %>
 
-<h2>Últimas novedades</h2>
+<% cache [ I18n.locale, new_arrivals_cache_key, :mobile, :products ] do %>
+<h2 data-generated-at="<%= Time.current.to_s(:db) %>">Últimas novedades</h2>
 
 <% if @products.any? %>
   <ul id="products" class="clearing-thumbs" data-clearing>
@@ -9,6 +10,7 @@
   </ul>
 <% else %>
   <p>Lo sentimos, no se ha encontrado ningún producto en últimas novedades</p>
+<% end %>
 <% end %>
 
 <p>

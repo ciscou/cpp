@@ -3,6 +3,7 @@
 
 <div id="box6" class="box-style">
 
+<% cache [ I18n.locale, new_arrivals_cache_key, :products ] do %>
 <div class="title">
   <h2><span>
     <%= link_to "Catálogo", categories_path %> &rsaquo;
@@ -16,6 +17,7 @@
   <div class="content">
     <p>Lo sentimos, no se ha encontrado ningún producto en últimas novedades</p>
   </div>
+<% end %>
 <% end %>
 
 </div>
