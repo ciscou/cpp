@@ -4,7 +4,7 @@
 
   <% cache [ I18n.locale, new_arrivals_cache_key ] do %>
   <% if Product.new_arrivals.any? %>
-    <div class="title">
+    <div class="title" data-generated-at="<%= Time.current.to_s(:db) %>">
       <h2><span>Categorías destacadas</span></h2>
     </div>
 
@@ -24,7 +24,7 @@
   <% end %>
 
   <% cache [ I18n.locale, all_categories_cache_key ] do %>
-  <div class="title">
+  <div class="title" data-generated-at="<%= Time.current.to_s(:db) %>">
     <h2><span>Todas las categorías</span></h2>
   </div>
 
