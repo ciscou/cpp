@@ -7,7 +7,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
-//= require mobile_announcement
 //= require external_links_in_new_window
 //= require products.mobile
 

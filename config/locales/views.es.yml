@@ -1,13 +1,5 @@
 es:
   layouts:
-    flash_messages:
-      mobile_announcement:
-        title: "¡Bienvenido a la versión móvil de ceramicapadilla.es!"
-        message_html: "Aunque estamos trabajando para que todo funcione correctamente, puede que prefiera %{desktop_version}. Puede cerrar este anuncio pulsando en la x a la derecha."
-        desktop_version: "ver esta página como en el ordenador"
-      desktop_announcement:
-        message_html: "Está viendo la página como en el ordenador, pero creemos que le puede interesar %{mobile_version}."
-        mobile_version: "ver la versión móvil"
     navbar:
       categories: "Catálogo"
       who: "¿Quiénes somos?"

@@ -5,9 +5,3 @@
     <a href="#" class="close">&times;</a>
   </div>
 <% end %>
-
-<div data-alert id="mobile-announcement" class="alert-box radius info">
-  <strong><%= t ".mobile_announcement.title" %></strong>
-  <%= t ".mobile_announcement.message_html", desktop_version: link_to(t(".mobile_announcement.desktop_version"), params.merge(mobile: 0)) %>
-  <a href="#" class="close">&times;</a>
-</div>
