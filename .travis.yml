@@ -8,3 +8,10 @@ env:
   - secure: GiQTAiHHfD27FPk0/jV5dZIrHK+refypoxwnXe5MLOB5ND2ZupGKzPFcO7E5VcIdnIwX1+UNVj9crv8YdNnyaRozuLuBVWGtfzJP8C4J4ZOarr0UMyhyAz4JvbbkT1oGrL8xkpZ+u4JQWvxJbzEGExv/8mPkgHbxdr5izMX3QNo=
   - secure: YuNUEmbW94JFwBDayoStaM43RG72th9cP6/fFFvUFKJ0Qm7Rw5OXFU5ypqwOSvQFhNBuRZmME4fxgejZQ7ojuevZwX515Zm/ZD0BUGSbY3Vz4BS2vqeMGPX93F0IaC3XFnW7RgViWQ1H+XV9RwIFC3+JJhE4aKDR0Gr2pkhlhCs=
   - S3_BUCKET=ceramicapadilladev
+deploy:
+  provider: heroku
+  api_key:
+    secure: DT3ZWuZ8D1cGmIdDkxOQkWLHncRXDlPSaNpBcAzXGJThS7QqtuHYmUheAlyY/LI2ck6FMoThN+0YW05HoPiS5hZi4FyMGFPRWo0osZ76UlTw6VaQsWZhje8AcNPYEYi6RAGD7UTbVzvqZ0NY6yyaY+bguAp2E0i9er0vUmdAgY4=
+  app: ceramicapadilla
+  on:
+    repo: ciscou/cpp
