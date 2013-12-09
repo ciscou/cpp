@@ -1,4 +1,6 @@
-S3_CONFIG = if Rails.env.production?
+S3_CONFIG = if File.exists? Rails.root.join("config", "s3.yml")
+              YAML.load_file Rails.root.join("config", "s3.yml")
+            else
               {
                 "fog_credentials" => {
                   "provider"              => 'AWS',
@@ -7,8 +9,6 @@ S3_CONFIG = if Rails.env.production?
                 },
                 "fog_directory" => ENV["S3_BUCKET"]
               }
-            else
-              YAML.load_file Rails.root.join("config", "s3.yml")
             end
 S3_CONFIG.symbolize_keys!
 
