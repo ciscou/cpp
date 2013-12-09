@@ -1,5 +1,6 @@
 language: ruby
 before_script:
+  - psql -c 'create database cpp_development;' -U postgres
   - mv config/s3.yml.example config/s3.yml
 rvm:
   - 2.0.0
