@@ -6,4 +6,3 @@ tmp/
 *.swp
 public/uploads/
 config/s3.yml
-config/database.yml
