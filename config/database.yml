@@ -8,4 +8,7 @@ test:
   adapter: postgresql
   encoding: unicode
   database: cpp_test
+<% if ENV["TRAVIS"] %>
+  username: postgres
+<% end %>
   pool: 5
