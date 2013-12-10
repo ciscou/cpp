@@ -15,3 +15,4 @@ deploy:
   app: ceramicapadilla
   on:
     repo: ciscou/cpp
+  strategy: git
