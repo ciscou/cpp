@@ -1,6 +1,4 @@
 language: ruby
-before_script:
-  - psql -c 'create database cpp_development;' -U postgres
 rvm:
   - 2.0.0
 env:
