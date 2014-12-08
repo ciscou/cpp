@@ -36,6 +36,11 @@ module CacheHelper
   private
 
   def cpp_cache(*keys, &block)
+    if current_user_is_admin?
+      block.call
+      return
+    end
+
     options = keys.extract_options!
     keys.unshift(I18n.locale, mobile_device? ? :mobile : :desktop)
 
