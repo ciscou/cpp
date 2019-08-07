@@ -1,4 +1,6 @@
 class ContactsController < ApplicationController
+  before_action :ensure_user, except: [:new]
+
   before_action :check_for_mobile
 
   def new

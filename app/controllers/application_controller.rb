@@ -12,6 +12,12 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user_is_admin?
 
+  def ensure_user
+    unless user_signed_in?
+      redirect_to localized_root_url, alert: "No tiene permisos para realizar esa acción"
+    end
+  end
+
   def ensure_admin_user
     unless current_user_is_admin?
       redirect_to localized_root_url, alert: "No tiene permisos para realizar esa acción"
