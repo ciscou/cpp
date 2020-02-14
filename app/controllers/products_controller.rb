@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
 
   before_action :check_for_mobile, only: [:index, :new_arrivals, :search, :show]
 
-  respond_to :html
+  respond_to :html, :json
 
   def index
     @products = @category.products.order(created_at: :desc)

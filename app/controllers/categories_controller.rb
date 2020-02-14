@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
 
   before_action :check_for_mobile, only: :index
 
-  respond_to :html
+  respond_to :html, :json
 
   def index
     @categories = Category.page params[:page]
